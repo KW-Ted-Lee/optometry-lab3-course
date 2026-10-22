@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<script src="assets/analytics.js"></script>
+<title>W05 對立視野檢測・眼外肌測試｜視光學實驗（三）・無邊界教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .pad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; max-width: 240px; }
+  .pad button { font: inherit; font-size: 12px; aspect-ratio: 1.4; border-radius: 8px; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink); cursor: pointer; }
+  .pad button[aria-pressed="true"] { background: var(--accent); color: var(--surface); border-color: var(--accent); }
+  .pad button.ok { border-color: var(--ok); box-shadow: inset 0 0 0 2px var(--ok); }
+  .pad button.bad { border-color: var(--bad); box-shadow: inset 0 0 0 2px var(--bad); }
+  .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px 12px; }
+  .fields figure { margin: 0; text-align: center; font-size: 12.5px; color: var(--muted); }
+  .fields svg { width: 100%; max-width: 220px; height: auto; }
+  .musc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; max-width: 520px; margin: 0 auto; }
+  .musc button { font: inherit; font-size: 13px; min-height: 64px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; padding: 6px; line-height: 1.4; }
+  .musc button small { display: block; color: var(--muted); font-size: 11px; }
+  .musc button.ok { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 12%, var(--surface)); }
+  .musc button.bad { border-color: var(--bad); }
+</style>
+</head>
+<body data-chapter="w05">
+<header id="topbar"></header>
+<main class="wrap">
+  <div class="chapter-head">
+    <div class="eyebrow">Week 05</div>
+    <h1>對立視野檢測・眼外肌測試</h1>
+    <div class="en">Confrontation Visual Fields &amp; Extraocular Muscles</div>
+    <p class="lede">兩項只需要手指和筆燈的檢查，卻連到整條視覺路徑與六條眼外肌。對立視野用<b>你自己的視野</b>當對照，篩出粗大的周邊缺損；眼外肌測試用 <b>H 型路線</b>把每一條肌肉單獨拉出來檢查。兩者看到異常，多半都是轉介。</p>
+  </div>
+
+  <section class="block">
+    <h2>學習目標 <span class="tag">GOALS</span></h2>
+    <ul class="goals">
+      <li>操作對立視野檢測，依缺損型態推論視覺路徑的病灶位置，並說出這項檢查的限制。</li>
+      <li>以 H 型路線完成九方位眼外肌檢查，記錄 SAFE，並辨識外直肌、上斜肌與動眼神經麻痺。</li>
+      <li>說出九個注視方位對應的肌肉與腦神經，並運用 Hering 法則解釋兩眼的動作。</li>
+    </ul>
+  </section>
+
+  <section class="block"><h2>本週記號 <span class="tag">★ ◆ ○</span></h2><div id="levels"></div></section>
+
+  <section class="block">
+    <h2>學理背景 <span class="tag">THEORY</span></h2>
+    <div class="theory">
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Why "confrontation"</span><h3>用你的視野當尺</h3>
+        <p>受檢者遮右眼、看你的右眼；你遮左眼、看他的左眼——兩人「面對面」用對應的那一眼，視標在兩人正中間移動。你看到時他也該看到；他比你晚很多才看到，就是缺損。</p>
+        <p>正常單眼視野約：上 65°、下 75°、鼻側 60°、顳側 95°（Carlson &amp; Kurtz）。鼻側和上方被鼻樑、眉骨擋住，所以較窄。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Localising the lesion</span><h3>缺損型態 → 病灶位置</h3>
+        <ul><li><b>單眼缺損</b>：視交叉之前（視網膜、視神經）</li><li><b>雙顳側偏盲</b>：視交叉（交叉的是兩眼鼻側視網膜纖維，負責顳側視野）</li><li><b>同側偏盲</b>：視交叉之後、<b>對側</b>的視束、視放射或枕葉</li><li><b>上象限盲</b>：顳葉的 Meyer 環；<b>下象限盲</b>：頂葉視放射</li><li>越往後，兩眼缺損越「一致」；枕葉病灶常保留黃斑（macular sparing）</li></ul></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Limits of the test</span><h3>它測不到什麼</h3>
+        <p>對立視野只能篩出<b>粗大</b>的缺損。早期青光眼的鼻側階梯、旁中心暗點多半測不出來——所以 <b>CVF full 不能用來排除青光眼</b>。加做數手指、雙側同時刺激，可以提高一點敏感度。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Diagnostic positions</span><h3>為什麼要走 H 型？</h3>
+        <p>上直肌、下直肌的拉力方向與視軸夾約 23°；上斜肌、下斜肌約 51°。眼睛<b>外轉</b>時，上下直肌剛好成為純粹的上轉、下轉肌；眼睛<b>內轉</b>時，換斜肌負責上下。所以在右上方看，測的是右眼上直肌與左眼下斜肌——H 型的四個角把垂直肌肉一條一條分開。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Hering &amp; Sherrington</span><h3>兩眼永遠一起動</h3>
+        <p><b>Hering 法則</b>：兩眼同向運動時，配對肌（yoke muscles，例如右外直肌與左內直肌）得到<b>等量</b>神經支配。<b>Sherrington 法則</b>：一條肌肉收縮時，它的拮抗肌放鬆。</p>
+        <p>所以用麻痺眼注視時，健康眼會得到「過量」的指令，偏斜看起來更大（次發偏斜 &gt; 原發偏斜）。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Comitant vs incomitant</span><h3>共同性與非共同性</h3>
+        <p>偏斜量在各個注視方向都一樣 → <b>共同性</b>（多半是發育性斜視、斜位）。偏斜量隨注視方向改變，在某個方向特別大 → <b>非共同性</b>，提示某條肌肉或神經出問題。<b>新發生的非共同性偏斜</b>是轉介警訊。</p>
+        <p class="why">口訣：LR6、SO4，其餘皆 3。</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>臨床脈絡 <span class="tag">CLINICAL</span></h2>
+    <div class="clinical">
+      <div class="clin when"><small>WHEN</small><h3>什麼時候做</h3><ul><li>初診基準篩檢</li><li>主訴：常撞到某一側的東西、看某個方向會變兩個</li><li>頭痛、頭部外傷、中風、糖尿病或高血壓病史</li></ul></div>
+      <div class="clin say"><small>PATIENT SAYS</small><h3>病人會怎麼說</h3><ul><li>「開車常常沒看到右邊來的車。」→ 右側同側偏盲？</li><li>「看右邊的時候東西會左右分開。」→ 右外直肌？</li><li>「下樓梯、看書往下看時會上下兩個，頭歪一邊比較好。」→ 上斜肌麻痺</li></ul></div>
+      <div class="clin flag"><small>RED FLAGS</small><h3>立即轉介</h3><ul><li>新發生的運動受限合併複視</li><li>注視時眼窩疼痛（眼窩發炎、甲狀腺眼病變）</li><li><b>眼瞼下垂＋瞳孔放大＋眼球「往下往外」</b>：疑動眼神經麻痺（可能是動脈瘤），急診</li><li>雙顳側偏盲（腦下垂體腫瘤）、任何新發現的同側偏盲</li></ul></div>
+    </div>
+    <div class="vignette"><span class="vh">CASE</span><b class="t">58 歲糖尿病患者，三天前突然看東西變兩個，往右看時兩個影像左右分得更開，看左邊時就合在一起。</b>
+      <details><summary>H 型檢查會看到什麼？下一步？</summary><div><p>往受檢者右方注視時右眼外轉不足（停在中線附近），左眼正常內轉 → 右外直肌、第六對腦神經麻痺。糖尿病患常見微血管性的第六對神經麻痺，但「新發生的運動受限合併複視」一律當天轉介。紀錄：<code>EOM: restriction OD on right gaze, horizontal diplopia, no pain. Suspect LR palsy OD (CN VI) → refer.</code></p></div></details></div>
+  </section>
+
+  <section class="block">
+    <h2>操作流程 <span class="tag">PROCEDURE</span></h2>
+    <h3 style="font-size:17px;margin:4px 0 8px">對立視野檢測 CVF</h3>
+    <div class="proc">
+      <div><h3>設備</h3><ul><li>遮眼板</li><li>注視珠或手指</li></ul></div>
+      <div><h3>設置</h3><ul><li>面對面坐，距離 50–80 cm</li><li>兩人視線同高</li><li>照明適中</li></ul></div>
+      <div><h3>步驟</h3><ol><li>遮受檢者右眼，請他用左眼注視你的右眼</li><li>你遮自己的左眼——用你的視野當對照</li><li>手指從周邊慢慢往中心移動，上、下、左、右（與斜向）各一次</li><li>受檢者眼睛不動，看到就說「看到」</li><li>加做四象限數手指（1、2 或 5 指）；換另一眼</li></ol></div>
+    </div>
+    <h3 style="font-size:17px;margin:18px 0 8px">眼外肌測試 EOM</h3>
+    <div class="proc">
+      <div><h3>設備</h3><ul><li>筆燈</li></ul></div>
+      <div><h3>設置</h3><ul><li>受檢者取下眼鏡</li><li>距離約 40 cm，從正前方開始</li><li>頭部不動，只有眼睛跟著燈</li></ul></div>
+      <div><h3>步驟</h3><ol><li>依 H 型路線移動筆燈，涵蓋九個注視方位</li><li>邊做邊問：會不會痛？會不會變兩個？</li><li>觀察兩眼是否同步、有無落後或過衝</li><li>極端位置停 2 秒觀察眼球震顫（少量多為生理性）</li><li>全部正常記 EOM: SAFE；異常分項描述</li></ol></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>模擬操作實驗 <span class="tag">LAB</span></h2>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 5-1</span><h3>對立視野模擬病人</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="svgstage"><svg id="cf-svg" role="img" aria-label="受檢者視野圖：你標下的看到位置"></svg></div><div class="stage-note">圖為受檢者自己看出去的視野（左邊＝他的左方）。灰色虛線是你的正常視野。</div></div>
+        <div class="lab-panel">
+          <div class="pt-bar"><span class="lbl">受檢者</span><span class="pill info" id="cf-pt">—</span><button class="btn ghost sm" id="cf-new" type="button">換一位</button></div>
+          <div class="ctrl"><label>受檢眼</label><div class="seg" id="cf-eye"><button data-v="od" aria-pressed="true">OD（遮左眼）</button><button data-v="os">OS（遮右眼）</button></div></div>
+          <div class="ctrl"><label>手指從哪個方向進來（受檢者的方位）</label><div class="pad" id="cf-pad"></div></div>
+          <div class="say-bubble" id="cf-say">—</div>
+          <div class="ctrl"><label>四象限數手指</label><div class="row-btns" id="cf-fc"></div></div>
+          <div class="ctrl"><label>你的判讀</label><select class="select" id="cf-ans"></select></div>
+          <div class="row-btns"><button class="btn" id="cf-chk" type="button">對答案</button><button class="btn ghost" id="cf-clr" type="button">清除標記</button></div>
+          <div class="verdict" id="cf-v"></div>
+        </div>
+      </div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>兩眼都要測：缺損只在一眼還是兩眼？在兩眼的同一側還是相反側？</li><li>先想清楚：受檢者的右方，對右眼是顳側、對左眼是鼻側。</li><li>有一位受檢者測起來完全正常，答案揭曉時會告訴你為什麼「正常」不等於沒問題。</li></ul></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 5-2</span><h3>視路病灶定位</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="svgstage"><svg id="vp-svg" role="img" aria-label="視覺路徑示意圖，點選病灶位置"></svg></div></div>
+        <div class="lab-panel">
+          <div class="ctrl"><label>模式</label><div class="seg" id="vp-m"><button data-v="ex" aria-pressed="true">探索：點病灶看視野</button><button data-v="qz">挑戰：看視野找病灶</button></div></div>
+          <div class="fields" id="vp-f"></div>
+          <div class="verdict" id="vp-v"></div>
+          <div class="row-btns"><button class="btn ghost" id="vp-n" type="button" hidden>下一題</button></div>
+        </div>
+      </div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>視野圖是受檢者看出去的方向：左眼圖畫在左邊、右眼圖畫在右邊。</li><li>右側的病灶 → 左側的視野缺損（視交叉之後）。</li></ul></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 5-3</span><h3>H 型眼外肌追視</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="svgstage tight"><svg id="em-svg" role="img" aria-label="受檢者雙眼追視筆燈"></svg></div><div class="stage-note">你面對受檢者。點右側方格移動筆燈（方格是你看到的方向）。</div></div>
+        <div class="lab-panel">
+          <div class="pt-bar"><span class="lbl">受檢者</span><span class="pill info" id="em-pt">—</span><button class="btn ghost sm" id="em-new" type="button">換一位</button></div>
+          <div class="pad" id="em-pad"></div>
+          <div class="row-btns"><button class="btn ghost sm" id="em-ask" type="button">問：會痛嗎？會變兩個嗎？</button><button class="btn ghost sm" id="em-h" type="button">自動走一次 H 型</button></div>
+          <div class="say-bubble" id="em-say">—</div>
+          <div class="ctrl"><label>你的判讀</label><div class="chips" id="em-ans"></div></div>
+          <div class="verdict" id="em-v"></div>
+        </div>
+      </div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>畫面左邊是受檢者的右方：筆燈移到畫面左邊時，受檢者往右看——右眼外轉、左眼內轉。</li><li>動眼神經麻痺：眼瞼下垂、瞳孔放大、眼球在正前方就「往下往外」。</li><li>上斜肌麻痺：往對側下方看時那一眼下轉不足，上下複視最明顯。</li></ul></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 5-4</span><h3>九方位與作用肌</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="sim">
+        <div class="row-btns" style="justify-content:center"><div class="seg" id="mu-m"><button data-v="ex" aria-pressed="true">探索</button><button data-v="qz">挑戰</button></div></div>
+        <div class="patient" id="mu-q" style="text-align:center">點任一方位，看兩眼各由哪一條肌肉負責。（方格以<b>受檢者自己的</b>左右排列）</div>
+        <div class="musc" id="mu"></div>
+        <div class="verdict" id="mu-v" style="text-align:center"></div>
+      </div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>同一格的兩條肌肉就是一對配對肌（Hering 法則）。</li><li>四個斜角的垂直肌：外轉那一眼用直肌、內轉那一眼用斜肌。</li></ul></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>紀錄方式 <span class="tag">RECORD</span></h2>
+    <div class="rec"># 對立視野：寫出刺激方式，異常時畫出缺損象限
+CVF: full to finger counting OD/OS
+CVF: OD full; OS superior-temporal quadrant defect to finger counting
+# 眼外肌：「有沒有痛」「有沒有複視」一定要問、一定要寫
+EOM: SAFE, no pain, no diplopia OU
+EOM: restriction OD on right gaze, diplopia reported, no pain. Suspect LR palsy OD → refer.</div>
+  </section>
+
+  <section class="block">
+    <h2>常見錯誤 <span class="tag">MISTAKES</span></h2>
+    <div class="myths">
+      <details class="myth"><summary>對立視野只測一眼就好。</summary><div class="fix">每一眼都要單獨測；同側偏盲與雙顳側偏盲都要比較兩眼才看得出來。</div></details>
+      <details class="myth"><summary>CVF full 就可以排除青光眼。</summary><div class="fix">對立視野只篩粗大缺損，早期青光眼多半測不到。</div></details>
+      <details class="myth"><summary>手指放在你和受檢者中間以外的地方也可以。</summary><div class="fix">視標要在兩人正中間，你的視野才是有效的對照。</div></details>
+      <details class="myth"><summary>EOM 讓受檢者戴著眼鏡做。</summary><div class="fix">鏡框會擋住周邊、鏡片稜鏡效應會干擾；請他取下眼鏡。</div></details>
+      <details class="myth"><summary>極端注視時有幾下眼震就是異常。</summary><div class="fix">極端位置少量、對稱、很快消失的眼震多為生理性。</div></details>
+      <details class="myth"><summary>沒問就沒有痛、沒有複視。</summary><div class="fix">一定要主動問、一定要記錄；這兩項決定是否需要轉介。</div></details>
+    </div>
+  </section>
+
+  <section class="block"><h2>前後串連 <span class="tag">CONNECT</span></h2><div id="connect"></div></section>
+  <section class="block"><h2>觀念檢核 <span class="tag">CHECK</span></h2><p class="sub">選項順序每次都會打亂。答對八成以上，這一週就會在首頁亮綠燈。</p><div id="quiz"></div></section>
+  <section class="block"><h2>專業英文 <span class="tag">TERMS</span></h2><div id="terms"></div></section>
+  <nav id="pager"></nav>
+</main>
+<footer id="footer"></footer>
+<script src="assets/config.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/eyes.js"></script>
+<script src="assets/bank/w05.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => OL.connect("connect", [
+  ["W02 Amsler", "w02", "中心 20° 的視野"],
+  ["W11 Parks 三步驟", "w11", "上斜肌麻痺的垂直偏斜怎麼定位"],
+  ["W11 雙馬篤氏鏡", "w11", "上斜肌麻痺的外旋"],
+  ["W17 紅旗辨識", "w17", "哪些發現要立即轉介"],
+]));
+(function () {
+  const { seg, shuffle, esc } = OL;
+  OL.levels("levels", [
+    ["◆", "缺損型態 → 病灶：單眼＝視交叉前、雙顳側＝視交叉、同側＝對側視交叉後", ""],
+    ["◆", "對立視野只能篩粗大缺損，不能排除青光眼", ""],
+    ["◆", "H 型九方位與肌肉；LR6、SO4，其餘皆 3", ""],
+    ["◆", "EOM: SAFE；一定要問痛與複視", ""],
+    ["○", "Hering、Sherrington 法則；共同性與非共同性", ""],
+  ]);
+
+  /* ---------- 視野模型（受檢者座標：x 向他的右方為正、y 向上為正，單位：度） ---------- */
+  function extent(eye, ang) {   // 正常邊界：上 65、下 75、鼻 60、顳 95
+    const a = ((ang % 360) + 360) % 360, temporalRight = eye === "od";
+    const R = temporalRight ? 95 : 60, L = temporalRight ? 60 : 95, U = 65, D = 75;
+    const c = Math.cos(a * Math.PI / 180), s = Math.sin(a * Math.PI / 180);
+    const hx = c >= 0 ? R : L, hy = s >= 0 ? U : D;
+    return 1 / Math.sqrt((c / hx) ** 2 + (s / hy) ** 2);
+  }
+  const DEF = {
+    nl: { zh: "視野完整（CVF full）", miss: () => false },
+    bt: { zh: "雙顳側偏盲 → 視交叉", miss: (e, x, y) => (e === "od" ? x > 0 : x < 0) },
+    rh: { zh: "右側同側偏盲 → 左側視束／視放射", miss: (e, x, y) => x > 0 },
+    lsq: { zh: "左上象限同側盲 → 右顳葉（Meyer 環）", miss: (e, x, y) => x < 0 && y > 0 },
+    osalt: { zh: "左眼下半盲（單眼）→ 左視神經", miss: (e, x, y) => e === "os" && y < 0 },
+    gl: { zh: "視野完整（CVF full）", miss: () => false, hidden: "nasal step" },
+  };
+  const CFP = [["nl", "受檢者 A"], ["bt", "受檢者 B"], ["rh", "受檢者 C"], ["lsq", "受檢者 D"], ["osalt", "受檢者 E"], ["gl", "受檢者 F"]];
+  let cf, marks = { od: [], os: [] };
+  const cEye = seg("cf-eye", drawCf);
+  const DIRS = [[135, "左上"], [90, "上"], [45, "右上"], [180, "左"], [null, ""], [0, "右"], [225, "左下"], [270, "下"], [315, "右下"]];
+  document.getElementById("cf-pad").innerHTML = DIRS.map(([a, t]) => a == null ? '<span></span>' : `<button type="button" data-a="${a}">${t}</button>`).join("");
+  document.getElementById("cf-fc").innerHTML = [["右上", 45], ["左上", 135], ["左下", 225], ["右下", 315]].map(([t, a]) => `<button class="btn ghost sm" type="button" data-a="${a}">${t}</button>`).join("");
+  document.getElementById("cf-ans").innerHTML = '<option value="">— 選擇 —</option>' + Object.entries(DEF).filter(([k]) => k !== "gl").map(([k, d]) => `<option value="${k}">${d.zh}</option>`).join("");
+  const seen = (eye, x, y) => { const r = Math.hypot(x, y), a = Math.atan2(y, x) * 180 / Math.PI; return r <= extent(eye, a) && !DEF[cf.k].miss(eye, x, y); };
+  function probe(ang) {
+    const eye = cEye.value; let r = 110, hit = null;
+    for (; r >= 0; r -= 1) { const x = r * Math.cos(ang * Math.PI / 180), y = r * Math.sin(ang * Math.PI / 180); if (seen(eye, x + (x === 0 ? 0 : 0), y)) { hit = r; break; } }
+    if (hit == null || hit < 3) { marks[eye].push({ ang, r: 0, miss: true }); say(`（手指一路移到中心附近）……沒有看到。`); }
+    else { marks[eye].push({ ang, r: hit }); say(`看到了！`); }
+    drawCf();
+  }
+  function say(t) { document.getElementById("cf-say").textContent = t; }
+  function drawCf() {
+    const eye = cEye.value, svg = document.getElementById("cf-svg"), C = 200, k = 1.6;
+    let g = `<circle cx="${C}" cy="${C}" r="${110 * k}" fill="var(--canvas)" stroke="var(--line)"/>`;
+    [30, 60, 90].forEach((r) => g += `<circle cx="${C}" cy="${C}" r="${r * k}" fill="none" stroke="var(--grid)"/><text x="${C + 3}" y="${C - r * k - 3}" font-size="10" fill="var(--muted)">${r}°</text>`);
+    g += `<line x1="${C - 110 * k}" y1="${C}" x2="${C + 110 * k}" y2="${C}" stroke="var(--grid)"/><line x1="${C}" y1="${C - 110 * k}" x2="${C}" y2="${C + 110 * k}" stroke="var(--grid)"/>`;
+    let pts = []; for (let a = 0; a <= 360; a += 5) { const r = extent(eye, a); pts.push(`${C + r * Math.cos(a * Math.PI / 180) * k},${C - r * Math.sin(a * Math.PI / 180) * k}`); }
+    g += `<polygon points="${pts.join(" ")}" fill="none" stroke="var(--muted)" stroke-dasharray="5 4"/>`;
+    const ms = marks[eye];
+    if (ms.length > 2) { const sorted = ms.slice().sort((a, b) => a.ang - b.ang); g += `<polygon points="${sorted.map((m) => `${C + m.r * Math.cos(m.ang * Math.PI / 180) * k},${C - m.r * Math.sin(m.ang * Math.PI / 180) * k}`).join(" ")}" fill="var(--accent)" opacity=".12" stroke="var(--accent)"/>`; }
+    ms.forEach((m) => { const x = C + m.r * Math.cos(m.ang * Math.PI / 180) * k, y = C - m.r * Math.sin(m.ang * Math.PI / 180) * k; g += m.miss ? `<text x="${C + 70 * Math.cos(m.ang * Math.PI / 180) * k}" y="${C - 70 * Math.sin(m.ang * Math.PI / 180) * k + 5}" text-anchor="middle" font-size="18" fill="var(--bad)">✕</text>` : `<circle cx="${x}" cy="${y}" r="5" fill="var(--accent)"/>`; });
+    g += `<text x="${C - 110 * k + 4}" y="${C - 6}" font-size="11" fill="var(--muted)">${eye === "od" ? "鼻側" : "顳側"}</text><text x="${C + 110 * k - 4}" y="${C - 6}" text-anchor="end" font-size="11" fill="var(--muted)">${eye === "od" ? "顳側" : "鼻側"}</text>`;
+    g += `<text x="${C}" y="${C + 110 * k + 18}" text-anchor="middle" font-size="12" fill="var(--ink)">${eye === "od" ? "右眼 OD" : "左眼 OS"}</text>`;
+    svg.setAttribute("viewBox", "0 0 400 400"); svg.innerHTML = g;
+  }
+  document.getElementById("cf-pad").querySelectorAll("button").forEach((b) => b.onclick = () => probe(+b.dataset.a));
+  document.getElementById("cf-fc").querySelectorAll("button").forEach((b) => b.onclick = () => {
+    const a = +b.dataset.a, x = 25 * Math.cos(a * Math.PI / 180), y = 25 * Math.sin(a * Math.PI / 180), n = [1, 2, 5][Math.floor(Math.random() * 3)];
+    say(seen(cEye.value, x, y) ? `（你比 ${n} 指）「${n} 根。」` : `（你比 ${n} 指）「那邊……我沒看到手指。」`); });
+  function newCf() { const p = CFP[Math.floor(Math.random() * CFP.length)]; cf = { k: p[0] }; marks = { od: [], os: [] }; document.getElementById("cf-pt").textContent = p[1]; document.getElementById("cf-v").innerHTML = ""; document.getElementById("cf-ans").value = ""; say("—"); drawCf(); }
+  document.getElementById("cf-new").onclick = newCf;
+  document.getElementById("cf-clr").onclick = () => { marks[cEye.value] = []; drawCf(); };
+  document.getElementById("cf-chk").onclick = () => {
+    const v = document.getElementById("cf-ans").value; if (!v) return;
+    const truth = cf.k === "gl" ? "nl" : cf.k, ok = v === truth;
+    const tested = (marks.od.length > 0) + (marks.os.length > 0);
+    let h = (ok ? '<span class="pill ok">正確</span> ' : '<span class="pill bad">再檢查</span> ') + `答案：${DEF[cf.k].zh}。`;
+    if (tested < 2) h += " 提醒：兩眼都要測。";
+    if (cf.k === "gl") h += " 但這位受檢者其實有早期青光眼的<b>鼻側階梯</b>——對立視野測不出來，這就是 CVF full 不能排除青光眼的原因。";
+    document.getElementById("cf-v").innerHTML = h;
+  };
+  newCf();
+
+  /* ---------- LAB 5-2 視路 ---------- */
+  const SITES = [
+    { id: "ron", x: 200, y: 120, zh: "右視神經", f: (e, x, y) => e === "od" },
+    { id: "chi", x: 160, y: 168, zh: "視交叉", f: (e, x, y) => (e === "od" ? x > 0 : x < 0) },
+    { id: "ltr", x: 130, y: 215, zh: "左視束", f: (e, x, y) => x > 0 },
+    { id: "rmy", x: 212, y: 262, zh: "右顳葉 Meyer 環", f: (e, x, y) => x < 0 && y > 0 },
+    { id: "lpa", x: 102, y: 290, zh: "左頂葉視放射", f: (e, x, y) => x > 0 && y < 0 },
+    { id: "roc", x: 192, y: 352, zh: "右枕葉（黃斑保留）", f: (e, x, y) => x < 0 && Math.hypot(x, y) > 8 },
+  ];
+  let vpQ = null, vpSel = null;
+  const vm = seg("vp-m", () => { vpSel = null; if (vm.value === "qz") nextQ(); else { vpQ = null; document.getElementById("vp-n").hidden = true; document.getElementById("vp-v").innerHTML = ""; fields(null); } drawVp(); });
+  function drawVp() {
+    const svg = document.getElementById("vp-svg");
+    let g = `<g fill="none" stroke-width="5" stroke-linecap="round">`;
+    // 眼睛（上方），受檢者面朝上：受檢者右眼在畫面左
+    g += `</g><circle cx="110" cy="60" r="34" fill="var(--sclera)" stroke="var(--line)" stroke-width="2"/><circle cx="210" cy="60" r="34" fill="var(--sclera)" stroke="var(--line)" stroke-width="2"/><text x="110" y="64" text-anchor="middle" font-size="12" fill="var(--muted)">OS</text><text x="210" y="64" text-anchor="middle" font-size="12" fill="var(--muted)">OD</text>`;
+    const T = "var(--ray)", N = "var(--ray-2)";
+    // 顳側纖維（不交叉）
+    g += `<path d="M84 80 C 92 150, 140 180, 140 200 C 140 240, 110 270, 120 360" stroke="${T}" stroke-width="3.5" fill="none"/><path d="M236 80 C 228 150, 180 180, 180 200 C 180 240, 210 270, 200 360" stroke="${T}" stroke-width="3.5" fill="none"/>`;
+    // 鼻側纖維（交叉）
+    g += `<path d="M126 88 C 140 140, 175 165, 182 205 C 186 240, 212 270, 206 360" stroke="${N}" stroke-width="3.5" fill="none"/><path d="M194 88 C 180 140, 145 165, 138 205 C 134 240, 108 270, 114 360" stroke="${N}" stroke-width="3.5" fill="none"/>`;
+    g += `<path d="M120 300 C 80 290, 70 250, 98 240" stroke="${T}" stroke-width="2" fill="none" opacity=".6"/><path d="M200 300 C 240 290, 250 250, 222 240" stroke="${T}" stroke-width="2" fill="none" opacity=".6"/>`;
+    g += `<rect x="90" y="358" width="140" height="22" rx="8" fill="var(--surface-2)" stroke="var(--line)"/><text x="160" y="373" text-anchor="middle" font-size="11" fill="var(--muted)">枕葉視皮質</text>`;
+    g += `<text x="10" y="402" font-size="11" fill="${T}">紅：顳側纖維（不交叉）</text><text x="170" y="402" font-size="11" fill="${N}">綠：鼻側纖維（交叉）</text><text x="160" y="16" text-anchor="middle" font-size="11" fill="var(--muted)">由上往下看，受檢者面朝上方</text>`;
+    SITES.forEach((s) => { const sel = vpSel === s.id; g += `<g class="hot" data-id="${s.id}" tabindex="0" role="button" aria-label="${s.zh}"><circle cx="${s.x}" cy="${s.y}" r="11" fill="${sel ? "var(--bad)" : "var(--surface)"}" stroke="var(--bad)" stroke-width="2.5"/><text x="${s.x + (s.x < 160 ? -16 : 16)}" y="${s.y + 4}" text-anchor="${s.x < 160 ? "end" : "start"}" font-size="11" fill="var(--ink)">${s.zh}</text></g>`; });
+    svg.setAttribute("viewBox", "0 0 320 412"); svg.innerHTML = g;
+    svg.querySelectorAll(".hot").forEach((n) => { const go = () => pick(n.dataset.id); n.onclick = go; n.onkeydown = (e) => { if (e.key === "Enter") go(); }; });
+  }
+  function fieldSvg(eye, f) {
+    const C = 60, k = 0.55; let g = `<circle cx="${C}" cy="${C}" r="${100 * k}" fill="#fff" stroke="var(--line)"/>`;
+    for (let x = -100; x <= 100; x += 4) for (let y = -100; y <= 100; y += 4) { if (Math.hypot(x, y) > 100) continue; if (f && f(eye, x + 2, y + 2)) g += `<rect x="${C + x * k}" y="${C - (y + 4) * k}" width="${4 * k + 0.4}" height="${4 * k + 0.4}" fill="#1b2328"/>`; }
+    g += `<line x1="${C - 55}" y1="${C}" x2="${C + 55}" y2="${C}" stroke="var(--muted)" stroke-width=".6"/><line x1="${C}" y1="${C - 55}" x2="${C}" y2="${C + 55}" stroke="var(--muted)" stroke-width=".6"/>`;
+    return `<svg viewBox="0 0 120 120">${g}</svg>`;
+  }
+  function fields(f) { document.getElementById("vp-f").innerHTML = `<figure>${fieldSvg("os", f)}<figcaption>左眼 OS</figcaption></figure><figure>${fieldSvg("od", f)}<figcaption>右眼 OD</figcaption></figure>`; }
+  function pick(id) {
+    const s = SITES.find((x) => x.id === id);
+    if (vm.value === "ex") { vpSel = id; fields(s.f); document.getElementById("vp-v").innerHTML = `<b>${s.zh}</b>：${{ ron: "右眼整個視野缺損，左眼正常。", chi: "兩眼顳側半邊缺損（雙顳側偏盲）。", ltr: "兩眼右半邊缺損（右側同側偏盲）。", rmy: "兩眼左上象限缺損（pie in the sky）。", lpa: "兩眼右下象限缺損。", roc: "兩眼左半邊缺損，但中心保留（黃斑保留）。" }[id]}`; drawVp(); return; }
+    if (!vpQ) return; vpSel = id; drawVp();
+    const ok = id === vpQ.id; document.getElementById("vp-v").innerHTML = (ok ? '<span class="pill ok">正確</span> ' : `<span class="pill bad">不對</span> `) + `答案：${vpQ.zh}。`; document.getElementById("vp-n").hidden = false;
+  }
+  let qOrder = [];
+  function nextQ() { if (!qOrder.length) qOrder = shuffle(SITES.slice()); vpQ = qOrder.pop(); vpSel = null; fields(vpQ.f); document.getElementById("vp-v").innerHTML = "這是受檢者的視野。病灶在哪裡？點左邊的紅圈。"; document.getElementById("vp-n").hidden = true; drawVp(); }
+  document.getElementById("vp-n").onclick = nextQ;
+  drawVp(); fields(null);
+
+  /* ---------- LAB 5-3 EOM ---------- */
+  // 方格以「你看到的方向」排列：畫面左＝受檢者右方
+  const GZ = [[-1, 1], [0, 1], [1, 1], [-1, 0], [0, 0], [1, 0], [-1, -1], [0, -1], [1, -1]];
+  const GZT = ["右上", "上", "左上", "右", "正前", "左", "右下", "下", "左下"];   // 受檢者的方位
+  const EMP = [
+    { k: "nl", name: "受檢者 1" },
+    { k: "rlr", name: "受檢者 2" },
+    { k: "rso", name: "受檢者 3" },
+    { k: "r3", name: "受檢者 4" },
+    { k: "llr", name: "受檢者 5" },
+  ];
+  const EMA = [["nl", "EOM: SAFE"], ["rlr", "右外直肌（CN VI）"], ["rso", "右上斜肌（CN IV）"], ["r3", "右動眼神經（CN III）"], ["llr", "左外直肌（CN VI）"]];
+  const EMW = { nl: "九方位平順、完整、精準、可達極端：EOM: SAFE。", rlr: "往受檢者右方看時右眼外轉不足，水平複視在右方最明顯。", rso: "往受檢者左下方看時右眼下轉不足（右眼較高），上下複視在左下最明顯；正前方也有少量右上斜。", r3: "右眼瞼下垂、瞳孔放大，正前方就偏下偏外；內轉、上轉、下轉都受限。合併瞳孔放大要當急診轉介。", llr: "往受檢者左方看時左眼外轉不足。" };
+  let em, eyes = { odh: 0, odv: 0, osh: 0, osv: 0 }, gaze = [0, 0], hT = null;
+  function want(gx, gy) {   // gx：畫面方向（＋＝畫面右＝受檢者左），單位：度
+    const H = gx * 28, V = gy * 20;
+    let od = [H, V], os = [H, V];
+    if (em.k === "rlr") { if (H < 0) od[0] = Math.max(H, -4); }   // 右眼外轉＝畫面左（負）
+    if (em.k === "llr") { if (H > 0) os[0] = Math.min(H, 4); }
+    if (em.k === "rso") { od[1] += 2.5; if (H > 0) od[1] += 3; if (H > 0 && V < 0) od[1] = V * 0.25 + 6; }
+    if (em.k === "r3") { od = [-14, -8]; if (H < 0) od[0] = Math.min(-14, H); }
+    return { odh: od[0], odv: od[1], osh: os[0], osv: os[1] };
+  }
+  function drawEm() {
+    const g = { light: true, scale: 7, od: { h: eyes.odh, v: eyes.odv, pupil: em.k === "r3" ? 7 : 4, lid: em.k === "r3" ? 0.7 : 0 }, os: { h: eyes.osh, v: eyes.osv, pupil: 4 } };
+    const r = front(document.getElementById("em-svg"), Object.assign(g, { gaze: null }));
+    const svg = document.getElementById("em-svg"), W = +svg.getAttribute("viewBox").split(" ")[2];
+    svg.insertAdjacentHTML("beforeend", `<circle cx="${W / 2 + gaze[0] * W * 0.36}" cy="${r.cy - gaze[1] * 70}" r="8" fill="#ffe58a" stroke="#c99a00" stroke-width="2"/>`);
+  }
+  const front = EYES.front;
+  function look(i) {
+    const [gx, gy] = GZ[i]; gaze = [gx, gy];
+    document.querySelectorAll("#em-pad button").forEach((b, j) => b.setAttribute("aria-pressed", j === i ? "true" : "false"));
+    EYES.tween(eyes, want(gx, gy), 420, drawEm);
+    const dip = (em.k === "rlr" && gx < 0) || (em.k === "llr" && gx > 0) || (em.k === "rso" && gx > 0 && gy < 0) || em.k === "r3";
+    document.getElementById("em-say").textContent = dip ? `（看${GZT[i]}）會變兩個${em.k === "rso" ? "，上下分開" : em.k === "r3" ? "，而且右眼睜不太開" : "，左右分開"}。` : `（看${GZT[i]}）一個，還好。`;
+  }
+  document.getElementById("em-pad").innerHTML = GZT.map((t, i) => `<button type="button">${t}</button>`).join("");
+  document.querySelectorAll("#em-pad button").forEach((b, i) => b.onclick = () => { clearInterval(hT); look(i); });
+  document.getElementById("em-ask").onclick = () => { document.getElementById("em-say").textContent = em.k === "nl" ? "不會痛，也沒有變兩個。" : em.k === "r3" ? "不會痛……可是最近右眼皮一直垂下來，看東西會兩個。" : "不會痛，但有些方向會變兩個。"; };
+  document.getElementById("em-h").onclick = () => { clearInterval(hT); const seq = [4, 3, 0, 6, 3, 4, 5, 2, 8, 5, 4]; let i = 0; hT = setInterval(() => { if (i >= seq.length) { clearInterval(hT); return; } look(seq[i++]); }, 900); };
+  function newEm() { em = EMP[Math.floor(Math.random() * EMP.length)]; document.getElementById("em-pt").textContent = em.name; Object.assign(eyes, want(0, 0)); gaze = [0, 0]; drawEm(); document.getElementById("em-say").textContent = "—"; document.getElementById("em-v").innerHTML = "";
+    document.getElementById("em-ans").innerHTML = EMA.map(([k, t]) => `<button type="button" class="chip" data-k="${k}">${t}</button>`).join("");
+    document.getElementById("em-ans").querySelectorAll("button").forEach((b) => b.onclick = () => { const ok = b.dataset.k === em.k; document.getElementById("em-ans").querySelectorAll("button").forEach((x) => { x.disabled = true; if (x.dataset.k === em.k) x.classList.add("ok"); }); if (!ok) b.classList.add("bad"); document.getElementById("em-v").innerHTML = (ok ? '<span class="pill ok">正確</span> ' : '<span class="pill bad">再看一次</span> ') + EMW[em.k]; }); }
+  document.getElementById("em-new").onclick = () => { clearInterval(hT); newEm(); };
+  newEm();
+
+  /* ---------- LAB 5-4 九方位 ---------- */
+  // 受檢者自己的方位：左欄＝他的右方
+  const MU = [
+    ["右上", "SR 上直肌", "IO 下斜肌", "Ⅲ", "Ⅲ"], ["上", "SR＋IO", "SR＋IO", "Ⅲ", "Ⅲ"], ["左上", "IO 下斜肌", "SR 上直肌", "Ⅲ", "Ⅲ"],
+    ["右", "LR 外直肌", "MR 內直肌", "Ⅵ", "Ⅲ"], ["正前", "—", "—", "", ""], ["左", "MR 內直肌", "LR 外直肌", "Ⅲ", "Ⅵ"],
+    ["右下", "IR 下直肌", "SO 上斜肌", "Ⅲ", "Ⅳ"], ["下", "IR＋SO", "IR＋SO", "Ⅲ／Ⅳ", "Ⅲ／Ⅳ"], ["左下", "SO 上斜肌", "IR 下直肌", "Ⅳ", "Ⅲ"],
+  ];
+  const mm = seg("mu-m", startMu);
+  let mq = null;
+  const QS = [];
+  MU.forEach((m, i) => { if (i === 4 || i === 1 || i === 7) return; QS.push({ i, q: `右眼的 ${m[1]}，要在哪個方位檢查？` }); QS.push({ i, q: `左眼的 ${m[2]}，要在哪個方位檢查？` }); });
+  function drawMu(reveal) {
+    document.getElementById("mu").innerHTML = MU.map((m, i) => `<button type="button" data-i="${i}"><b>${m[0]}</b>${reveal || mm.value === "ex" ? `<small>OD ${m[1]}${m[3] ? "（" + m[3] + "）" : ""}</small><small>OS ${m[2]}${m[4] ? "（" + m[4] + "）" : ""}</small>` : ""}</button>`).join("");
+    document.querySelectorAll("#mu button").forEach((b) => b.onclick = () => clickMu(+b.dataset.i, b));
+  }
+  function clickMu(i, b) {
+    if (mm.value === "ex") { document.getElementById("mu-v").textContent = i === 4 ? "正前方：原位，不特別測哪一條肌肉。" : `往受檢者的${MU[i][0]}看：右眼 ${MU[i][1]}、左眼 ${MU[i][2]} 是一對配對肌。`; return; }
+    const ok = i === mq.i; b.classList.add(ok ? "ok" : "bad");
+    document.getElementById("mu-v").innerHTML = (ok ? '<span class="pill ok">正確</span>' : '<span class="pill bad">不對</span>') + ` 答案：受檢者的${MU[mq.i][0]}。<button class="linkish" id="mu-nx" type="button">下一題</button>`;
+    document.getElementById("mu-nx").onclick = startMu;
+  }
+  function startMu() { if (mm.value === "ex") { document.getElementById("mu-q").innerHTML = "點任一方位，看兩眼各由哪一條肌肉負責。（方格以<b>受檢者自己的</b>左右排列）"; document.getElementById("mu-v").textContent = ""; drawMu(true); return; }
+    mq = QS[Math.floor(Math.random() * QS.length)]; document.getElementById("mu-q").textContent = mq.q; document.getElementById("mu-v").textContent = ""; drawMu(false); }
+  startMu();
+})();
+</script>
+</body>
+</html>

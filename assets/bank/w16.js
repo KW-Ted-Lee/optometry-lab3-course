@@ -1,0 +1,27 @@
+OL.bank("w16", {
+  quiz: [
+    { q: "試鏡架設定 PD 的正確做法是：", opts: ["總 PD ÷ 2", "左右單眼 PD 分開設定", "只設右眼", "用鏡架原本的 PD"], a: 1, exp: "兩眼單眼 PD 常不同。" },
+    { q: "試鏡架建議的頂點距離約為：", opts: ["6–8 mm", "12–14 mm", "18–20 mm", "25 mm"], a: 1, exp: "須與最終眼鏡一致。" },
+    { q: "試鏡架上最靠近眼睛的應放：", opts: ["圓柱鏡片", "最強的球面鏡片", "稜鏡", "紅綠濾鏡"], a: 1, exp: "減少頂點距離造成的有效度數誤差。" },
+    { q: "−10.00 D 鏡片在 12 mm，換成隱形眼鏡約需：", opts: ["−11.36 D", "−10.00 D", "−8.93 D", "−9.50 D"], a: 2, exp: "−10 ÷ (1 − 0.012 × (−10)) ＝ −8.93。" },
+    { q: "Bagolini 條紋鏡與馬篤氏鏡最大的差別是：", opts: ["顏色", "Bagolini 幾乎不解離", "Bagolini 只能測近", "Bagolini 需要暗室"], a: 1, exp: "保留日常的融像線索。" },
+    { q: "Bagolini 看到完整 X、同次遮蓋測試有 12Δ 內斜視，代表：", opts: ["正常融像", "異常視網膜對應 ARC", "一眼抑制", "複視"], a: 1, exp: "斜視卻看到完整 X。" },
+    { q: "Bagolini 一條線在光點附近斷了一小段，代表：", opts: ["複視", "該眼中心抑制暗點", "ARC", "鏡片刮傷"], a: 1, exp: "單眼固視症候群的典型表現。" },
+    { q: "Bagolini 看到兩個光點、各帶一條線，代表：", opts: ["NRC 下的斜視（複視）", "ARC", "融像", "抑制"], a: 0, exp: "新發生的要轉介。" },
+    { q: "解離程度由低到高排列正確的是：", opts: ["馬篤氏鏡 → 紅綠 → Bagolini", "Bagolini → 紅綠 → 馬篤氏鏡", "紅綠 → Bagolini → 馬篤氏鏡", "都一樣"], a: 1, exp: "Bagolini 幾乎不解離。" },
+    { q: "判讀 Bagolini 時必須同時參考：", opts: ["色覺", "同次遮蓋測試結果", "NRA", "角膜弧度"], a: 1, exp: "否則無法判讀 ARC。" },
+  ],
+  terms: [
+    ["trial frame", "試鏡架", ""],
+    ["vertex distance", "頂點距離", ""],
+    ["effective power", "有效度數", ""],
+    ["pantoscopic tilt", "前傾角", ""],
+    ["monocular PD", "單眼瞳距", ""],
+    ["Bagolini striated lens", "Bagolini 條紋鏡", ""],
+    ["normal retinal correspondence (NRC)", "正常視網膜對應", ""],
+    ["anomalous retinal correspondence (ARC)", "異常視網膜對應", ""],
+    ["central suppression scotoma", "中心抑制暗點", ""],
+    ["microtropia", "微小斜視", ""],
+    ["degree of dissociation", "解離程度", ""],
+  ],
+});

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<script src="assets/analytics.js"></script>
+<title>★ 必會計算練功房｜視光學實驗（三）・無邊界教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .toc { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 8px; }
+  .toc a { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 8px; align-items: center; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; }
+  .toc a:hover { border-color: var(--accent); }
+  .toc b { font-family: var(--font-mono); color: var(--lv-s); font-size: 15px; }
+  .toc span small { display: block; color: var(--muted); font-family: var(--font-mono); font-size: 12px; }
+  .star-sec { scroll-margin-top: 80px; }
+  .formula-line { font-family: var(--font-mono); background: var(--surface-2); border-radius: 8px; padding: 8px 12px; display: inline-block; margin-bottom: 12px; }
+</style>
+</head>
+<body data-chapter="calc">
+<header id="topbar"></header>
+<main class="wrap">
+  <div class="chapter-head">
+    <div class="eyebrow">Star Calculations</div>
+    <h1>★ 必會計算練功房</h1>
+    <div class="en">Twelve must-know calculations</div>
+    <p class="lede">全學期要自己動筆算的有十二項，<b>都是一到兩步</b>：前六項在前半學期，後六項在後半學期。每題數字隨機，按「換一組數字」可以無限練習；卡住時按「看下一步詳解」。每一項<b>沒看詳解、換數字連續全對 3 組</b>就算精熟，會記在<a href="progress.html">課程進度地圖</a>上。</p>
+  </div>
+
+  <section class="block">
+    <h2>目錄 <span class="tag">INDEX</span></h2>
+    <div class="toc" id="toc"></div>
+  </section>
+
+  <div id="secs"></div>
+
+  <section class="block star-sec" id="lab-calc">
+    <h2>延伸計算 <span class="tag">EXTRA</span></h2>
+    <p class="sub">W02 Amsler 張角與立體視差、W12 von Graefe 取值、W14 NRA／PRA 座標。不列入精熟統計。</p>
+    <div id="p-lab"></div>
+  </section>
+</main>
+<footer id="footer"></footer>
+<script src="assets/config.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/practice.js"></script>
+<script src="assets/problems/calc.js"></script>
+<script>
+(function () {
+  const STARS = [
+    [1, "調節幅度", "Amp ＝ 100 ÷ NPA（cm）", "w03"],
+    [2, "Hofstetter 最小值", "15 − 0.25 × 年齡（臨床判讀用）", "w03"],
+    [3, "聚合需求", "Δ ＝ PD（cm）× MA；MA ＝ 1 ÷ d（m）", "w03"],
+    [4, "Hirschberg 換算", "偏移 mm × 22Δ", "w04"],
+    [5, "稜鏡度定義", "Δ ＝ 偏移（cm）÷ 距離（m）", "w07"],
+    [6, "Prentice 法則", "Δ ＝ c（cm）× F", "w07"],
+    [7, "Sheard 準則", "(2 × 斜位 − 儲備) ÷ 3", "w13"],
+    [8, "計算式 AC/A", "PD（cm）＋ d（m）×（Hn − Hd）", "w14"],
+    [9, "梯度式 AC/A", "斜位變化 ÷ 鏡片度數", "w14"],
+    [10, "Percival 準則", "G ÷ 3 − 2L ÷ 3", "w15"],
+    [11, "1:1 法則", "(內斜位 − BI 回復) ÷ 2", "w15"],
+    [12, "有效度數", "Fx ＝ F ÷ (1 − x·F)", "w16"],
+  ];
+  const { REG, define, mount } = OBPractice;
+  const seen = new Set();
+  Object.keys(REG).forEach((k) => REG[k].forEach((t) => {
+    if (seen.has(t.title)) return; seen.add(t.title);
+    define(t.star ? "star" + t.star : "starlab", [t]);
+  }));
+  const SJ = OL.journal.star();
+  document.getElementById("toc").innerHTML = STARS.map(([n, t, f]) => `<a href="#s${n}"><b>★${n}</b><span>${t}${SJ[n] && SJ[n].t ? ' <span class="pill ok">已精熟</span>' : ""}<small>${f}</small></span></a>`).join("") + `<a href="#lab-calc"><b>＋</b><span>延伸計算<small>張角、視差、取值、座標</small></span></a>`;
+  document.getElementById("secs").innerHTML = STARS.map(([n, t, f, w]) => `<section class="block star-sec" id="s${n}"><h2>★${n}　${t} <span class="tag"><a href="${w}.html">回到 ${w.toUpperCase()} →</a></span></h2><div class="formula-line">${f}</div><div id="p${n}"></div></section>`).join("");
+  document.addEventListener("DOMContentLoaded", () => {
+    STARS.forEach(([n]) => mount("p" + n, "star" + n));
+    mount("p-lab", "starlab");
+  });
+})();
+</script>
+</body>
+</html>

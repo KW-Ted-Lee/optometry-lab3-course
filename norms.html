@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<script src="assets/analytics.js"></script>
+<title>期望值速查與判讀｜視光學實驗（三）・無邊界教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .nin { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px 12px; }
+  .nin label { display: grid; gap: 2px; font-size: 13px; color: var(--muted); }
+  .nin input, .nin select { font: inherit; font-family: var(--font-mono); font-size: 14px; padding: 5px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); min-width: 0; }
+  .two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: start; } @media (max-width: 860px) { .two-col { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body data-chapter="norms">
+<header id="topbar"></header>
+<main class="wrap">
+  <div class="chapter-head">
+    <div class="eyebrow">Norms</div>
+    <h1>期望值速查與判讀</h1>
+    <div class="en">Expected values, at a glance and on demand</div>
+    <p class="lede">全學期的期望值集中在一頁。下半部可以輸入一位受檢者的數據，即時標出高於／符合／低於期望值、畫出 ZCSBV，並算出 Sheard、Percival、1:1。數值判讀以 <b>Morgan</b> 為準，教科書（Carlson &amp; Kurtz 第 4 版）為對照。</p>
+  </div>
+
+  <section class="block">
+    <h2>期望值總表 <span class="tag">TABLE</span></h2>
+    <div class="dt-wrap"><table class="dt"><tr><th>檢查</th><th>距離</th><th>本課程標準</th><th>教科書對照</th><th>週次</th></tr>
+      <tr><td>Amsler</td><td>30 cm</td><td>Unremarkable</td><td>中心約 20°</td><td><a href="w02.html">W02</a></td></tr>
+      <tr><td>色覺（石原氏）</td><td>75 cm</td><td>38 色版錯 ≤ 4、24 色版錯 ≤ 3</td><td>—</td><td><a href="w02.html">W02</a></td></tr>
+      <tr><td>立體視</td><td>40 cm</td><td>≤ 40 秒角</td><td>Titmus Wirt rings</td><td><a href="w02.html">W02</a></td></tr>
+      <tr><td>NPC</td><td>—</td><td>破裂 ≤ 5／回復 ≤ 7 cm（切點）</td><td>2.4–2.9／4.2–5.0 cm（平均）</td><td><a href="w03.html">W03</a></td></tr>
+      <tr><td>調節幅度</td><td>單眼</td><td>≥ Hofstetter 最小值 15 − 0.25 × 年齡</td><td>同</td><td><a href="w03.html">W03</a></td></tr>
+      <tr><td>Hirschberg</td><td>50 cm</td><td>反光對稱</td><td>1 mm ≈ 22Δ 或 15Δ</td><td><a href="w04.html">W04</a></td></tr>
+      <tr><td>Kappa 角</td><td>50 cm</td><td>0–5°（反光略偏鼻側）</td><td>—</td><td><a href="w04.html">W04</a></td></tr>
+      <tr><td>對立視野</td><td>50–80 cm</td><td>Full</td><td>上 65／下 75／內 60／外 95</td><td><a href="w05.html">W05</a></td></tr>
+      <tr><td>遠距水平斜位 DLP</td><td>6 m</td><td>1Δ XP ±2</td><td>同</td><td><a href="w10.html">W10–12</a></td></tr>
+      <tr><td>近距水平斜位 NLP</td><td>40 cm</td><td>3Δ XP ±3</td><td>同；老花加 ADD 約 8Δ XP</td><td><a href="w10.html">W10–12</a></td></tr>
+      <tr><td>垂直斜位</td><td>6 m／40 cm</td><td>Ortho；≥ 2Δ 具臨床意義</td><td>同</td><td><a href="w11.html">W11</a></td></tr>
+      <tr><td>托靈頓卡轉介門檻</td><td>40 cm</td><td>EP ≥ 5、XP ≥ 10、垂直 ≥ 2</td><td>卡片背面</td><td><a href="w10.html">W10</a></td></tr>
+      <tr><td>遠距 BI／BO</td><td>6 m</td><td>X/7/4　／　9/19/10</td><td>同</td><td><a href="w13.html">W13</a></td></tr>
+      <tr><td>近距 BI／BO</td><td>40 cm</td><td>13/21/13　／　17/21/11</td><td>同</td><td><a href="w13.html">W13</a></td></tr>
+      <tr><td>垂直聚散</td><td>40 cm</td><td>3–4 break／2 recovery</td><td>supra、infra 各 3–4／1.5–2</td><td><a href="w13.html">W13</a></td></tr>
+      <tr><td>聚散靈活度</td><td>40 cm</td><td>15 cpm（3BI/12BO）</td><td>—</td><td><a href="w13.html">W13</a></td></tr>
+      <tr><td>NRA／PRA</td><td>40 cm</td><td>+2.00 ±0.50　／　−2.37 ±1.00</td><td>同</td><td><a href="w14.html">W14</a></td></tr>
+      <tr><td>AC/A（梯度）</td><td>—</td><td>4:1 ±2</td><td>同</td><td><a href="w14.html">W14</a></td></tr></table></div>
+    <p class="proc-note">數值判讀看 Morgan，操作步驟看課本。兩者不一致時先問：我要回答「對不對」還是「正不正常」？</p>
+  </section>
+
+  <section class="block">
+    <h2>即時判讀 <span class="tag">ANALYZER</span></h2>
+    <p class="sub">遠距 BI 沒有模糊點寫 X。外斜位寫負數、內斜位寫正數。</p>
+    <div class="row-btns" style="margin-bottom:10px"><button class="btn ghost sm" data-p="norm" type="button">填入 Morgan 正常值</button><button class="btn ghost sm" data-p="rand" type="button">隨機產生一位模擬受檢者</button></div>
+    <div class="nin" id="nin"></div>
+    <div class="two-col" style="margin-top:14px"><div id="nt"></div><div><div class="svgstage" style="background:var(--surface);border:1px solid var(--line);border-radius:12px"><svg id="nz" role="img" aria-label="ZCSBV"></svg></div><ol class="prob-steps" id="ncr" style="margin-top:10px"></ol></div></div>
+  </section>
+</main>
+<footer id="footer"></footer>
+<script src="assets/config.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/bino.js"></script>
+<script>
+(function () {
+  const B = BINO;
+  const F = [["age", "年齡", 22], ["pd", "PD（cm）", 6.4], ["dlp", "DLP（Δ）", -1], ["nlp", "NLP（Δ）", -3], ["aca", "梯度 AC/A", 4], ["biD", "遠距 BI", "X/7/4"], ["boD", "遠距 BO", "9/19/10"], ["biN", "近距 BI", "13/21/13"], ["boN", "近距 BO", "17/21/11"], ["nra", "NRA", 2.0], ["pra", "PRA", -2.37], ["amp", "調節幅度（D）", 10], ["npcB", "NPC 破裂（cm）", 3], ["npcR", "NPC 回復（cm）", 5], ["vf", "聚散靈活度（cpm）", 15]];
+  document.getElementById("nin").innerHTML = F.map(([k, l, v]) => `<label>${l}<input id="n-${k}" value="${v}"></label>`).join("") + `<label>雙眼翻轉鏡<select id="n-baf"><option>兩側都順</option><option>卡在 ＋2.00 側</option><option>卡在 −2.00 側</option><option>兩側都慢</option></select></label><label>單眼翻轉鏡<select id="n-maf"><option>兩側都順</option><option>＋2.00 側很慢</option><option>−2.00 側很慢</option><option>兩側都慢</option></select></label>`;
+  const tri = (s) => String(s).split("/").map((x) => /x/i.test(x) ? null : +x);
+  const g = (k) => document.getElementById("n-" + k).value;
+  function run() {
+    const c = { age: +g("age"), pd: +g("pd"), dlp: +g("dlp"), nlp: +g("nlp"), aca: +g("aca"), biD: tri(g("biD")), boD: tri(g("boD")), biN: tri(g("biN")), boN: tri(g("boN")), nra: +g("nra"), pra: +g("pra"), amp: +g("amp"), npc: [+g("npcB"), +g("npcR")], vf: +g("vf"), baf: g("baf"), maf: g("maf") };
+    if ([c.biN, c.boN, c.biD, c.boD].some((t) => t.length !== 3 || t.some((x, i) => x != null && isNaN(x)))) return;
+    document.getElementById("nt").innerHTML = B.table(c);
+    B.zplot(document.getElementById("nz"), c, { percival: true, sheard: true, breaks: true });
+    const bl = (t) => (t[0] != null ? t[0] : t[1]);
+    const BI = bl(c.biN), BO = bl(c.boN), st = [];
+    if (c.nlp < 0) { const s = B.sheard(-c.nlp, BO); st.push(["Sheard（近距外斜位）", `(2 × ${-c.nlp} − ${BO}) ÷ 3 ＝ ${s.toFixed(1)} → ${s > 0 ? s.toFixed(1) + "Δ BI" : "符合"}`]); }
+    if (c.nlp > 0) { const o = B.oneToOne(c.nlp, c.biN[2]); st.push(["1:1（近距內斜位）", `(${c.nlp} − ${c.biN[2]}) ÷ 2 ＝ ${o.toFixed(1)} → ${o > 0 ? o.toFixed(1) + "Δ BO" : "符合"}`]); }
+    const p = B.percival(BI, BO); st.push(["Percival（近距）", `${Math.max(BI, BO)} ÷ 3 − 2 × ${Math.min(BI, BO)} ÷ 3 ＝ ${p.toFixed(1)} → ${p > 0 ? p.toFixed(1) + "Δ " + (BO < BI ? "BI" : "BO") : "符合"}`]);
+    st.push(["計算式 AC/A", `${c.pd} + 0.4 × (${c.nlp} − (${c.dlp})) ＝ ${B.calcACA(c.pd, c.dlp, c.nlp).toFixed(1)}`]);
+    document.getElementById("ncr").innerHTML = st.map(([a, b]) => `<li><div class="sc">${a}</div><div class="se">${b}</div></li>`).join("");
+  }
+  document.querySelectorAll("#nin input, #nin select").forEach((x) => x.addEventListener("input", run));
+  document.querySelectorAll("[data-p]").forEach((b) => b.onclick = () => {
+    let c;
+    if (b.dataset.p === "norm") c = { age: 22, pd: 6.4, dlp: -1, nlp: -3, aca: 4, biD: [null, 7, 4], boD: [9, 19, 10], biN: [13, 21, 13], boN: [17, 21, 11], nra: 2, pra: -2.37, amp: 10, npc: [3, 5], vf: 15, baf: "兩側都順", maf: "兩側都順" };
+    else c = B.genCase(B.DX[Math.floor(Math.random() * B.DX.length)].id);
+    const set = (k, v) => document.getElementById("n-" + k).value = v;
+    ["age", "pd", "dlp", "nlp", "aca", "nra", "pra", "amp", "vf", "baf", "maf"].forEach((k) => set(k, c[k]));
+    ["biD", "boD", "biN", "boN"].forEach((k) => set(k, B.trip(c[k]))); set("npcB", c.npc[0]); set("npcR", c.npc[1]);
+    run();
+  });
+  run();
+})();
+</script>
+</body>
+</html>

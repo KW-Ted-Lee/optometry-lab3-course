@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<script src="assets/analytics.js"></script>
+<title>W11 馬篤式鏡測試｜視光學實驗（三）・無邊界教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .steps3 { display: grid; gap: 10px; }
+  .steps3 .st { display: grid; grid-template-columns: 5.5em minmax(0, 1fr); gap: 8px; align-items: center; font-size: 14px; }
+  .mgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+  .mgrid div { text-align: center; padding: 8px 4px; border-radius: 8px; border: 1px solid var(--line); font-size: 13px; background: var(--surface); transition: opacity .2s; }
+  .mgrid div.off { opacity: .25; text-decoration: line-through; }
+  .mgrid div.win { border-color: var(--bad); color: var(--bad); font-weight: 700; background: color-mix(in srgb, var(--bad) 10%, var(--surface)); }
+</style>
+</head>
+<body data-chapter="w11">
+<header id="topbar"></header>
+<main class="wrap">
+  <div class="chapter-head">
+    <div class="eyebrow">Week 11</div>
+    <h1>馬篤式鏡測試</h1>
+    <div class="en">Maddox Rod</div>
+    <p class="lede">托靈頓卡用的是同一片馬篤氏鏡，只是把刻度印在卡上。這週換個量法：在<b>開放空間</b>、用<b>稜鏡中和</b>，讓紅線剛好穿過光點。它多了兩個托靈頓卡做不到的本事——<b>遠距</b>測量更方便，以及兩片馬篤氏鏡一起用時能量<b>旋轉性偏斜</b>。</p>
+  </div>
+
+  <section class="block">
+    <h2>學習目標 <span class="tag">GOALS</span></h2>
+    <ul class="goals">
+      <li>以馬篤氏鏡加稜鏡中和，完成遠近距的水平與垂直斜位測量，並寫出 DLP／NLP／DVP／NVP 紀錄。</li>
+      <li>以雙馬篤氏鏡量測旋轉性偏斜，認識上斜肌麻痺的外旋表現。</li>
+      <li>以 Parks 三步驟從垂直偏斜推論出可能的麻痺肌肉，並比較馬篤氏鏡與托靈頓卡的差異。</li>
+    </ul>
+  </section>
+
+  <section class="block"><h2>本週記號 <span class="tag">★ ◆ ○</span></h2><div id="levels"></div></section>
+
+  <section class="block">
+    <h2>學理背景 <span class="tag">THEORY</span></h2>
+    <div class="theory">
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">When to use</span><h3>為什麼還要學馬篤氏鏡？</h3>
+        <ul><li>von Graefe 時受檢者看不到兩個視標</li><li>需要在開放空間、無法坐在綜合驗光儀後面</li><li>可以戴自己的眼鏡、自然頭位</li><li>排除綜合驗光儀後頭位傾斜、視線斜穿鏡片造成的<b>假性垂直斜位</b></li></ul></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Neutralizing with prism</span><h3>用稜鏡把線拉到點上</h3>
+        <p>判讀和托靈頓卡完全相同（紅線在左＝外斜）。差別在量法：在眼前加稜鏡，<b>基底方向與偏斜方向相反</b>，逐漸增加直到紅線剛好穿過光點，加的量就是斜位量。</p>
+        <p class="why">受檢者回報「位置」，由檢查者調整稜鏡——比托靈頓卡多一個主觀環節，重複性中等。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Cyclodeviation</span><h3>雙馬篤氏鏡：量「旋轉」</h3>
+        <p>兩眼各放一片（一紅一白），溝紋都垂直 → 兩條水平線。若受檢者說兩線不平行，就有旋轉性偏斜。旋轉一眼的馬篤氏鏡直到兩線平行，轉了幾度就是偏斜量。</p>
+        <p><b>上斜肌</b>的主要作用之一是內旋，麻痺時眼睛<b>外旋</b>。外旋 &gt; 10° 常提示<b>雙側</b>上斜肌麻痺。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Parks–Bielschowsky three-step</span><h3>Parks 三步驟</h3>
+        <p>每個垂直偏斜都可能由八條垂直肌肉中的一條造成，三個問題逐步縮小範圍：</p>
+        <ol><li>正前方哪一眼上斜？→ 剩 4 條</li><li>往左看還是往右看時更嚴重？→ 剩 2 條</li><li>頭往哪一側傾斜時更嚴重？→ 剩 1 條</li></ol>
+        <p class="why">最常見的答案是上斜肌（第四對神經）麻痺：例如右眼上斜、往左看更嚴重、頭往右傾更嚴重 → 右上斜肌。病人常把頭歪向健側來減輕複視。</p></div>
+      <div class="concept"><span class="lvtag lv-o">○ 知道即可</span><span class="en-term">Head tilt &amp; torsion</span><h3>為什麼頭歪會改變垂直偏斜？</h3>
+        <p>頭往右傾時，兩眼會反射性地旋轉維持水平：右眼<b>內旋</b>（上斜肌＋上直肌）、左眼<b>外旋</b>（下斜肌＋下直肌）。如果右上斜肌無力，上直肌就得多出力內旋，它同時把眼睛往上拉——右眼上斜變得更明顯。</p></div>
+      <div class="concept"><span class="lvtag lv-o">○ 知道即可</span><span class="en-term">MR vs MT</span><h3>兩者原理相同，差在怎麼量</h3>
+        <div class="dt-wrap"><table class="dt"><tr><th></th><th>馬篤氏鏡</th><th>托靈頓卡</th></tr><tr><td>量法</td><td>另備稜鏡中和</td><td>刻度在卡上</td></tr><tr><td>受檢者</td><td>回報位置</td><td>唸數字</td></tr><tr><td>旋轉偏斜</td><td>可（雙 MR）</td><td>不可</td></tr><tr><td>適合</td><td>遠距、開放空間</td><td>近距首選</td></tr></table></div></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>臨床脈絡 <span class="tag">CLINICAL</span></h2>
+    <div class="clinical">
+      <div class="clin when"><small>WHEN</small><h3>什麼時候做</h3><ul><li>遠距斜位、開放空間測量</li><li>綜合驗光儀後出現疑似垂直斜位，想排除頭位傾斜</li><li>斜向或上下複視：加做雙馬篤氏鏡與 Parks 三步驟</li></ul></div>
+      <div class="clin say"><small>PATIENT SAYS</small><h3>病人會怎麼說</h3><ul><li>「看書時字會上下重疊，頭歪一邊比較好。」→ 上斜肌麻痺</li><li>「兩條線一條平的、一條斜的。」→ 旋轉性偏斜</li><li>「頭部撞到之後看東西就斜斜的兩個。」→ 外傷後第四對神經麻痺</li></ul></div>
+      <div class="clin flag"><small>RED FLAGS</small><h3>轉介警訊</h3><ul><li>新發生的垂直或旋轉性偏斜</li><li>合併頭痛、其他神經症狀</li><li>Parks 三步驟結果不符合任何一條單一肌肉（可能是限制性或神經性問題）</li></ul></div>
+    </div>
+    <div class="vignette"><span class="vh">CASE</span><b class="t">35 歲，機車事故後兩週，看書時上下複視。馬篤氏鏡：右眼上斜 6Δ；往左看增加到 10Δ、往右看 2Δ；頭往右傾 12Δ、往左傾 2Δ。雙馬篤氏鏡：右眼外旋 6°。</b>
+      <details><summary>三步驟走一次</summary><div><p>① 右眼上斜 → RIR、RSO、LSR、LIO。② 往左看更嚴重 → RSO、LSR。③ 頭往右傾更嚴重 → <b>右上斜肌（第四對神經）</b>。外旋 6°（&lt; 10°）支持單側。新發生的外傷後垂直複視 → 轉介。紀錄：<code>DVP red MR: 6Δ R hyper; ↑ L gaze, ↑ R head tilt; DMR 6° excyclo OD. Suspect RSO palsy → refer.</code></p></div></details></div>
+  </section>
+
+  <section class="block">
+    <h2>操作流程 <span class="tag">PROCEDURE</span></h2>
+    <div class="proc">
+      <div><h3>設備</h3><ul><li>馬篤氏鏡（紅或白）</li><li>近距筆燈；遠距較強光源</li><li>稜鏡（Risley、稜鏡棒或手持）</li></ul></div>
+      <div><h3>設置</h3><ul><li>馬篤氏鏡放<b>右眼</b>前</li><li>戴慣用矯正</li><li>遠距 6 m、近距 40 cm 各一次</li><li>水平、垂直各一次</li></ul></div>
+      <div><h3>步驟</h3><ol><li>依要測的方向擺溝紋（水平溝紋測水平）</li><li>請受檢者注視光點，回報紅線與光點的相對位置</li><li>在另一眼（或同一眼）前加稜鏡，基底與偏斜方向相反</li><li>逐漸增加，直到紅線剛好穿過光點</li><li>記錄稜鏡量與基底方向</li></ol></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>模擬操作實驗 <span class="tag">LAB</span></h2>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 11-1</span><h3>馬篤氏鏡＋稜鏡中和</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="svgstage"><svg id="mn-svg" role="img" aria-label="受檢者看到的光點與紅線"></svg></div><div class="stage-note">受檢者看到的（暗室、6 m 光源，右眼紅色馬篤氏鏡，稜鏡放在左眼）</div></div>
+        <div class="lab-panel">
+          <div class="pt-bar"><span class="lbl">受檢者</span><span class="pill info" id="mn-pt">—</span><button class="btn ghost sm" id="mn-new" type="button">換一位</button></div>
+          <div class="ctrl"><label>溝紋</label><div class="seg" id="mn-g"><button data-v="h" aria-pressed="true">水平（垂直線）</button><button data-v="v">垂直（水平線）</button></div></div>
+          <div class="ctrl"><label>左眼前稜鏡基底</label><div class="seg" id="mn-b"><button data-v="BI" aria-pressed="true">BI</button><button data-v="BO">BO</button><button data-v="BU">BU</button><button data-v="BD">BD</button></div></div>
+          <div class="ctrl"><label for="mn-p">稜鏡量 <output id="mn-p-out"></output></label><input type="range" id="mn-p" min="0" max="20" step="0.5" value="0"></div>
+          <div class="say-bubble" id="mn-say">—</div>
+          <div class="row-btns"><button class="btn" id="mn-rec" type="button">記錄這個方向</button></div>
+          <div class="recout" id="mn-out"></div>
+          <div class="verdict" id="mn-v"></div>
+        </div>
+      </div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>稜鏡放在<b>左眼</b>：左眼看光點，影像往稜鏡頂端移動。外斜時線在左、點在右 → 左眼前 BI 讓光點往左移到線上。</li><li>垂直：紅線在光點下方＝右眼上斜。左眼前加 BU，把左眼看到的光點往下移到線上（等於右眼 BD）。</li></ul></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 11-2</span><h3>雙馬篤氏鏡：旋轉性偏斜</h3><span class="lvtag lv-o">○ 知道即可</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="svgstage"><svg id="dm-svg" role="img" aria-label="雙馬篤氏鏡兩條線"></svg></div></div>
+        <div class="lab-panel">
+          <div class="pt-bar"><span class="lbl">受檢者</span><span class="pill info" id="dm-pt">—</span><button class="btn ghost sm" id="dm-new" type="button">換一位</button></div>
+          <div class="ctrl"><label for="dm-r">旋轉右眼的紅色馬篤氏鏡 <output id="dm-r-out"></output></label><input type="range" id="dm-r" min="-20" max="20" step="1" value="0"></div>
+          <div class="say-bubble" id="dm-say">—</div>
+          <div class="row-btns"><button class="btn" id="dm-chk" type="button">兩線平行了，記錄</button></div>
+          <div class="verdict" id="dm-v"></div>
+        </div>
+      </div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>一紅一白，受檢者才分得出哪一條線屬於哪一眼。</li><li>外旋超過 10°，要想到雙側上斜肌麻痺。</li></ul></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 11-3</span><h3>Parks 三步驟：哪一條肌肉？</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="sim">
+        <div class="row-btns"><div class="seg" id="pk-m"><button data-v="ex" aria-pressed="true">自己走三步</button><button data-v="qz">病例挑戰</button></div></div>
+        <div class="patient" id="pk-case" hidden></div>
+        <div class="steps3">
+          <div class="st"><b>① 正前方</b><div class="seg" id="pk-1"><button data-v="-" aria-pressed="true">—</button><button data-v="R">右眼上斜</button><button data-v="L">左眼上斜</button></div></div>
+          <div class="st"><b>② 注視</b><div class="seg" id="pk-2"><button data-v="-" aria-pressed="true">—</button><button data-v="R">往右看更嚴重</button><button data-v="L">往左看更嚴重</button></div></div>
+          <div class="st"><b>③ 頭傾斜</b><div class="seg" id="pk-3"><button data-v="-" aria-pressed="true">—</button><button data-v="R">頭往右傾更嚴重</button><button data-v="L">頭往左傾更嚴重</button></div></div>
+        </div>
+        <div class="mgrid" id="pk-g"></div>
+        <div class="verdict" id="pk-v"></div>
+      </div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>八條垂直肌：兩眼各有上直、下直、上斜、下斜。</li><li>第 ② 步的邏輯：外轉眼的垂直作用靠直肌、內轉眼靠斜肌（W05 的 H 型）。</li></ul></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 11-4</span><h3>馬篤氏鏡判讀速查</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="sim"><div id="d-mr"></div></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>紀錄方式 <span class="tag">RECORD</span></h2>
+    <div class="rec">DLP red MR ortho;  DVP red MR ortho
+NLP red MR 8Δ exo;  NVP red MR 1Δ R hyper
+# DLP/NLP = 遠距/近距水平斜位；DVP/NVP = 遠距/近距垂直斜位；red MR = 紅色馬篤氏鏡
+DMR: 6° excyclo OD
+# 比較：MT @N cc 4Δ XP vs NLP red MR 6Δ exo → 差 2Δ，可接受
+# 差異 &gt; 3Δ 常見原因：解離不完全、頭位傾斜、稜鏡未與臉部平行</div>
+  </section>
+
+  <section class="block">
+    <h2>常見錯誤 <span class="tag">MISTAKES</span></h2>
+    <div class="myths">
+      <details class="myth"><summary>稜鏡基底跟紅線同一邊。</summary><div class="fix">基底與偏斜方向相反：外斜（線在左）用 BI。放在左眼時，BI 讓左眼看到的光點往左移到線上。</div></details>
+      <details class="myth"><summary>馬篤氏鏡只測近距。</summary><div class="fix">馬篤氏鏡最大的優勢在遠距與開放空間；遠近都要測，水平垂直都要測。</div></details>
+      <details class="myth"><summary>雙馬篤氏鏡用兩片紅色的也可以。</summary><div class="fix">一紅一白，受檢者才分得出哪一條線屬於哪一眼。</div></details>
+      <details class="myth"><summary>垂直斜位一定是上斜肌的問題。</summary><div class="fix">八條垂直肌都有可能；用 Parks 三步驟縮小範圍，結果不符合單一肌肉時考慮限制性或神經性原因。</div></details>
+      <details class="myth"><summary>托靈頓卡和馬篤氏鏡差 3Δ 以上是正常的。</summary><div class="fix">差異過大要檢查：解離是否完全、頭位、稜鏡是否與臉部平行。</div></details>
+    </div>
+  </section>
+
+  <section class="block"><h2>前後串連 <span class="tag">CONNECT</span></h2><div id="connect"></div></section>
+  <section class="block"><h2>觀念檢核 <span class="tag">CHECK</span></h2><p class="sub">選項順序每次都會打亂。答對八成以上，這一週就會在首頁亮綠燈。</p><div id="quiz"></div></section>
+  <section class="block"><h2>專業英文 <span class="tag">TERMS</span></h2><div id="terms"></div></section>
+  <nav id="pager"></nav>
+</main>
+<footer id="footer"></footer>
+<script src="assets/config.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/bank/w11.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => OL.connect("connect", [
+  ["W10 托靈頓卡", "w10", "同樣的馬篤氏鏡，刻度印在卡上"],
+  ["W05 眼外肌", "w05", "九方位與作用肌：三步驟的基礎"],
+  ["W12 von Graefe", "w12", "三種斜位測量法比較"],
+  ["W16 Bagolini", "w16", "解離程度光譜：馬篤氏鏡是完全解離"],
+]));
+(function () {
+  const { seg, range, drill } = OL;
+  OL.levels("levels", [
+    ["◆", "馬篤氏鏡＋稜鏡中和：基底與偏斜方向相反", "紅線在左＝外斜 → BI"],
+    ["◆", "DLP／NLP／DVP／NVP 紀錄", ""],
+    ["◆", "Parks 三步驟：上斜眼 → 注視方向 → 頭傾方向", ""],
+    ["○", "雙馬篤氏鏡量旋轉；上斜肌麻痺外旋，> 10° 想雙側", ""],
+  ]);
+
+  /* ---------- LAB 11-1 ---------- */
+  const MN = [{ name: "受檢者 1", H: -6, V: 0 }, { name: "受檢者 2", H: 4, V: 0 }, { name: "受檢者 3", H: -2, V: 3 }, { name: "受檢者 4", H: 0, V: -2 }, { name: "受檢者 5", H: -12, V: 0 }];
+  let mn, recs = {};
+  const g = seg("mn-g", drawMn), b = seg("mn-b", drawMn), p = range("mn-p", (v) => v.toFixed(1) + "Δ", drawMn);
+  function resid() {   // 左眼前稜鏡：BI → 左眼影像往外（左）移 → 等效抵消外斜；BU → 影像往下，等效右眼 BD
+    let H = mn.H, V = mn.V; const P = p.value;
+    if (b.value === "BI") H += P; if (b.value === "BO") H -= P; if (b.value === "BU") V -= P; if (b.value === "BD") V += P;
+    return { H, V };
+  }
+  function drawMn() {
+    const r = resid(), W = 520, Hh = 300, cx = W / 2, cy = 150, s = 9;
+    let svgc = `<rect width="${W}" height="${Hh}" rx="12" fill="#0d1214"/>`;
+    if (g.value === "h") svgc += `<line x1="${cx + r.H * s}" y1="20" x2="${cx + r.H * s}" y2="${Hh - 20}" stroke="#ff2a1a" stroke-width="5" opacity=".9"/><circle cx="${cx}" cy="${cy + 0}" r="7" fill="#fffbe0"/>`;
+    else svgc += `<line x1="20" y1="${cy + r.V * s}" x2="${W - 20}" y2="${cy + r.V * s}" stroke="#ff2a1a" stroke-width="5" opacity=".9"/><circle cx="${cx}" cy="${cy}" r="7" fill="#fffbe0"/>`;
+    const svg = document.getElementById("mn-svg"); svg.setAttribute("viewBox", `0 0 ${W} ${Hh}`); svg.innerHTML = svgc;
+    const v = g.value === "h" ? r.H : r.V;
+    document.getElementById("mn-say").textContent = Math.abs(v) < 0.6 ? "紅線剛好穿過光點！" : g.value === "h" ? `紅線在光點${v < 0 ? "左" : "右"}邊。` : `紅線在光點${v > 0 ? "下" : "上"}面。`;
+  }
+  document.getElementById("mn-rec").onclick = () => {
+    const r = resid(), v = g.value === "h" ? r.H : r.V, P = p.value;
+    const okBase = g.value === "h" ? (["BI", "BO"].includes(b.value) || !P) : (["BU", "BD"].includes(b.value) || !P);
+    if (g.value === "h") recs.h = P ? `DLP red MR ${P}Δ ${b.value === "BI" ? "exo" : "eso"}` : "DLP red MR ortho";
+    else recs.v = P ? `DVP red MR ${P}Δ ${b.value === "BU" ? "R hyper" : "L hyper"}` : "DVP red MR ortho";
+    document.getElementById("mn-out").textContent = [recs.h, recs.v].filter(Boolean).join(";  ");
+    const ok = Math.abs(v) < 0.6 && okBase;
+    document.getElementById("mn-v").innerHTML = (ok ? '<span class="pill ok">已中和</span>' : '<span class="pill bad">還沒中和</span>') + ` 實際：水平 ${mn.H ? Math.abs(mn.H) + "Δ " + (mn.H < 0 ? "exo" : "eso") : "ortho"}，垂直 ${mn.V ? Math.abs(mn.V) + "Δ " + (mn.V > 0 ? "R hyper" : "L hyper") : "ortho"}。`;
+  };
+  function newMn() { mn = MN[Math.floor(Math.random() * MN.length)]; recs = {}; p.value = 0; document.getElementById("mn-pt").textContent = mn.name; document.getElementById("mn-out").textContent = ""; document.getElementById("mn-v").innerHTML = ""; drawMn(); }
+  document.getElementById("mn-new").onclick = newMn; newMn();
+
+  /* ---------- LAB 11-2 ---------- */
+  const DM = [{ name: "受檢者 1", t: 0 }, { name: "受檢者 2（外傷後）", t: 6 }, { name: "受檢者 3（外傷後）", t: 14 }, { name: "受檢者 4", t: 3 }];
+  let dm;
+  const dr = range("dm-r", (v) => (v > 0 ? "+" : "") + v + "°", drawDm);
+  function drawDm() {
+    const tilt = dm.t - dr.value, W = 520, H = 260, cx = W / 2;
+    const ln = (y, a, col) => { const L = 200, r = a * Math.PI / 180; return `<line x1="${cx - L * Math.cos(r)}" y1="${y + L * Math.sin(r)}" x2="${cx + L * Math.cos(r)}" y2="${y - L * Math.sin(r)}" stroke="${col}" stroke-width="5" stroke-linecap="round"/>`; };
+    const svg = document.getElementById("dm-svg"); svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    svg.innerHTML = `<rect width="${W}" height="${H}" rx="12" fill="#0d1214"/>${ln(100, tilt, "#ff2a1a")}${ln(170, 0, "#f2f2ea")}<text x="16" y="96" font-size="12" fill="#ff8a80">右眼（紅）</text><text x="16" y="166" font-size="12" fill="#ddd">左眼（白）</text>`;
+    document.getElementById("dm-say").textContent = Math.abs(tilt) < 1 ? "兩條線平行了。" : "紅線是斜的，跟白線不平行。";
+  }
+  function newDm() { dm = DM[Math.floor(Math.random() * DM.length)]; dr.value = 0; document.getElementById("dm-pt").textContent = dm.name; document.getElementById("dm-v").innerHTML = ""; drawDm(); }
+  document.getElementById("dm-chk").onclick = () => { const ok = Math.abs(dm.t - dr.value) < 1;
+    document.getElementById("dm-v").innerHTML = (ok ? '<span class="pill ok">正確</span> ' : '<span class="pill bad">還不平行</span> ') + (dm.t ? `右眼外旋 ${dm.t}°（DMR: ${dm.t}° excyclo OD）。${dm.t > 10 ? "超過 10°：要想到雙側上斜肌麻痺。" : "符合單側上斜肌麻痺常見的外旋量。"}` : "沒有旋轉性偏斜。"); };
+  document.getElementById("dm-new").onclick = newDm; newDm();
+
+  /* ---------- LAB 11-3 Parks ---------- */
+  const MS = ["RSR", "RIR", "RSO", "RIO", "LSR", "LIR", "LSO", "LIO"];
+  const ZH = { RSR: "右上直肌", RIR: "右下直肌", RSO: "右上斜肌", RIO: "右下斜肌", LSR: "左上直肌", LIR: "左下直肌", LSO: "左上斜肌", LIO: "左下斜肌" };
+  const S1 = { R: ["RIR", "RSO", "LSR", "LIO"], L: ["LIR", "LSO", "RSR", "RIO"] };
+  const S2 = { R: ["RSR", "RIR", "LIO", "LSO"], L: ["RIO", "RSO", "LSR", "LIR"] };
+  const S3 = { R: ["RSO", "RSR", "LIO", "LIR"], L: ["RIO", "RIR", "LSO", "LSR"] };
+  const pm = seg("pk-m", startPk), p1 = seg("pk-1", pk), p2 = seg("pk-2", pk), p3 = seg("pk-3", pk);
+  let pq = null;
+  function solve(a, b, c) { let s = MS.slice(); if (a !== "-") s = s.filter((m) => S1[a].includes(m)); if (b !== "-") s = s.filter((m) => S2[b].includes(m)); if (c !== "-") s = s.filter((m) => S3[c].includes(m)); return s; }
+  function pk() {
+    const s = solve(p1.value, p2.value, p3.value);
+    document.getElementById("pk-g").innerHTML = MS.map((m) => `<div class="${s.includes(m) ? (s.length === 1 ? "win" : "") : "off"}">${m}<br><small>${ZH[m]}</small></div>`).join("");
+    const v = document.getElementById("pk-v");
+    if (pm.value === "ex") v.innerHTML = s.length === 1 ? `→ <b>${ZH[s[0]]}</b>${s[0].endsWith("SO") ? "（第四對神經，最常見）" : ""}` : `還剩 ${s.length} 條。`;
+    else if (s.length === 1) { const ok = s[0] === pq.ans; v.innerHTML = (ok ? '<span class="pill ok">正確</span> ' : '<span class="pill bad">再看病例</span> ') + `答案：${ZH[pq.ans]}。 <button class="linkish" id="pk-nx" type="button">下一個病例</button>`; document.getElementById("pk-nx").onclick = startPk; }
+    else v.textContent = "依病例描述完成三個步驟。";
+  }
+  function startPk() {
+    [p1, p2, p3].forEach((x) => x.set("-", true));
+    const box = document.getElementById("pk-case");
+    if (pm.value === "ex") { box.hidden = true; pk(); return; }
+    const a = Math.random() < 0.5 ? "R" : "L", b = Math.random() < 0.5 ? "R" : "L", c = Math.random() < 0.5 ? "R" : "L";
+    pq = { ans: solve(a, b, c)[0] };
+    const big = 6 + Math.floor(Math.random() * 5);
+    box.hidden = false;
+    box.innerHTML = `<small>病例</small>正前方 ${a === "R" ? "右" : "左"}眼上斜 ${big - 3}Δ；往右看 ${b === "R" ? big : big - 5}Δ、往左看 ${b === "L" ? big : big - 5}Δ；頭往右傾 ${c === "R" ? big + 2 : big - 5}Δ、往左傾 ${c === "L" ? big + 2 : big - 5}Δ。`;
+    pk();
+  }
+  startPk();
+
+  /* ---------- LAB 11-4 ---------- */
+  drill("d-mr", ["Ortho", "ET／EP，BO 中和", "XT／XP，BI 中和", "R hyper，OD BD", "L hyper，OS BD", "旋轉性偏斜"], [
+    { q: "垂直紅線與光點重疊", a: 0, why: "正位。" },
+    { q: "垂直紅線在光點右側", a: 1, why: "非交叉 → 內斜。" },
+    { q: "垂直紅線在光點左側", a: 2, why: "交叉 → 外斜。" },
+    { q: "水平紅線在光點下方", a: 3, why: "右眼上斜，右眼前 BD。" },
+    { q: "水平紅線在光點上方", a: 4, why: "左眼上斜（＝右眼下斜），左眼前 BD。" },
+    { q: "雙馬篤氏鏡兩線不平行", a: 5, why: "旋轉鏡片直到平行，量旋轉角度。" },
+  ], { unit: "受檢者看到" });
+})();
+</script>
+</body>
+</html>

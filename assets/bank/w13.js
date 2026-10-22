@@ -1,0 +1,26 @@
+OL.bank("w13", {
+  quiz: [
+    { q: "BO 稜鏡測的是：", opts: ["負融像聚散 NFV", "正融像聚散 PFV", "調節幅度", "垂直聚散"], a: 1, exp: "BO 迫使眼睛內聚。" },
+    { q: "模糊點代表：", opts: ["融像崩潰", "融像聚散用完，開始借用調節性聚散", "重新融合", "調節幅度到底"], a: 1, exp: "調節改變，字變糊但仍一個。" },
+    { q: "遠距 BI 沒有模糊點的原因是：", opts: ["測量錯誤", "看遠時調節已放鬆，沒有調節可借", "受檢者抑制", "稜鏡太小"], a: 1, exp: "直接破裂，記 X。" },
+    { q: "聚散範圍的建議順序是：", opts: ["先 BO 後 BI", "先 BI 後 BO", "同時", "隨意"], a: 1, exp: "BO 會污染後續 BI。" },
+    { q: "Morgan 近距 BO 期望值為：", opts: ["13/21/13", "17/21/11", "9/19/10", "X/7/4"], a: 1, exp: "近距 BI 為 13/21/13。" },
+    { q: "近距 BO 破裂只有 10Δ，代表：", opts: ["符合", "低於期望值一半，明顯不足", "高於期望值", "無法判讀"], a: 1, exp: "期望 21，一半是 10.5。" },
+    { q: "NLP 8Δ XP、近距 BO 模糊 12Δ，依 Sheard 需要：", opts: ["不需要", "約 1.3Δ BI", "約 4Δ BO", "約 8Δ BI"], a: 1, exp: "(16 − 12) ÷ 3 ≈ 1.3Δ BI。" },
+    { q: "內斜位的儲備應看：", opts: ["BO 模糊點", "BI 模糊點", "NPC", "NRA"], a: 1, exp: "要靠開散把眼睛拉回來。" },
+    { q: "垂直聚散的期望值約為：", opts: ["3–4 / 2", "13 / 21 / 13", "9 / 19 / 10", "15 cpm"], a: 0, exp: "遠小於水平，所以 2Δ 垂直斜位就有症狀。" },
+    { q: "聚散靈活度卡在 BO 側，代表：", opts: ["NFV 不足", "PFV 不足", "調節不足", "正常"], a: 1, exp: "常見於聚合不足。" },
+  ],
+  terms: [
+    ["vergence range", "聚散範圍", ""],
+    ["positive fusional vergence (PFV)", "正融像聚散", "BO"],
+    ["negative fusional vergence (NFV)", "負融像聚散", "BI"],
+    ["blur / break / recovery", "模糊／破裂／回復", ""],
+    ["fusional reserve", "融像儲備", ""],
+    ["Sheard's criterion", "Sheard 準則", "儲備 ≥ 2 倍需求"],
+    ["supravergence / infravergence", "上轉／下轉聚散", ""],
+    ["vergence facility", "聚散靈活度", "3BI/12BO，15 cpm"],
+    ["cycles per minute (cpm)", "每分鐘循環數", ""],
+    ["vergence adaptation", "聚散適應", ""],
+  ],
+});

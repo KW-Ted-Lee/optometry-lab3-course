@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<script src="assets/analytics.js"></script>
+<title>W14 ZCSBV 繪製｜視光學實驗（三）・無邊界教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .zin { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 10px; font-size: 13px; }
+  .zin label { display: grid; gap: 2px; color: var(--muted); }
+  .zin input { font: inherit; font-family: var(--font-mono); font-size: 13px; padding: 4px 8px; border-radius: 7px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); width: 100%; min-width: 0; }
+  .zin .full { grid-column: 1 / -1; }
+</style>
+</head>
+<body data-chapter="w14">
+<header id="topbar"></header>
+<main class="wrap">
+  <div class="chapter-head">
+    <div class="eyebrow">Week 14</div>
+    <h1>ZCSBV 繪製</h1>
+    <div class="en">Zone of Clear Single Binocular Vision</div>
+    <p class="lede">這一週，整學期量過的數字第一次合成一張圖。橫軸是<b>聚散</b>、縱軸是<b>調節</b>，所有「看得清楚、又只看到一個」的組合圍成一塊區域——這是這雙眼睛的<b>活動範圍地圖</b>。斜位是他站的位置，區域是他能走到的地方；站在中間就舒服，貼著邊界，一點干擾就出界。</p>
+  </div>
+
+  <section class="block">
+    <h2>學習目標 <span class="tag">GOALS</span></h2>
+    <ul class="goals">
+      <li>說明 ZCSBV 的座標意義，以及四個邊界各由哪一項檢查決定。</li>
+      <li>完成 NRA／PRA 與 AC/A（計算式、梯度式），補齊繪圖所需的七組數據。</li>
+      <li>依步驟畫出需求線、斜位線與區域邊界，並描述需求點在區域中的位置。</li>
+    </ul>
+  </section>
+
+  <section class="block"><h2>本週記號 <span class="tag">★ ◆ ○</span></h2><div id="levels"></div></section>
+
+  <section class="block">
+    <h2>學理背景 <span class="tag">THEORY</span></h2>
+    <div class="theory">
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Axes</span><h3>座標：聚散 × 調節</h3>
+        <p>橫軸是<b>聚散刺激</b>（Δ），向右為內聚；縱軸是<b>調節刺激</b>（D），向上為調節增加。看 40 cm 的視標時，調節刺激 2.50 D、聚散刺激 PD（cm）× 2.5 Δ。</p>
+        <p>在眼前加稜鏡只改變橫座標；加球面鏡只改變縱座標——所以聚散範圍是在同一條水平線上往左右走，NRA／PRA 是在同一條垂直線上往上下走。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Demand line vs phoria line</span><h3>兩條線，不要搞混</h3>
+        <p><b>需求線</b>（Donders line，紅）：一位正視、不戴稜鏡的人，看不同距離時需要的調節與聚散——從原點出發，斜率由 PD 決定。這是「<b>他必須站的位置</b>」。</p>
+        <p><b>斜位線</b>（紫虛線）：連接遠距與近距斜位點，是融像被打破時眼睛「<b>想站的位置</b>」；它每上升 1 D 往右移的量就是 <b>AC/A</b>。</p>
+        <p class="why">講義把這條線也稱作需求線；本平台把兩條線分開畫：需求點與斜位點之間的水平距離，就是融像聚散必須補的量（斜位）。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Four boundaries</span><h3>四個邊界，四組檢查</h3>
+        <ul><li><b>右界</b>：遠近 BO 模糊點（PFV）——內聚極限</li><li><b>左界</b>：遠近 BI 模糊點（NFV）——開散極限（遠距沒有模糊點用破裂點）</li><li><b>上界</b>：調節幅度——調節極限</li><li><b>下界</b>：調節放鬆的極限（遠距 0 D）</li></ul>
+        <p>聚散範圍是<b>相對於需求點</b>量的：近距 BO 模糊 17Δ，畫在 2.50 D 線上「需求點往右 17Δ」的位置。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">NRA &amp; PRA</span><h3>聚合固定，調節還能動多少</h3>
+        <p>40 cm、雙眼、最佳矯正，聚合需求不變，只改變調節刺激：</p>
+        <ul><li><b>NRA</b>：雙眼加 +0.25 直到持續模糊——調節能<b>放鬆</b>多少。放鬆調節會減少調節性聚合，眼睛要用 <b>PFV</b> 撐住，所以 NRA 也間接反映 PFV。期望 +2.00 ±0.50。</li><li><b>PRA</b>：加 −0.25——調節還能<b>增加</b>多少，同時要用 <b>NFV</b> 抵銷多出來的聚合。期望 −2.37 ±1.00。</li></ul>
+        <p class="why">先做 NRA 再做 PRA：負鏡刺激的調節不容易馬上放鬆。</p></div>
+      <div class="concept"><span class="lvtag lv-s">★ 要會算</span><span class="en-term">AC/A</span><h3>AC/A：兩種算法</h3>
+        <p><b>計算式</b>：<span class="eqline">PD（cm）＋ d（m）×（Hn − Hd）</span>　內斜正、外斜負</p>
+        <p><b>梯度式</b>：<span class="eqline">（加鏡片後斜位 − 原斜位）÷ 鏡片度數</span>　通常 40 cm 加 ±1.00</p>
+        <p>期望 4:1 ±2。計算式包含看近時的<b>近感性聚合</b>，通常比梯度式高；梯度式只改調節、距離不變，較純粹。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Reading the zone</span><h3>畫完之後看什麼</h3>
+        <ul><li>需求點落在區域<b>中央</b> → 理想</li><li>偏向<b>右界</b> → 內聚儲備不足（像聚合不足）</li><li>偏向<b>左界</b> → 開散儲備不足（像聚合過度）</li><li>整體<b>過窄</b> → 融像聚散功能不良；整體<b>過扁</b> → 調節幅度不足</li></ul></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>臨床脈絡 <span class="tag">CLINICAL</span></h2>
+    <div class="clinical">
+      <div class="clin when"><small>WHEN</small><h3>什麼時候畫</h3><ul><li>近距不適但度數正確，想看清楚問題在聚散還是調節</li><li>要決定稜鏡、加入度或視覺訓練之前</li><li>和受檢者溝通：一張圖比一堆數字好懂</li></ul></div>
+      <div class="clin say"><small>SEVEN DATA SETS</small><h3>需要的七組數據</h3><ul><li>遠距斜位 DLP、近距斜位 NLP（W10–W12）</li><li>遠距、近距 BI／BO 範圍（W13）</li><li>調節幅度（W03）</li><li>NRA／PRA、AC/A（本週）</li></ul></div>
+      <div class="clin flag"><small>CHECK</small><h3>畫完三人一組互相檢查</h3><ul><li>座標刻度：X −20 至 +40Δ、Y 0 至 10 D</li><li>聚散範圍有沒有從需求點量起？</li><li>NRA、PRA 是否落在 2.50 D 的垂直線上？</li><li>需求線與斜位線有沒有分開？</li></ul></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>操作流程：NRA／PRA <span class="tag">PROCEDURE</span></h2>
+    <div class="proc">
+      <div><h3>設備</h3><ul><li>綜合驗光儀</li><li>40 cm 近用視標（最佳視力上一行）</li></ul></div>
+      <div><h3>設置</h3><ul><li>雙眼、最佳矯正（含 ADD）</li><li>近用 PD、照明充足</li></ul></div>
+      <div><h3>步驟</h3><ol><li><b>NRA</b>：雙眼同時每次加 +0.25，直到受檢者回報<b>持續</b>模糊</li><li>記錄加上去的總量（例：+2.25）</li><li>歸零，讓受檢者看清楚</li><li><b>PRA</b>：雙眼同時每次加 −0.25，直到持續模糊</li><li>紀錄：<code>NRA: +2.25 / PRA: −1.50</code></li></ol></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>模擬操作實驗 <span class="tag">LAB</span></h2>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 14-1</span><h3>ZCSBV 繪圖台</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="svgstage"><svg id="z-svg" role="img" aria-label="ZCSBV 圖"></svg></div><div class="stage-note" id="z-step"></div></div>
+        <div class="lab-panel">
+          <div class="row-btns"><button class="btn ghost sm" data-p="norm" type="button">Morgan 正常值</button><button class="btn ghost sm" data-p="ci" type="button">聚合不足例</button><button class="btn ghost sm" data-p="ce" type="button">聚合過度例</button></div>
+          <div class="zin" id="z-in"></div>
+          <div class="ctrl"><label for="z-s">繪圖步驟 <output id="z-s-out"></output></label><input type="range" id="z-s" min="1" max="5" step="1" value="5"></div>
+          <div class="readout"><div class="row"><span>AC/A（斜位線斜率）</span><b id="z-aca">—</b></div><div class="row"><span>需求點在近距區間</span><b id="z-pos">—</b></div></div>
+        </div>
+      </div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>把步驟滑桿從 1 拉到 5：① 座標與斜位點 ② 需求線、斜位線 ③ 左右界 ④ NRA／PRA 與上界 ⑤ 破裂線與封閉區域。</li><li>按「聚合不足例」：區域被往左擠，需求點貼近右界；斜位線變陡（AC/A 低）。</li><li>NRA、PRA 兩個十字應該大致落在區域的上下邊上。</li></ul></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 14-2</span><h3>NRA／PRA 模擬</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="vt" id="nr-view" style="height:180px;display:grid;place-items:center;background:#f5f3ec;border-radius:12px;margin:12px"><span id="nr-t" style="font:700 30px/1 sans-serif;color:#111">視光學實驗</span></div><div class="stage-note">受檢者看到的近用視標（40 cm，雙眼）</div></div>
+        <div class="lab-panel">
+          <div class="pt-bar"><span class="lbl">受檢者</span><span class="pill info" id="nr-pt">—</span><button class="btn ghost sm" id="nr-new" type="button">換一位</button></div>
+          <div class="risley"><div class="rd"><small>雙眼加上的球面</small><b id="nr-l">±0.00</b></div><div class="rd"><small>紀錄</small><b id="nr-r" style="font-size:14px">—</b></div></div>
+          <div class="btn-grid"><button class="btn" id="nr-p" type="button">雙眼 +0.25</button><button class="btn" id="nr-m" type="button">雙眼 −0.25</button><button class="btn ghost" id="nr-0" type="button">歸零</button><button class="btn ghost" id="nr-rec" type="button">記錄此值</button></div>
+          <div class="say-bubble" id="nr-say">—</div>
+          <div class="row-btns"><button class="btn" id="nr-chk" type="button">對答案</button></div>
+          <div class="verdict" id="nr-v"></div>
+        </div>
+      </div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>受檢者說「有點糊」但幾秒後又清楚，不算終點；要<b>持續</b>模糊。</li><li>先 NRA 後 PRA；若先做 PRA，受檢者的調節一時放不下來，NRA 會偏低。</li></ul></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 14-3</span><h3>AC/A：計算式與梯度式</h3><span class="lvtag lv-s">★ 要會算</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="sim">
+          <div class="patient" id="ac-case"></div>
+          <div class="btn-grid"><button class="btn ghost" id="ac-0" type="button">不加鏡片量 MT</button><button class="btn ghost" id="ac-m" type="button">雙眼加 −1.00 量 MT</button><button class="btn ghost" id="ac-p" type="button">雙眼加 +1.00 量 MT</button><button class="btn ghost" id="ac-new" type="button">換一位</button></div>
+          <div class="say-bubble" id="ac-say">—</div>
+        </div></div>
+        <div class="lab-panel">
+          <div class="ctrl"><label for="ac-c">你算的計算式 AC/A</label><input class="num" id="ac-c" inputmode="decimal"></div>
+          <div class="ctrl"><label for="ac-g">你算的梯度式 AC/A</label><input class="num" id="ac-g" inputmode="decimal"></div>
+          <div class="row-btns"><button class="btn" id="ac-chk" type="button">檢查</button></div>
+          <div class="verdict" id="ac-v"></div>
+        </div>
+      </div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>托靈頓卡讀到的「紅線在左」是外斜：記成負數。</li><li>計算式通常比梯度式大：看近時多了近感性聚合。</li></ul></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 14-4</span><h3>七組數據對號入座</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="sim"><div id="d-z"></div></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>紀錄方式 <span class="tag">RECORD</span></h2>
+    <div class="rec">NRA: +2.25 / PRA: −1.50           # 40cm, OU, best correction
+AC/A (calculated): 6.4 + 0.4 × (−6 − (−1)) = 4.4
+AC/A (gradient, −1.00 @40cm): 6Δ XP → 2Δ XP  → 4.0
+ZCSBV: 需求點位於近距區間的中間三分之一，區域形狀正常
+# 原始數據表七組齊全，方格紙手繪圖含需求線與斜位線</div>
+  </section>
+
+  <section class="block">
+    <h2>常見錯誤 <span class="tag">MISTAKES</span></h2>
+    <div class="myths">
+      <details class="myth"><summary>聚散範圍直接從 0 畫起。</summary><div class="fix">範圍是相對於需求點量的；近距要從 PD × 2.5 那一點往左右量。</div></details>
+      <details class="myth"><summary>斜位線就是需求線。</summary><div class="fix">需求線由 PD 決定、從原點出發；斜位線連接兩個斜位點，斜率是 AC/A。兩者之間的距離才是融像要補的量。</div></details>
+      <details class="myth"><summary>NRA 點畫在 2.50 + NRA。</summary><div class="fix">加正鏡讓調節刺激<b>減少</b>：NRA 點在 2.50 − NRA；PRA 點在 2.50 + |PRA|。</div></details>
+      <details class="myth"><summary>先做 PRA 再做 NRA 也一樣。</summary><div class="fix">負鏡刺激的調節不易馬上放鬆，會讓接著做的 NRA 偏低。</div></details>
+      <details class="myth"><summary>計算式與梯度式 AC/A 應該一樣。</summary><div class="fix">計算式包含近感性聚合，通常較高。</div></details>
+    </div>
+  </section>
+
+  <section class="block"><h2>前後串連 <span class="tag">CONNECT</span></h2><div id="connect"></div></section>
+  <section class="block"><h2>觀念檢核 <span class="tag">CHECK</span></h2><p class="sub">選項順序每次都會打亂。答對八成以上，這一週就會在首頁亮綠燈。</p><div id="quiz"></div></section>
+  <section class="block"><h2>練習題 <span class="tag">PRACTICE</span></h2><p class="sub">數字每次隨機。標 ★ 的題目沒看詳解連續全對 3 組，就算精熟。</p><div id="practice"></div></section>
+  <section class="block"><h2>專業英文 <span class="tag">TERMS</span></h2><div id="terms"></div></section>
+  <nav id="pager"></nav>
+</main>
+<footer id="footer"></footer>
+<script src="assets/config.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/bino.js"></script>
+<script src="assets/practice.js"></script>
+<script src="assets/problems/calc.js"></script>
+<script src="assets/bank/w14.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => { OBPractice.mount("practice", "w14"); OL.connect("connect", [
+  ["W13 聚散範圍", "w13", "左右界的來源"],
+  ["W03 NPA", "w03", "上界：調節幅度"],
+  ["W15 分析與判讀", "w15", "用這張圖做診斷"],
+  ["W06 Maddox 四成分", "w06", "AC/A 與近感性聚合"],
+]); });
+(function () {
+  const { range, drill } = OL;
+  OL.levels("levels", [
+    ["★", "計算式 AC/A ＝ PD（cm）＋ d（m）×（Hn − Hd）", "內斜正、外斜負"],
+    ["★", "梯度式 AC/A ＝ 斜位變化 ÷ 鏡片度數", ""],
+    ["◆", "四個邊界：BO 模糊、BI 模糊、調節幅度、0 D", ""],
+    ["◆", "需求線（PD 決定）與斜位線（斜率＝AC/A）分開畫", ""],
+    ["◆", "NRA 點 2.50 − NRA、PRA 點 2.50 + |PRA|；先 NRA 後 PRA", "NRA +2.00 ±0.50、PRA −2.37 ±1.00"],
+    ["○", "區域形狀：過窄、過扁、不對稱", ""],
+  ]);
+
+  /* ---------- LAB 14-1 ---------- */
+  const F = [["pd", "PD（cm）", 6.4], ["dlp", "DLP（外負內正）", -1], ["nlp", "NLP（外負內正）", -3], ["amp", "調節幅度（D）", 8], ["biD", "遠距 BI（模糊/破裂/回復）", "X/7/4"], ["boD", "遠距 BO", "9/19/10"], ["biN", "近距 BI", "13/21/13"], ["boN", "近距 BO", "17/21/11"], ["nra", "NRA", 2.0], ["pra", "PRA", -2.37]];
+  const PRE = {
+    norm: { pd: 6.4, dlp: -1, nlp: -3, amp: 8, biD: "X/7/4", boD: "9/19/10", biN: "13/21/13", boN: "17/21/11", nra: 2.0, pra: -2.37 },
+    ci: { pd: 6.4, dlp: -1, nlp: -12, amp: 9, biD: "X/8/5", boD: "6/14/8", biN: "15/22/14", boN: "7/11/4", nra: 1.0, pra: -2.5 },
+    ce: { pd: 6.2, dlp: -1, nlp: 7, amp: 9, biD: "X/6/3", boD: "10/20/11", biN: "5/9/4", boN: "18/24/12", nra: 2.0, pra: -1.0 },
+  };
+  document.getElementById("z-in").innerHTML = F.map(([k, l, v]) => `<label class="${k.length === 3 && k.startsWith("b") ? "" : ""}">${l}<input id="zi-${k}" value="${v}"></label>`).join("");
+  const sr = range("z-s", (v) => ["", "① 座標與斜位點", "② 需求線、斜位線", "③ 左右界（模糊點）", "④ NRA／PRA 與上界", "⑤ 破裂線、封閉區域"][v], zdraw);
+  const tri = (s) => String(s).split("/").map((x) => /x/i.test(x) ? null : +x);
+  function data() { const g = (k) => document.getElementById("zi-" + k).value; return { pd: +g("pd"), dlp: +g("dlp"), nlp: +g("nlp"), amp: +g("amp"), biD: tri(g("biD")), boD: tri(g("boD")), biN: tri(g("biN")), boN: tri(g("boN")), nra: +g("nra"), pra: +g("pra") }; }
+  function zdraw() {
+    const d = data(), st = sr.value, svg = document.getElementById("z-svg");
+    if (st >= 3) BINO.zplot(svg, d, { breaks: st >= 5, nrapra: st >= 4, demand: true, phoria: true, ymax: 10 });
+    else {
+      const r = BINO.zplot(svg, d, { breaks: false, nrapra: false, demand: st >= 2, phoria: st >= 2, ymax: 10 });
+      // 前兩步：遮掉區域
+      svg.querySelectorAll("path[fill='var(--accent)']").forEach((n) => n.remove());
+      svg.querySelectorAll("line[stroke='var(--warn)'], text[fill='var(--warn)']").forEach((n) => n.remove());
+      if (st === 1) { svg.insertAdjacentHTML("beforeend", `<circle cx="${r.X(d.dlp)}" cy="${r.Y(0)}" r="5" fill="var(--surface)" stroke="var(--ray-3)" stroke-width="2.4"/><circle cx="${r.X(r.dN + d.nlp)}" cy="${r.Y(2.5)}" r="5" fill="var(--surface)" stroke="var(--ray-3)" stroke-width="2.4"/><circle cx="${r.X(r.dN)}" cy="${r.Y(2.5)}" r="4" fill="var(--ray)"/>`); }
+    }
+    const aca = BINO.calcACA(d.pd, d.dlp, d.nlp);
+    document.getElementById("z-aca").textContent = aca.toFixed(1) + " Δ/D";
+    const L = d.pd * 2.5 - (d.biN[0] != null ? d.biN[0] : d.biN[1]), R = d.pd * 2.5 + (d.boN[0] != null ? d.boN[0] : d.boN[1]), x = d.pd * 2.5, f = (x - L) / (R - L);
+    document.getElementById("z-pos").textContent = f < 1 / 3 ? "偏左（靠 BI 界）" : f > 2 / 3 ? "偏右（靠 BO 界）" : "中間三分之一";
+    document.getElementById("z-step").textContent = "紅：需求線；紫虛線：斜位線；藍：區域邊界（模糊點）；虛線：破裂點；綠十字：NRA／PRA";
+  }
+  document.querySelectorAll("#z-in input").forEach((i) => i.addEventListener("input", zdraw));
+  document.querySelectorAll("[data-p]").forEach((b) => b.onclick = () => { const p = PRE[b.dataset.p]; Object.keys(p).forEach((k) => document.getElementById("zi-" + k).value = p[k]); zdraw(); });
+  zdraw();
+
+  /* ---------- LAB 14-2 NRA/PRA ---------- */
+  let nc, lens = 0, did = { pra: false }, recs = {};
+  function nraOf() { return nc.nra - (did.pra ? 0.5 : 0); }
+  function nrView() {
+    const over = lens > 0 ? lens - nraOf() : lens < 0 ? Math.abs(lens) - Math.abs(nc.pra) : -1;
+    const blur = over > 0 ? Math.min(6, 1.5 + over * 3) : over > -0.25 ? 0.8 : 0;
+    document.getElementById("nr-t").style.filter = `blur(${blur}px)`;
+    document.getElementById("nr-l").textContent = (lens > 0 ? "+" : lens < 0 ? "−" : "±") + Math.abs(lens).toFixed(2);
+    document.getElementById("nr-say").textContent = over > 0 ? "糊了，一直是糊的。" : over > -0.25 ? "有點糊……（幾秒後）又清楚了。" : "清楚。";
+  }
+  document.getElementById("nr-p").onclick = () => { lens = Math.round((lens + 0.25) * 4) / 4; nrView(); };
+  document.getElementById("nr-m").onclick = () => { lens = Math.round((lens - 0.25) * 4) / 4; if (lens < 0) did.pra = true; nrView(); };
+  document.getElementById("nr-0").onclick = () => { lens = 0; nrView(); };
+  document.getElementById("nr-rec").onclick = () => { if (lens > 0) recs.nra = lens; if (lens < 0) recs.pra = lens; document.getElementById("nr-r").textContent = `NRA ${recs.nra != null ? "+" + recs.nra.toFixed(2) : "?"} / PRA ${recs.pra != null ? "−" + Math.abs(recs.pra).toFixed(2) : "?"}`; };
+  document.getElementById("nr-chk").onclick = () => {
+    const tn = Math.floor(nraOf() * 4) / 4 + 0.25, tp = -(Math.floor(Math.abs(nc.pra) * 4) / 4 + 0.25);
+    const ok = recs.nra != null && recs.pra != null && Math.abs(recs.nra - tn) <= 0.25 && Math.abs(recs.pra - tp) <= 0.25;
+    document.getElementById("nr-v").innerHTML = (ok ? '<span class="pill ok">正確</span> ' : '<span class="pill bad">再檢查</span> ') + `持續模糊的終點約 NRA +${tn.toFixed(2)}、PRA ${tp.toFixed(2)}（期望 +2.00 ±0.50、−2.37 ±1.00）。` + (tn < 1.5 ? " NRA 低：放鬆調節後 PFV 撐不住，或有調節過度。" : "") + (Math.abs(tp) < 1.37 ? " PRA 低：調節不足或 NFV 不足。" : "") + (did.pra && recs.nra != null ? " 提醒：先做 PRA 會讓 NRA 偏低。" : "");
+  };
+  function newNr() { const ids = ["nl", "ci", "ce", "ai", "ae"]; nc = BINO.genCase(ids[Math.floor(Math.random() * ids.length)]); lens = 0; did = { pra: false }; recs = {}; document.getElementById("nr-pt").textContent = nc.age + " 歲"; document.getElementById("nr-r").textContent = "—"; document.getElementById("nr-v").innerHTML = ""; nrView(); }
+  document.getElementById("nr-new").onclick = newNr; newNr();
+
+  /* ---------- LAB 14-3 AC/A ---------- */
+  let ac;
+  const phs = (v) => Math.abs(v) < 0.5 ? "紅線剛好穿過光點（Ortho）" : `紅線在光點${v < 0 ? "左" : "右"}邊 ${Math.abs(v)}`;
+  function newAc() { ac = { pd: [58, 60, 62, 64, 66][Math.floor(Math.random() * 5)], hd: -Math.floor(Math.random() * 3), aca: [2, 3, 4, 5, 6, 7][Math.floor(Math.random() * 6)], prox: 1 + Math.floor(Math.random() * 2) };
+    ac.hn = Math.round(ac.hd + (ac.aca + ac.prox) * 2.5 - ac.pd / 10 * 2.5);
+    document.getElementById("ac-case").innerHTML = `<small>受檢者</small>PD ${ac.pd} mm；遠距 MT：${phs(ac.hd)}。`; document.getElementById("ac-say").textContent = "—"; document.getElementById("ac-v").innerHTML = ""; }
+  document.getElementById("ac-0").onclick = () => document.getElementById("ac-say").textContent = "（40 cm，無加鏡片）" + phs(ac.hn) + "。";
+  document.getElementById("ac-m").onclick = () => document.getElementById("ac-say").textContent = "（40 cm，雙眼 −1.00）" + phs(ac.hn + ac.aca) + "。";
+  document.getElementById("ac-p").onclick = () => document.getElementById("ac-say").textContent = "（40 cm，雙眼 +1.00）" + phs(ac.hn - ac.aca) + "。";
+  document.getElementById("ac-chk").onclick = () => {
+    const c = OBPractice.parseNum(document.getElementById("ac-c").value), g = OBPractice.parseNum(document.getElementById("ac-g").value);
+    const cc = BINO.calcACA(ac.pd / 10, ac.hd, ac.hn);
+    document.getElementById("ac-v").innerHTML = `計算式：${(ac.pd / 10).toFixed(1)} + 0.4 × (${ac.hn} − (${ac.hd})) ＝ <b>${cc.toFixed(1)}</b> ${Math.abs(c - cc) < 0.15 ? '<span class="pill ok">對</span>' : isFinite(c) ? '<span class="pill bad">再算</span>' : ""}<br>梯度式：斜位每 1.00 D 變化 <b>${ac.aca}</b> ${Math.abs(g - ac.aca) < 0.15 ? '<span class="pill ok">對</span>' : isFinite(g) ? '<span class="pill bad">再算</span>' : ""}<br>差異 ${(cc - ac.aca).toFixed(1)}：來自近感性聚合。`;
+  };
+  document.getElementById("ac-new").onclick = newAc; newAc();
+
+  /* ---------- LAB 14-4 ---------- */
+  drill("d-z", ["右界", "左界", "上界", "下界（0 D 線）", "斜位線上的點", "2.50 D 垂直線上的點"], [
+    { q: "近距 BO 模糊點", a: 0, why: "內聚極限。" },
+    { q: "遠距 BI 破裂點（遠距沒有模糊點）", a: 1, why: "開散極限；沒有模糊點時用破裂點。" },
+    { q: "調節幅度", a: 2, why: "調節極限，畫一條水平線。" },
+    { q: "遠距 BO 模糊點", a: 0, why: "右界在 0 D 線上的那一點。" },
+    { q: "近距斜位", a: 4, why: "畫在 2.50 D 線上、需求點加上斜位量的位置。" },
+    { q: "NRA", a: 5, why: "聚合不變，調節刺激減少：(PD × 2.5, 2.50 − NRA)。" },
+    { q: "PRA", a: 5, why: "(PD × 2.5, 2.50 + |PRA|)。" },
+    { q: "看遠時調節放鬆的極限", a: 3, why: "下界。" },
+  ], { unit: "數據" });
+})();
+</script>
+</body>
+</html>

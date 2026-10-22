@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<script src="assets/analytics.js"></script>
+<title>模擬病人門診｜視光學實驗（三）・無邊界教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .clinic { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 14px; align-items: start; }
+  @media (max-width: 900px) { .clinic { grid-template-columns: 1fr; } }
+  .tgroup { display: grid; gap: 6px; margin-bottom: 12px; }
+  .tgroup h3 { font-size: 13px; font-family: var(--font-body); color: var(--muted); letter-spacing: .06em; }
+  .tgroup .chips .chip[disabled] { opacity: .45; }
+  .log { display: grid; gap: 6px; max-height: 560px; overflow-y: auto; }
+  .log .it { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 8px; padding: 8px 12px; font-size: 14px; }
+  .log .it small { display: block; font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+  .log .it code { font-size: 13px; }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 10px; }
+</style>
+</head>
+<body data-chapter="clinic">
+<header id="topbar"></header>
+<main class="wrap">
+  <div class="chapter-head">
+    <div class="eyebrow">Virtual Clinic</div>
+    <h1>模擬病人門診</h1>
+    <div class="en">From chief complaint to management</div>
+    <p class="lede">一位受檢者坐下來，只告訴你他的主訴。你決定要做哪些檢查、照什麼順序做；每做一項就會得到結果。資料夠了，就下診斷、選處置、判斷要不要轉介。結束後會檢討：<b>有沒有漏掉關鍵檢查、順序對不對、結論是否成立</b>。這就是期末情境式評量要你做的事。</p>
+  </div>
+
+  <section class="block">
+    <div class="pt-bar" style="margin-bottom:12px"><button class="btn" id="go" type="button">叫下一位受檢者</button><span class="score-line" id="sc"></span></div>
+    <div class="patient" id="cc">按「叫下一位受檢者」開始。</div>
+    <div class="clinic" style="margin-top:14px">
+      <div>
+        <div class="panel" id="tests"></div>
+        <div class="panel" style="margin-top:12px">
+          <div class="ctrl"><label for="dx">診斷</label><select class="select" id="dx"></select></div>
+          <div class="ctrl"><label for="mg">主要處置方向</label><select class="select" id="mg"><option value="">— 選擇 —</option><option value="none">不需雙眼視處置</option><option value="vt">視覺訓練</option><option value="add">近用加入度</option><option value="prism">稜鏡</option><option value="refer">轉介</option></select></div>
+          <div class="row-btns"><button class="btn" id="end" type="button">結束檢查，送出判斷</button></div>
+        </div>
+      </div>
+      <div>
+        <div class="log" id="log"></div>
+        <div class="reveal" id="fb" hidden style="margin-top:12px"></div>
+        <div class="svgstage" id="zw" hidden style="background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-top:12px"><svg id="z" role="img" aria-label="本個案的 ZCSBV"></svg></div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="footer"></footer>
+<script src="assets/config.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/bino.js"></script>
+<script>
+(function () {
+  const B = BINO, { shuffle, esc } = OL;
+  /* 紅旗個案（以正常雙眼視數據為底，再覆寫特定檢查） */
+  const RF = {
+    rf_amd: { zh: "黃斑部病變疑似（轉介）", cc: "最近兩週，右眼看門框、磁磚縫都是彎的。", over: { va: "VA cc: OD 0.6（PH 0.6）／ OS 1.0", amsler: "Amsler @30cm cc: OD metamorphopsia, central-superior；OS unremarkable", color: "Colour Vision: OD 錯 3 題、OS Pass（38 plates）" } },
+    rf_cn4: { zh: "疑似右上斜肌麻痺（轉介）", cc: "上週騎車摔倒撞到頭，之後看書時字會上下重疊，頭歪向左邊比較好。", over: { ct: "CT cc: Ortho 水平；6Δ R hyper @D、8Δ R hyper @N（新發生）", eom: "EOM: OD 往左下注視時下轉不足，上下複視最明顯；no pain", mr: "DVP red MR 6Δ R hyper；往左看 10Δ、往右看 2Δ；頭右傾 12Δ、左傾 2Δ；DMR 6° excyclo OD", w4d: "W4D: diplopia, R hyper @D @N" } },
+    rf_cn6: { zh: "疑似右外直肌麻痺（轉介）", cc: "三天前突然看東西變兩個，往右邊看的時候特別嚴重。有糖尿病。", over: { ct: "CT cc: 14Δ RET @D、8Δ RET @N（新發生）", eom: "EOM: OD 往右注視外轉受限，水平複視；no pain", w4d: "W4D: diplopia, uncrossed（紅在右）@D", hb: "Hirschberg: OD reflex temporal ≈ 0.5 mm" } },
+  };
+  const MUST = { nl: ["ct", "nlp", "biN", "boN"], ci: ["npc", "ct", "nlp", "boN", "nra"], ce: ["ct", "nlp", "biN", "pra", "aca"], di: ["ct", "dlp", "biD"], de: ["ct", "dlp", "boD", "aca"], bx: ["dlp", "nlp", "boD", "boN"], be: ["dlp", "nlp", "biD", "biN"], fvd: ["biN", "boN", "vf"], ai: ["npa", "pra", "flip"], ae: ["npa", "nra", "flip"], if: ["npa", "flip"], rf_amd: ["va", "amsler"], rf_cn4: ["ct", "eom", "mr"], rf_cn6: ["ct", "eom"] };
+  const MG = { nl: ["none"], ci: ["vt", "prism"], ce: ["add"], di: ["prism"], de: ["vt"], bx: ["vt", "prism"], be: ["prism", "vt"], fvd: ["vt"], ai: ["add", "vt"], ae: ["vt"], if: ["vt"], rf_amd: ["refer"], rf_cn4: ["refer"], rf_cn6: ["refer"] };
+  const TESTS = [
+    ["基準與篩檢（非解離）", [["va", "視力"], ["pupil", "瞳孔"], ["amsler", "Amsler"], ["color", "色覺"], ["cvf", "對立視野"], ["eom", "EOM"], ["hb", "Hirschberg"], ["stereo", "立體視"], ["w4d", "Worth 4 Dot"], ["bag", "Bagolini"]]],
+    ["眼位（解離）", [["ct", "遮蓋測試"], ["dlp", "遠距斜位（vG）"], ["nlp", "近距斜位（MT）"], ["mr", "馬篤氏鏡＋雙 MR"], ["aca", "梯度 AC/A"]]],
+    ["儲備與調節", [["npc", "NPC"], ["npa", "NPA／調節幅度"], ["biD", "遠距 BI"], ["boD", "遠距 BO"], ["biN", "近距 BI"], ["boN", "近距 BO"], ["nra", "NRA"], ["pra", "PRA"], ["vf", "聚散靈活度"], ["flip", "翻轉鏡（單／雙眼）"]]],
+  ];
+  const NAME = Object.fromEntries(TESTS.flatMap((g) => g[1]));
+  const NONDIS = ["va", "pupil", "amsler", "color", "cvf", "eom", "hb", "stereo", "w4d", "bag"], DIS = ["ct", "dlp", "nlp", "mr", "aca", "biD", "boD", "biN", "boN", "nra", "pra"];
+  let c, rf = null, done = [], n = 0, right = 0, ended = false;
+  document.getElementById("tests").innerHTML = TESTS.map(([g, list]) => `<div class="tgroup"><h3>${g}</h3><div class="chips">${list.map(([k, t]) => `<button type="button" class="chip" data-k="${k}">${t}</button>`).join("")}</div></div>`).join("");
+  document.getElementById("dx").innerHTML = '<option value="">— 選擇 —</option>' + B.DX.map((d) => `<option value="${d.id}">${d.zh}</option>`).join("") + Object.entries(RF).map(([k, r]) => `<option value="${k}">${r.zh}</option>`).join("");
+  function result(k) {
+    if (rf && RF[rf].over[k]) return RF[rf].over[k];
+    const p = (v) => B.ph(v);
+    const ctD = c.dx === "de" ? `${Math.abs(c.dlp)}Δ X(T) intermittent @D` : `${p(c.dlp)} @D`;
+    return {
+      va: "VA cc: OD 1.0 / OS 1.0 / OU 1.0；@N 1.0", pupil: "Pupil: PERRL, no RAPD", amsler: "Amsler @30cm cc: Unremarkable OU", color: "Colour Vision: Pass（38 plates, 0 error）OD/OS", cvf: "CVF: full to finger counting OD/OS", eom: "EOM: SAFE, no pain, no diplopia OU", hb: "Hirschberg: ortho, reflexes symmetric",
+      stereo: `Stereo @N cc ${c.dx === "fvd" || c.dx === "bx" ? "60" : "40"} sec, Wirt rings`, w4d: "W4D fusion @D; fusion @40cm", bag: "Bagolini @D @N: complete X, no gap",
+      ct: `CT cc（accommodative target）: ${ctD}；${p(c.nlp)} @N`, dlp: `DLP（von Graefe）cc: ${p(c.dlp, "word")}；DVP ortho`, nlp: `MT @N cc: ${p(c.nlp)}, vertical ortho`, mr: "DLP／DVP red MR 與 vG 一致；DMR 兩線平行",
+      aca: `梯度 AC/A（40 cm，−1.00）：${c.aca}:1`, npc: `NPC cc Accomm. ${c.npc[0]}cm/${c.npc[1]}cm${c.npc[0] > 5 ? "；RG 更遠" : ""}`, npa: `NPA（PU）OD ${(100 / c.amp).toFixed(1)}cm → Amp ${c.amp.toFixed(2)}D（Hofstetter 最小值 ${B.hofMin(c.age).toFixed(2)}D）`,
+      biD: `@D BI ${B.trip(c.biD)}`, boD: `@D BO ${B.trip(c.boD)}`, biN: `@N BI ${B.trip(c.biN)}`, boN: `@N BO ${B.trip(c.boN)}`, nra: `NRA ${B.sgnD(c.nra)}`, pra: `PRA ${B.sgnD(c.pra)}`, vf: `聚散靈活度 ${c.vf} cpm（3BI/12BO）`, flip: `雙眼翻轉鏡：${c.baf}；單眼：${c.maf}`,
+    }[k];
+  }
+  function next() {
+    const pool = B.DX.map((d) => d.id).concat(["rf_amd", "rf_cn4", "rf_cn6"]);
+    const id = pool[Math.floor(Math.random() * pool.length)];
+    rf = id.startsWith("rf_") ? id : null; c = B.genCase(rf ? "nl" : id); c.dx = id; if (rf === "rf_amd") c.age = 66;
+    done = []; ended = false;
+    document.getElementById("cc").innerHTML = `<small>${c.age} 歲・PD ${(c.pd * 10).toFixed(0)} mm・戴著目前的眼鏡</small>「${rf ? RF[rf].cc : c.cc}」`;
+    document.getElementById("log").innerHTML = ""; document.getElementById("fb").hidden = true; document.getElementById("zw").hidden = true;
+    document.getElementById("dx").value = ""; document.getElementById("mg").value = "";
+    document.querySelectorAll("#tests .chip").forEach((b) => { b.disabled = false; b.classList.remove("ok", "bad"); });
+  }
+  document.querySelectorAll("#tests .chip").forEach((b) => b.onclick = () => {
+    if (!c || ended) return; const k = b.dataset.k; if (done.includes(k)) return; done.push(k); b.disabled = true;
+    document.getElementById("log").insertAdjacentHTML("beforeend", `<div class="it"><small>${done.length}. ${esc(NAME[k])}</small><code>${esc(result(k))}</code></div>`);
+    const lg = document.getElementById("log"); lg.scrollTop = lg.scrollHeight;
+  });
+  document.getElementById("end").onclick = () => {
+    if (!c || ended) return; const dx = document.getElementById("dx").value, mg = document.getElementById("mg").value; if (!dx || !mg) { document.getElementById("fb").hidden = false; document.getElementById("fb").innerHTML = "請先選擇診斷與處置方向。"; return; }
+    ended = true; n++;
+    const okDx = dx === c.dx, okMg = MG[c.dx].includes(mg), miss = MUST[c.dx].filter((k) => !done.includes(k));
+    if (okDx && okMg) right++;
+    const idx = (k) => done.indexOf(k), notes = [];
+    if (idx("boN") > -1 && idx("biN") > -1 && idx("boN") < idx("biN")) notes.push("近距 BO 做在 BI 之前：BO 會污染 BI。");
+    if (idx("boD") > -1 && idx("biD") > -1 && idx("boD") < idx("biD")) notes.push("遠距 BO 做在 BI 之前。");
+    if (idx("pra") > -1 && idx("nra") > -1 && idx("pra") < idx("nra")) notes.push("PRA 做在 NRA 之前：負鏡刺激的調節不易馬上放鬆。");
+    const firstDis = Math.min(...DIS.map(idx).filter((x) => x > -1)), lateND = ["w4d", "bag", "stereo"].filter((k) => idx(k) > firstDis);
+    if (isFinite(firstDis) && lateND.length) notes.push(`${lateND.map((k) => NAME[k]).join("、")} 排在解離檢查之後：非解離的檢查應該放前面。`);
+    const zh = rf ? RF[rf].zh : B.DX.find((d) => d.id === c.dx).zh;
+    const fb = document.getElementById("fb"); fb.hidden = false;
+    fb.innerHTML = `${okDx ? '<span class="pill ok">診斷正確</span>' : '<span class="pill bad">診斷不同</span>'} ${okMg ? '<span class="pill ok">處置合理</span>' : '<span class="pill bad">處置再想想</span>'}<br><b>答案：${zh}</b>。${rf ? "新發生的症狀，不屬於驗光師處置範圍：說明「這裡有異常，建議盡快到眼科」，協助轉介。" : B.KEY[c.dx] + "<br><b>處置方向：</b>" + B.MGMT[c.dx]}`
+      + (miss.length ? `<br><b>漏掉的關鍵檢查：</b>${miss.map((k) => NAME[k]).join("、")}` : "<br>關鍵檢查都做到了。")
+      + (notes.length ? `<br><b>順序：</b>${notes.join(" ")}` : "")
+      + `<br><small style="color:var(--muted)">共做了 ${done.length} 項檢查。重點不是越多越好，而是每一項都說得出理由。</small>`;
+    if (!rf) { document.getElementById("zw").hidden = false; B.zplot(document.getElementById("z"), c, { breaks: false }); }
+    document.getElementById("sc").textContent = `本次練習：${right} / ${n} 位判斷正確`;
+    if (window.labTrack) labTrack("clinic_case", { dx: c.dx, correct: okDx && okMg, tests: done.length });
+  };
+  document.getElementById("go").onclick = next;
+})();
+</script>
+</body>
+</html>

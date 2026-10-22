@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<script src="assets/analytics.js"></script>
+<title>視光學實驗（三）｜無邊界教室</title>
+<meta name="description" content="視光學實驗（三）線上課程：依 16 週授課投影片編排，從 Amsler、色覺、立體視、NPC、遮蓋測試、托靈頓卡、von Graefe、聚散範圍，到 ZCSBV 繪製與個案判讀。每週有學理背景、臨床脈絡、模擬病人操作、觀念檢核與 ★ 計算練習。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 28px; align-items: center; padding-block: 12px 36px; border-bottom: 1px solid var(--line); }
+  .hero h1 { font-size: clamp(34px, 5.4vw, 56px); letter-spacing: 0.02em; }
+  .hero .en { font-family: var(--font-display); font-style: italic; color: var(--muted); font-size: 18px; margin-top: 4px; }
+  .hero p { margin-top: 16px; max-width: 46ch; font-size: 17px; }
+  .hero .motto { margin-top: 10px; font-family: var(--font-display); color: var(--accent); font-size: 17px; }
+  .hero .stats { display: flex; gap: 22px; margin-top: 20px; flex-wrap: wrap; }
+  .hero .stats div { display: grid; }
+  .hero .stats b { font-family: var(--font-mono); font-size: 26px; color: var(--accent); font-weight: 500; }
+  .hero .stats span { font-size: 13px; color: var(--muted); }
+  .hero-bench { background: var(--canvas); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; position: relative; padding: 18px 8px 34px; }
+  .hero-bench svg { display: block; width: 100%; height: auto; }
+  .hero-bench .cap { position: absolute; left: 12px; bottom: 8px; right: 12px; font-size: 12px; color: var(--muted); }
+  .hero-bench .rd { position: absolute; right: 12px; top: 8px; font-size: 13px; font-family: var(--font-mono); color: var(--accent); }
+  @media (max-width: 820px) { .hero { grid-template-columns: 1fr; } }
+  .how { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; counter-reset: s; }
+  .how div { padding: 14px 16px; border-left: 2px solid var(--accent); background: var(--surface); border-radius: 0 10px 10px 0; }
+  .how b { display: block; margin-bottom: 4px; }
+  .how div::before { counter-increment: s; content: "STEP " counter(s); font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 0.1em; }
+  .how p { font-size: 14px; color: var(--muted); }
+  @media (max-width: 820px) { .how { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 460px) { .how { grid-template-columns: 1fr; } }
+  .unit { margin-top: 34px; }
+  .unit h3 { font-size: 18px; display: flex; gap: 10px; align-items: baseline; margin-bottom: 12px; flex-wrap: wrap; }
+  .unit h3 small { font-family: var(--font-mono); color: var(--muted); font-weight: 400; font-size: 12px; letter-spacing: 0.08em; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+  .card { display: grid; gap: 6px; align-content: start; padding: 16px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: var(--ink); transition: border-color .15s, transform .15s; min-width: 0; }
+  .card:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .card .no { font-family: var(--font-mono); font-size: 12px; color: var(--accent); display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .card h4 { margin: 0; font-family: var(--font-display); font-size: 19px; }
+  .card .en { font-size: 12px; color: var(--muted); font-style: italic; }
+  .card ul { margin: 4px 0 0; padding-left: 1.1em; font-size: 14px; color: var(--ink); }
+  .badge { font-size: 11px; padding: 0 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); font-family: var(--font-body); white-space: nowrap; }
+  .badge.done { color: var(--ok); border-color: var(--ok); } .badge.part { color: var(--warn); border-color: var(--warn); } .badge.rev { color: var(--accent); border-color: var(--accent); }
+  .card.rev { border-style: dashed; }
+  .progress { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 14px; color: var(--muted); }
+  .progress .bar { flex: 1; min-width: 160px; height: 8px; background: var(--surface-2); border-radius: 99px; overflow: hidden; }
+  .progress .bar i { display: block; height: 100%; background: var(--ok); width: 0; }
+  .note { font-size: 14px; color: var(--muted); max-width: 72ch; }
+</style>
+</head>
+<body>
+<header id="topbar"></header>
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Borderless Classroom · Optometry Lab III</div>
+      <h1>視光學實驗（三）</h1>
+      <div class="en">Beyond the prescription: binocular vision, one week at a time</div>
+      <div class="motto">看得到、看得清楚、看得舒服</div>
+      <p>這是二專在職專班「視光學實驗（三）」的線上課程，屬於「無邊界教室」，16 週的內容和上課投影片一一對應。前兩學期回答「幾度」，這學期回答「<b>舒不舒服</b>」。每一週除了操作流程，還有<b>學理背景</b>、<b>臨床脈絡</b>，以及會回話的<b>模擬病人</b>。</p>
+      <div class="stats"><div><b>16</b><span>授課週</span></div><div><b id="st-lab">0</b><span>模擬實驗</span></div><div><b id="st-q">0</b><span>觀念題</span></div><div><b>12</b><span>★ 必會計算</span></div></div>
+    </div>
+    <div class="hero-bench"><svg id="hero" role="img" aria-label="交替遮蓋測試示範"></svg><span class="rd" id="hero-rd"></span><span class="cap">交替遮蓋示範：每次剛被打開的那一眼由外向內回復——外斜位（W06）。可以到 W06 自己操作。</span></div>
+  </section>
+
+  <section class="block">
+    <h2>這學期的三個問題 <span class="tag">THREE QUESTIONS</span></h2>
+    <div class="three">
+      <div style="--c:var(--ax1)"><b>看得到嗎？</b><p>感覺功能：黃斑、色覺、立體視、視野、融像。W02–W05。</p></div>
+      <div style="--c:var(--ax2)"><b>看得正嗎？</b><p>眼位與眼球運動：遮蓋測試、稜鏡棒、托靈頓卡、馬篤氏鏡、von Graefe。W06–W12。</p></div>
+      <div style="--c:var(--ax3)"><b>看得久嗎？</b><p>聚散與調節的儲備：聚散範圍、NRA／PRA、AC/A、ZCSBV。W13–W17。</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>怎麼使用 <span class="tag">HOW TO</span></h2>
+    <div class="how">
+      <div><b>先讀學理與臨床</b><p>知道為什麼要做、病人會怎麼說、什麼情況要轉介。</p></div>
+      <div><b>先預測</b><p>實驗旁的藍色虛線框先作答，不要急著看答案。</p></div>
+      <div><b>操作模擬病人</b><p>遮蓋、加稜鏡、轉旋轉稜鏡、移 NPC 視標——病人會回話。</p></div>
+      <div><b>檢核與練習</b><p>做觀念題與 ★ 計算題，最後到模擬病人門診從主訴做到處置。</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>三個記號 <span class="tag">★ ◆ ○</span></h2>
+    <div class="marks">
+      <div style="--c:var(--lv-s)"><b>★ 必修・要會算</b><p>自己動筆算得出來。全學期十二項，都是一到兩步。</p></div>
+      <div style="--c:var(--lv-d)"><b>◆ 重要・要看懂</b><p>操作流程、判讀原則與期望值：要能說出為什麼，實驗課也會用到。</p></div>
+      <div style="--c:var(--lv-o)"><b>○ 延伸・知道即可</b><p>聽過、知道名詞與用途就好。</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>綜合練習 <span class="tag">PRACTICE HUB</span></h2>
+    <div class="hubs">
+      <a class="hub hub-wide" href="progress.html"><small>COURSE MAP</small><b>課程進度地圖</b><span id="map-sum">18 站學期旅程：你做過的模擬實驗、觀念檢核、★ 計算、字卡和目標自評都會記在地圖上。</span></a>
+      <a class="hub hub-wide" href="clinic.html"><small>VIRTUAL CLINIC</small><b>模擬病人門診</b><span>受檢者只告訴你主訴：自己選檢查、自己排順序、下診斷、選處置、判斷要不要轉介。期末情境式評量的最佳練習。</span></a>
+      <a class="hub" href="norms.html"><small>NORMS</small><b>期望值速查與判讀</b><span>全學期期望值一張表；輸入數據即時標示高低、畫 ZCSBV、算三大準則。</span></a>
+      <a class="hub" href="calc.html"><small>STAR CALCULATIONS</small><b>★ 必會計算練功房</b><span>十二項必會計算集中在一頁，數字每次隨機，詳解一步一步看。</span></a>
+      <a class="hub" href="exam.html"><small>CHALLENGE</small><b>綜合挑戰</b><span>選前半、後半學期或自選週次，從各週題庫隨機抽題。</span></a>
+      <a class="hub" href="terms.html"><small>GLOSSARY</small><b>中英名詞總表</b><span>各週的專業英文集中查詢，還有字卡模式。</span></a>
+      <a class="hub" data-tool="phoropter" href="#"><small>PHOROPTER SIMULATOR</small><b>綜合驗光儀模擬</b><span>「視光學臨床實驗台」的擬真綜合驗光儀：旋轉稜鏡、輔助鏡都能操作。</span></a>
+      <a class="hub" data-tool="zcsbv" href="#"><small>ZCSBV</small><b>ZCSBV 圖解教學程式</b><span>輸入檢查數據繪出 ZCSBV，練習六種常見雙眼視問題。</span></a>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>週次 <span class="tag">WEEKS</span></h2>
+    <p class="sub">依講義的主軸排列。虛線框是複習週（W08、W17）。</p>
+    <div class="progress"><span id="prog-text">尚未完成任何週次測驗</span><div class="bar"><i id="prog-bar"></i></div></div>
+    <div id="units"></div>
+  </section>
+
+  <section class="block">
+    <h2>開發者 <span class="tag">CREDITS</span></h2>
+    <div class="cards" id="credits"></div>
+    <p class="note" id="copyright" style="margin-top:14px"></p>
+  </section>
+</main>
+<footer id="footer"></footer>
+<script src="assets/config.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/eyes.js"></script>
+<script src="assets/bank/w01.js"></script><script src="assets/bank/w02.js"></script><script src="assets/bank/w03.js"></script><script src="assets/bank/w04.js"></script>
+<script src="assets/bank/w05.js"></script><script src="assets/bank/w06.js"></script><script src="assets/bank/w07.js"></script><script src="assets/bank/w08.js"></script>
+<script src="assets/bank/w10.js"></script><script src="assets/bank/w11.js"></script><script src="assets/bank/w12.js"></script><script src="assets/bank/w13.js"></script>
+<script src="assets/bank/w14.js"></script><script src="assets/bank/w15.js"></script><script src="assets/bank/w16.js"></script><script src="assets/bank/w17.js"></script>
+<script>
+(function () {
+  const { WEEKS, AXES, BANK, wkLabel, progress, esc } = OL;
+  const LABN = WEEKS.reduce((a, w) => a + w.labs.length, 0);
+  document.getElementById("st-lab").textContent = LABN;
+  document.getElementById("st-q").textContent = WEEKS.reduce((a, w) => a + ((BANK[w.id] && BANK[w.id].quiz) || []).length, 0);
+  const cfg = window.OB_CONFIG || {};
+  document.getElementById("credits").innerHTML = (cfg.developers || []).map((d) => `<div class="card"><span class="no"><span>${esc(d.role || "開發者")}</span></span><h4>${esc(d.name)}</h4>${d.affiliation ? `<span class="en">${esc(d.affiliation)}</span>` : ""}</div>`).join("");
+  const cp = cfg.copyright || {};
+  document.getElementById("copyright").textContent = cp.holder ? `© ${cp.year} ${cp.holder}。${cp.note || ""}` : "";
+  const prog = progress(); let done = 0, tried = 0;
+  const AXN = ["〇", "一", "二", "三"];
+  document.getElementById("units").innerHTML = AXES.map((ax, ai) => {
+    const list = WEEKS.filter((w) => w.axis === ai);
+    return `<div class="unit"><h3>${ai ? "主軸" + AXN[ai] : "導論"}　${ax.zh} <small>${ax.en}</small></h3><div class="cards">${list.map((w) => {
+      const p = prog[w.id]; let badge = '<span class="badge">未測驗</span>';
+      if (p) { tried++; const ok = p.correct / p.total >= 0.8; if (ok) done++; badge = `<span class="badge ${ok ? "done" : "part"}">測驗 ${p.correct}/${p.total}</span>`; }
+      return `<a class="card${w.kind === "rev" ? " rev" : ""}" href="${w.id}.html"><span class="no"><span>${wkLabel(w)}${w.kind === "rev" ? '　<span class="badge rev">複習</span>' : ""}</span>${badge}</span><h4>${w.zh}</h4><span class="en">${w.en}</span><ul>${w.labs.map((l) => `<li>${l}</li>`).join("")}</ul></a>`;
+    }).join("")}</div></div>`;
+  }).join("");
+  document.getElementById("prog-bar").style.width = (done / WEEKS.length * 100) + "%";
+  document.getElementById("prog-text").textContent = tried ? `已完成 ${tried} 週測驗，其中 ${done} 週答對 80% 以上` : "尚未完成任何週次測驗";
+  try { const L = OL.journal.labs(); const n = Object.values(L).reduce((a, o) => a + Object.keys(o).length, 0); if (n || tried) document.getElementById("map-sum").textContent = `目前探索了 ${n} / ${LABN} 個模擬實驗、${done} 週觀念檢核答對八成。打開地圖看下一站 →`; } catch (e) {}
+
+  /* Hero：交替遮蓋示範（10Δ 外斜位） */
+  const svg = document.getElementById("hero"), E = { odh: 0, osh: 0 }, d = EYES.pd2deg(10) * 1.8;
+  let cov = null, i = 0;
+  const draw = () => EYES.front(svg, { scale: 6, cover: cov, see: true, labels: false, od: { h: E.odh }, os: { h: E.osh } });
+  const seq = () => {
+    i++; const s = i % 4;
+    if (s === 1) { cov = "od"; EYES.tween(E, { odh: EYES.out("od") * d, osh: 0 }, 380, draw); document.getElementById("hero-rd").textContent = "遮 OD"; }
+    if (s === 2) { cov = "os"; EYES.tween(E, { odh: 0, osh: EYES.out("os") * d }, 380, draw); document.getElementById("hero-rd").textContent = "換遮 OS：OD 由外向內"; }
+    if (s === 3) { cov = "od"; EYES.tween(E, { odh: EYES.out("od") * d, osh: 0 }, 380, draw); document.getElementById("hero-rd").textContent = "換遮 OD：OS 由外向內"; }
+    if (s === 0) { cov = null; EYES.tween(E, { odh: 0, osh: 0 }, 380, draw); document.getElementById("hero-rd").textContent = "移開：融像拉回"; }
+  };
+  draw();
+  const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduce) setInterval(seq, 1500); else { cov = "os"; E.osh = EYES.out("os") * d; draw(); }
+})();
+</script>
+</body>
+</html>

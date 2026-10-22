@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<script src="assets/analytics.js"></script>
+<title>W17 期末複習｜視光學實驗（三）・無邊界教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-chapter="w17">
+<header id="topbar"></header>
+<main class="wrap">
+  <div class="chapter-head">
+    <div class="eyebrow">Week 17 · Review</div>
+    <h1>期末複習：從單項操作走向臨床判斷</h1>
+    <div class="en">Final Review (W10–W16)</div>
+    <p class="lede">期末要回答的不是「這一項怎麼做」，而是「<b>面對這個主訴，你會做哪些檢查、照什麼順序、看到什麼要轉介</b>」。重點不是做越多越好，而是能說出為什麼做這一項、為什麼不做那一項。</p>
+  </div>
+
+  <section class="block">
+    <h2>學習目標 <span class="tag">GOALS</span></h2>
+    <ul class="goals">
+      <li>依主訴選出合理的檢查組合，並說明每一項的理由。</li>
+      <li>掌握非解離 → 解離、BI → BO、先定性再定量、先右後左的順序通則。</li>
+      <li>在流程中辨識需要轉介的紅旗，並把數字轉成一句臨床上聽得懂的話。</li>
+    </ul>
+  </section>
+
+  <section class="block"><h2>本週記號 <span class="tag">★ ◆ ○</span></h2><div id="levels"></div></section>
+
+  <section class="block">
+    <h2>五件事 <span class="tag">FIVE THINGS</span></h2>
+    <div class="clinical">
+      <div class="clin when"><small>1 · 2</small><h3>檢查選擇與順序</h3><ul><li>為什麼做這一項、為什麼不做那一項</li><li>非解離 → 解離；BI → BO；先定性再定量；先右後左</li></ul></div>
+      <div class="clin say"><small>3 · 4</small><h3>操作與判讀</h3><ul><li>距離、速度、指導語、感染控制</li><li>把數字轉成一句話：「近距 BO 只有 10，低於期望一半，聚合儲備明顯不足」</li></ul></div>
+      <div class="clin flag"><small>5</small><h3>紅旗辨識</h3><ul><li>新發生的複視、垂直或旋轉偏斜</li><li>突然的眼位改變合併頭痛、噁心</li><li>單眼視力無法矯正、Amsler 異常、視野缺損</li><li>眼球運動受限合併疼痛</li></ul></div>
+    </div>
+    <div class="theory" style="margin-top:14px">
+      <div class="concept wide"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Why order matters</span><h3>為什麼順序這麼重要？</h3>
+        <ul><li><b>非解離放前面</b>（視力、遮蓋測試、Bagolini、Worth 4 Dot）：解離過的眼睛需要時間恢復，先解離會讓後面的融像檢查失真。</li><li><b>BI 一定在 BO 之前</b>：BO 誘發較強的調節性聚合與聚散適應，會污染 BI。</li><li><b>NRA 在 PRA 之前</b>：負鏡刺激的調節不容易馬上放鬆。</li><li><b>先定性再定量</b>：先知道方向，再用稜鏡量化，否則反覆抓不到中和點。</li><li><b>單眼檢查一律先右後左</b>。</li></ul></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>模擬操作實驗 <span class="tag">LAB</span></h2>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 17-1</span><h3>主訴腳本 → 檢查組合</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="sim">
+        <div class="pt-bar"><span class="lbl">腳本</span><div class="seg" id="sc-k"></div></div>
+        <div class="patient" id="sc-cc"></div>
+        <div class="chips" id="sc-t"></div>
+        <div class="row-btns"><button class="btn" id="sc-chk" type="button">檢查我的組合</button><button class="btn ghost" id="sc-clr" type="button">清除</button></div>
+        <div class="reveal" id="sc-v" hidden></div>
+      </div>
+      <div class="observe"><h4>提示</h4><ul><li>每個主訴先想：問題在「看得到」、「看得正」還是「看得久」？</li><li>想做完整的病人流程，到<a href="clinic.html">模擬病人門診</a>。</li></ul></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 17-2</span><h3>檢查順序通則</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="sim"><p style="font-size:14px;color:var(--muted)">一位近距不適的受檢者，完整雙眼視評估的順序：</p><div id="o-seq"></div></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 17-3</span><h3>紅旗辨識：繼續還是轉介？</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="sim"><div id="d-flag"></div></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>期望值速查 <span class="tag">NORMS</span></h2>
+    <div class="dt-wrap"><table class="dt"><tr><th>檢查</th><th>距離</th><th>Morgan（本課程標準）</th><th>Carlson &amp; Kurtz 4/e</th></tr>
+      <tr><td>NPC</td><td>—</td><td>破裂 ≤ 5／回復 ≤ 7 cm（切點）</td><td>2.4–2.9／4.2–5.0 cm（平均）</td></tr>
+      <tr><td>調節幅度</td><td>單眼</td><td>≥ Hofstetter 最小值</td><td>15 − 0.25 × 年齡</td></tr>
+      <tr><td>DLP／NLP</td><td>6 m／40 cm</td><td>1Δ XP ±2／3Δ XP ±3</td><td>同；老花約 8Δ XP</td></tr>
+      <tr><td>DVP</td><td>6 m</td><td>Ortho</td><td>同</td></tr>
+      <tr><td>遠距 BI／BO</td><td>6 m</td><td>X/7/4／9/19/10</td><td>同</td></tr>
+      <tr><td>近距 BI／BO</td><td>40 cm</td><td>13/21/13／17/21/11</td><td>同</td></tr>
+      <tr><td>NRA／PRA</td><td>40 cm</td><td>+2.00 ±0.50／−2.37 ±1.00</td><td>同</td></tr>
+      <tr><td>AC/A（梯度）</td><td>—</td><td>4:1 ±2</td><td>同</td></tr>
+      <tr><td>垂直聚散</td><td>40 cm</td><td>3–4 break／2 recovery</td><td>supra、infra 各 3–4／1.5–2</td></tr>
+      <tr><td>立體視</td><td>40 cm</td><td>≤ 40 秒角</td><td>Titmus Wirt rings</td></tr></table></div>
+    <p class="proc-note">數值判讀看 Morgan，操作步驟看課本。完整的即時判讀工具在<a href="norms.html">期望值速查與判讀</a>。</p>
+  </section>
+
+  <section class="block"><h2>前後串連 <span class="tag">CONNECT</span></h2><div id="connect"></div></section>
+  <section class="block"><h2>觀念檢核 <span class="tag">CHECK</span></h2><p class="sub">後半學期綜合題。想多練可以到「綜合挑戰」選後半學期。</p><div id="quiz"></div></section>
+  <section class="block"><h2>練習題 <span class="tag">PRACTICE</span></h2><p class="sub">後半學期的 ★ 計算，一次複習。</p><div id="practice"></div></section>
+  <nav id="pager"></nav>
+</main>
+<footer id="footer"></footer>
+<script src="assets/config.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/practice.js"></script>
+<script src="assets/problems/calc.js"></script>
+<script src="assets/bank/w17.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const P = OBPractice; const list = []; ["w13", "w14", "w15", "w16"].forEach((k) => (P.REG[k] || []).forEach((t) => { if (t.star) list.push(t); }));
+  P.define("w17rev", list); P.mount("practice", "w17rev");
+  OL.connect("connect", [["模擬病人門診", "clinic.html", "從主訴到處置的完整流程"], ["綜合挑戰", "exam.html", "後半學期隨機抽題"], ["期望值速查", "norms.html", "全學期期望值與即時判讀"], ["W15 個案判讀", "w15", "十種雙眼視異常"]]);
+});
+(function () {
+  const { seg, order, drill, esc } = OL;
+  OL.levels("levels", [
+    ["◆", "主訴 → 檢查組合：能說出理由", ""],
+    ["◆", "順序：非解離 → 解離、BI → BO、NRA → PRA、先定性再定量、先右後左", ""],
+    ["◆", "紅旗：新發生、突然、合併神經症狀、無法矯正", ""],
+  ]);
+  const T = ["視力", "NPC", "近距斜位", "遠距斜位", "遮蓋測試", "稜鏡棒定量", "BI/BO 範圍", "NRA/PRA", "AC/A", "Worth 4 Dot", "Hirschberg", "立體視", "Bagolini", "Amsler", "CVF", "色覺", "EOM", "垂直聚散", "鏡片驗度", "PD", "試鏡架重測", "稜鏡效應檢查", "調節幅度"];
+  const S = {
+    A: { cc: "看電腦一小時就頭痛、字會疊影", must: ["NPC", "近距斜位", "BI/BO 範圍", "NRA/PRA", "AC/A", "Worth 4 Dot"], ok: ["視力", "遮蓋測試", "調節幅度", "遠距斜位"], why: "近距不適＋疊影 → 看得久：NPC、近距斜位、聚散範圍、NRA/PRA、AC/A；W4D 確認融像／抑制。答案很可能是聚合不足。" },
+    B: { cc: "小孩看書會遮一隻眼睛", must: ["遮蓋測試", "Hirschberg", "立體視", "Worth 4 Dot", "Bagolini"], ok: ["視力", "NPC", "稜鏡棒定量"], why: "兒童遮一眼 → 先看得正：遮蓋測試、Hirschberg；再看感覺狀態：立體視、W4D、Bagolini（抑制、ARC）。注意弱視。" },
+    C: { cc: "最近看直線覺得有點彎", must: ["Amsler", "視力", "CVF", "色覺"], ok: [], why: "新發生的視物變形 → 看得到：Amsler、視力、CVF、色覺，然後<b>轉介</b>。不需要做聚散範圍。" },
+    D: { cc: "開車看遠會有兩個影子", must: ["遮蓋測試", "稜鏡棒定量", "EOM", "遠距斜位", "垂直聚散"], ok: ["視力", "Worth 4 Dot", "Hirschberg"], why: "遠距複視 → 遠距遮蓋與稜鏡棒定量、EOM（非共同性？）、遠距斜位、垂直聚散。新發生要轉介。" },
+    E: { cc: "換了新眼鏡之後一直不舒服", must: ["鏡片驗度", "PD", "試鏡架重測", "近距斜位", "稜鏡效應檢查"], ok: ["視力", "遠距斜位", "遮蓋測試"], why: "新眼鏡不適 → 先查眼鏡：鏡片驗度、PD、光學中心（Prentice 稜鏡效應）；試鏡架重測實戴感受；斜位確認是否被誘發稜鏡打亂。" },
+  };
+  let key = "A", sel = new Set();
+  document.getElementById("sc-k").innerHTML = Object.keys(S).map((k, i) => `<button data-v="${k}" aria-pressed="${i === 0}">${k}</button>`).join("");
+  const sk = seg("sc-k", () => { key = sk.value; sel.clear(); draw(); });
+  function draw() {
+    document.getElementById("sc-cc").innerHTML = `<small>主訴 ${key}</small>「${S[key].cc}」`;
+    document.getElementById("sc-t").innerHTML = T.map((t) => `<button type="button" class="chip" aria-pressed="${sel.has(t)}">${t}</button>`).join("");
+    document.querySelectorAll("#sc-t button").forEach((b) => b.onclick = () => { const t = b.textContent; sel.has(t) ? sel.delete(t) : sel.add(t); b.setAttribute("aria-pressed", sel.has(t)); });
+    document.getElementById("sc-v").hidden = true;
+  }
+  document.getElementById("sc-clr").onclick = () => { sel.clear(); draw(); };
+  document.getElementById("sc-chk").onclick = () => {
+    const s = S[key], miss = s.must.filter((t) => !sel.has(t)), extra = [...sel].filter((t) => !s.must.includes(t) && !s.ok.includes(t));
+    const v = document.getElementById("sc-v"); v.hidden = false;
+    v.innerHTML = `${!miss.length && !extra.length ? '<span class="pill ok">組合合理</span>' : '<span class="pill warn">可以更好</span>'}${miss.length ? ` 漏了：<b>${miss.join("、")}</b>。` : ""}${extra.length ? ` 和這個主訴關係不大：${extra.join("、")}。` : ""}<br>${s.why}`;
+  };
+  draw();
+
+  order("o-seq", ["視力（遠、近）", "遮蓋測試（單眼 → 交替）", "Bagolini／Worth 4 Dot", "NPC", "近距斜位（托靈頓卡或 von Graefe）", "近距 BI 範圍", "近距 BO 範圍", "NRA", "PRA", "調節幅度（NPA）"], { first: "最先", last: "最後" });
+
+  drill("d-flag", ["繼續評估", "轉介"], [
+    { q: "近距 12Δ XP、BO 低、NPC 後退，症狀持續一年", a: 0, why: "典型聚合不足，屬於驗光師可處理的範圍。" },
+    { q: "三天前突然出現上下複視，往左下看最明顯", a: 1, why: "新發生的垂直偏斜：疑上斜肌麻痺，轉介。" },
+    { q: "右眼矯正視力只有 0.5，針孔也沒改善", a: 1, why: "單眼視力無法矯正至正常。" },
+    { q: "遠距 2Δ XP、近距 6Δ XP，無症狀", a: 0, why: "在期望值附近，記錄即可。" },
+    { q: "眼睛往右看時會痛，看東西變兩個", a: 1, why: "眼球運動合併疼痛。" },
+    { q: "Bagolini 完整 X，遮蓋測試 8Δ 內斜視，自小就有，穩定", a: 0, why: "長期穩定的 ARC；記錄並追蹤。" },
+    { q: "最近兩週頭痛、噁心，眼位突然變內斜", a: 1, why: "突然的眼位改變合併頭痛、噁心。" },
+    { q: "Amsler 正常、CVF full，但病人有青光眼家族史", a: 1, why: "對立視野不能排除青光眼，建議眼科做正式視野與眼壓評估。" },
+  ], { unit: "情境" });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<script src="assets/analytics.js"></script>
+<title>W07 遮蓋測試（二）：稜鏡棒定量｜視光學實驗（三）・無邊界教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-chapter="w07">
+<header id="topbar"></header>
+<main class="wrap">
+  <div class="chapter-head">
+    <div class="eyebrow">Week 07</div>
+    <h1>遮蓋測試（二）：稜鏡棒定量</h1>
+    <div class="en">Cover Test with Prism Bar</div>
+    <p class="lede">上週用遮蓋測試知道了「往哪偏」，這週用稜鏡棒回答「偏多少」。原理一句話：<b>在眼前放一片稜鏡，把影像移到偏斜眼「正在看」的位置</b>，交替遮蓋時眼睛就不用再動——不動的那一格，就是偏斜量。</p>
+  </div>
+
+  <section class="block">
+    <h2>學習目標 <span class="tag">GOALS</span></h2>
+    <ul class="goals">
+      <li>說明稜鏡度的定義與「光往基底、影像往頂」，並依偏斜型態選擇中和的基底方向。</li>
+      <li>以稜鏡棒配合交替遮蓋找到中和點與反轉點，並依「先垂直、後水平」完成合併偏斜的量測。</li>
+      <li>運用 Prentice 法則計算鏡片偏心產生的稜鏡效應，並判斷基底方向。</li>
+    </ul>
+  </section>
+
+  <section class="block"><h2>本週記號 <span class="tag">★ ◆ ○</span></h2><div id="levels"></div></section>
+
+  <section class="block">
+    <h2>學理背景 <span class="tag">THEORY</span></h2>
+    <div class="theory">
+      <div class="concept"><span class="lvtag lv-s">★ 要會算</span><span class="en-term">Prism diopter</span><h3>稜鏡度：1 m 偏 1 cm</h3>
+        <p>稜鏡只改變光的<b>方向</b>，不改變聚散度。光線通過後在 1 m 遠偏移 1 cm，就是 1 個稜鏡度：</p>
+        <span class="eqline">Δ ＝ 偏移（cm）÷ 距離（m）＝ 100 × tan θ</span>
+        <p>光線往<b>基底</b>彎，所以看出去的影像往<b>頂端</b>跑。記住一句：「光往基底彎，影像往頂跑」。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Neutralizing</span><h3>為什麼「基底與偏斜方向相反」？</h3>
+        <p>外斜的眼睛指向目標的外側。在它前面放 <b>BI</b> 稜鏡，影像往頂端（外側）移，剛好移到那隻眼睛正在看的位置——它不必再轉，交替遮蓋就看不到移動。</p>
+        <ul><li>外斜 XT／XP → <b>BI</b></li><li>內斜 ET／EP → <b>BO</b></li><li>右眼上斜 → OD <b>BD</b> 或 OS <b>BU</b></li></ul></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Endpoint &amp; reversal</span><h3>中和點與反轉點</h3>
+        <p>邊交替遮蓋、邊逐格加稜鏡，移動越來越小，<b>停止</b>就是中和點。再加一格，若眼睛開始往<b>反方向</b>移動（反轉），確認上一格就是終點。只找到「不動」就停手，常常會停在還沒中和、只是移動太小看不出來的地方。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Vertical first</span><h3>先垂直、後水平</h3>
+        <p>水平與垂直同時存在時，眼睛的移動是<b>斜的</b>。垂直分量沒中和時，水平的中和點很難抓。先用 BU／BD 把垂直歸零，再處理水平——順序顛倒會反覆抓不到。</p></div>
+      <div class="concept"><span class="lvtag lv-o">○ 知道即可</span><span class="en-term">Holding the bar</span><h3>拿稜鏡棒的三個細節</h3>
+        <ul><li><b>一次一格</b>：跨在兩格之間會看到分裂影像，數值完全失真。</li><li><b>與臉平行</b>：常用的塑膠稜鏡棒以「正面平行位置」校正，傾斜會讓有效稜鏡度變大、讀數偏小。（玻璃稜鏡則以 Prentice 位置校正。）</li><li><b>不能疊</b>：同一眼疊兩支不能直接相加；大角度（&gt; 40Δ）可兩眼分置，兩眼的度數相加。</li></ul></div>
+      <div class="concept"><span class="lvtag lv-s">★ 要會算</span><span class="en-term">Prentice's rule</span><h3>鏡片偏心也是稜鏡</h3>
+        <p>球面鏡片除了光學中心以外的地方都有稜鏡效應：</p>
+        <span class="eqline">Δ ＝ c（cm）× F（D）</span>
+        <p>正鏡片像兩個「底對底」的稜鏡 → <b>基底朝光學中心</b>；負鏡片「頂對頂」→ <b>基底背離光學中心</b>。配鏡 PD 錯誤，就是在病人眼前加了一副他沒有需要的稜鏡。</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>臨床脈絡 <span class="tag">CLINICAL</span></h2>
+    <div class="clinical">
+      <div class="clin when"><small>WHEN</small><h3>什麼時候做</h3><ul><li>遮蓋測試看到移動之後，要知道量有多少</li><li>追蹤斜視是否變大、評估稜鏡處方</li><li>轉介時提供量化數據</li></ul></div>
+      <div class="clin say"><small>PATIENT SAYS</small><h3>病人會怎麼說</h3><ul><li>「新眼鏡戴起來眼睛很緊、很累，舊的就不會。」→ 想 Prentice：PD 或光學中心高度錯了</li><li>「看東西有點上下錯開。」→ 垂直偏斜或鏡片光學中心高度不一</li></ul></div>
+      <div class="clin flag"><small>RED FLAGS</small><h3>轉介警訊</h3><ul><li>偏斜量逐次增加</li><li>新發生的垂直偏斜，或垂直偏斜伴隨頭位傾斜</li><li>遠近、各方向的偏斜量差很多（非共同性）</li></ul></div>
+    </div>
+    <div class="vignette"><span class="vh">CASE</span><b class="t">PD 66 mm 的受檢者，新眼鏡 −5.00 DS OU，鏡框做成 PD 60 mm。他說戴了眼睛很緊、看近很累。</b>
+      <details><summary>算一算他眼前多了什麼？</summary><div><p>每眼偏心 3 mm＝0.3 cm，0.3 × 5 ＝ 1.5Δ。光學中心在瞳孔<b>鼻側</b>，負鏡片基底背離光學中心 → 基底朝<b>顳側</b>＝BO。兩眼合計 <b>3Δ BO</b>：等於強迫他多內聚 3Δ（看遠也要），難怪很累。處理：依正確 PD 重做鏡片。</p></div></details></div>
+  </section>
+
+  <section class="block">
+    <h2>操作流程 <span class="tag">PROCEDURE</span></h2>
+    <div class="proc">
+      <div><h3>設備</h3><ul><li>水平與垂直稜鏡棒</li><li>遮眼器</li><li>遠、近調節性視標</li></ul></div>
+      <div><h3>設置</h3><ul><li>戴慣用矯正，注視調節性視標</li><li>稜鏡棒放在偏斜眼前（一眼視力明顯較差時放較差眼）</li><li>棒子與臉部平行，一次落在單一格</li></ul></div>
+      <div><h3>步驟</h3><ol><li><b>先定性</b>：交替遮蓋確認方向</li><li>依方向選基底（外 BI、內 BO、右上 OD BD）</li><li>持續交替遮蓋，逐格加稜鏡，移動越來越小</li><li>移動停止＝中和點；再加一格看到反轉，退回前一格</li><li>水平垂直並存：<b>先垂直、後水平</b>；遠近各測一次</li></ol></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>模擬操作實驗 <span class="tag">LAB</span></h2>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 7-1</span><h3>稜鏡的光學：光往基底、像往頂</h3><span class="lvtag lv-s">★ 要會算</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="svgstage"><svg id="po-svg" role="img" aria-label="光線通過稜鏡的路徑"></svg></div></div>
+        <div class="lab-panel">
+          <div class="ctrl"><label for="po-p">稜鏡度 <output id="po-p-out"></output></label><input type="range" id="po-p" min="0" max="20" step="1" value="8"></div>
+          <div class="ctrl"><label>基底方向（側面看）</label><div class="seg" id="po-b"><button data-v="up" aria-pressed="true">基底朝上</button><button data-v="down">基底朝下</button></div></div>
+          <div class="readout"><div class="row"><span>1 m 處光線偏移</span><b id="po-s">—</b></div><div class="row"><span>偏向角</span><b id="po-a">—</b></div><div class="row"><span>看到的影像</span><b id="po-i">—</b></div></div>
+        </div>
+      </div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>紅線是光的實際路徑，往基底彎；虛線是眼睛「以為」光來的方向，影像跑到頂端那一側。</li><li>眼睛要看到目標，就得轉向頂端——這是 W04 Krimsky、W12 von Graefe 的共同原理。</li></ul></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 7-2</span><h3>稜鏡棒交替遮蓋：找中和點</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="svgstage tight"><svg id="pb-svg" role="img" aria-label="受檢者雙眼、稜鏡棒與遮眼器"></svg></div><div class="stage-note" id="pb-note">按「交替遮蓋一輪」觀察剛被打開的眼睛</div></div>
+        <div class="lab-panel">
+          <div class="pt-bar"><span class="lbl">受檢者</span><span class="pill info" id="pb-pt">—</span><button class="btn ghost sm" id="pb-new" type="button">換一位</button></div>
+          <div class="ctrl"><label>水平稜鏡棒</label><div class="seg" id="pb-he"><button data-v="od" aria-pressed="true">放 OD</button><button data-v="os">放 OS</button></div><div class="seg" id="pb-hb" style="margin-top:4px"><button data-v="BI" aria-pressed="true">BI</button><button data-v="BO">BO</button></div><input type="range" id="pb-h" min="0" max="15" step="1" value="0" aria-label="水平稜鏡格數"><output id="pb-h-out"></output></div>
+          <div class="ctrl"><label>垂直稜鏡棒（放 OD）</label><div class="seg" id="pb-vb"><button data-v="BD" aria-pressed="true">BD</button><button data-v="BU">BU</button></div><input type="range" id="pb-v" min="0" max="8" step="1" value="0" aria-label="垂直稜鏡格數"><output id="pb-v-out"></output></div>
+          <div class="row-btns"><button class="btn" id="pb-alt" type="button">交替遮蓋一輪</button><label class="check"><input type="checkbox" id="pb-tilt"> 稜鏡棒沒有與臉平行</label><label class="check"><input type="checkbox" id="pb-x2" checked> 動作放大 ×2</label></div>
+          <div class="row-btns"><button class="btn ghost" id="pb-rec" type="button">記錄目前讀數</button></div>
+          <div class="recout" id="pb-out"></div>
+          <div class="verdict" id="pb-v"></div>
+        </div>
+      </div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>先交替遮蓋一輪，判斷方向，再選基底。</li><li>有垂直又有水平的受檢者：眼睛會斜斜地動，先把垂直調到不動。</li><li>找到不動之後再加一格：看到反方向移動，就退回前一格。</li><li>勾選「沒有與臉平行」再量一次，比較讀數。</li></ul></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 7-3</span><h3>基底方向判斷</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="sim"><div id="d-base"></div></div>
+      <div class="observe"><h4>口訣</h4><ul><li>基底方向與眼睛偏斜方向相反；垂直偏斜可以放在上斜眼（BD）或另一眼（BU）。</li></ul></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 7-4</span><h3>Prentice 法則：鏡片偏心的稜鏡效應</h3><span class="lvtag lv-s">★ 要會算</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="svgstage"><svg id="pr-svg" role="img" aria-label="眼鏡光學中心與瞳孔位置"></svg></div></div>
+        <div class="lab-panel">
+          <div class="ctrl"><label for="pr-f">兩眼鏡片度數 <output id="pr-f-out"></output></label><input type="range" id="pr-f" min="-10" max="8" step="0.25" value="-5"></div>
+          <div class="ctrl"><label for="pr-pp">受檢者 PD <output id="pr-pp-out"></output></label><input type="range" id="pr-pp" min="54" max="72" step="1" value="66"></div>
+          <div class="ctrl"><label for="pr-fp">鏡片光學中心距離 <output id="pr-fp-out"></output></label><input type="range" id="pr-fp" min="54" max="72" step="1" value="60"></div>
+          <div class="ctrl"><label for="pr-h">右眼光學中心比左眼高 <output id="pr-h-out"></output></label><input type="range" id="pr-h" min="0" max="4" step="0.5" value="0"></div>
+          <div class="readout"><div class="row"><span>每眼水平</span><b id="pr-e">—</b></div><div class="row"><span>兩眼合計水平</span><b id="pr-t">—</b></div><div class="row"><span>垂直差</span><b id="pr-vv">—</b></div></div>
+          <p class="note" style="font-size:13px">常用的配鏡容許參考（ANSI Z80.1）：水平合計約 0.67Δ、垂直差約 0.33Δ。垂直的容忍度遠小於水平——W13 會看到垂直融像儲備只有 3–4Δ。</p>
+        </div>
+      </div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>同樣偏 3 mm，度數越高，稜鏡越大：高度數處方的 PD 一定要量準。</li><li>把度數從負拖到正：同一個偏心，基底方向會反過來。</li></ul></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>紀錄方式 <span class="tag">RECORD</span></h2>
+    <div class="rec">CT with prism bar:
+  @D:  10Δ RXT (intermittent),  2Δ R hyper
+  @N:  16Δ XP
+# 遠距：右眼間歇性外斜視 10Δ，合併 2Δ 右眼上斜
+# 近距：外斜位 16Δ
+# 合併 W06 的定性結果：CT cc @D 4Δ XP / @N 10Δ XP；垂直 @D ortho / @N ortho</div>
+  </section>
+
+  <section class="block">
+    <h2>常見錯誤 <span class="tag">MISTAKES</span></h2>
+    <div class="myths">
+      <details class="myth"><summary>稜鏡棒跨在兩格之間也能讀，取中間值就好。</summary><div class="fix">跨格時受檢者看到分裂影像，數值完全失真。一次只落在一格。</div></details>
+      <details class="myth"><summary>稜鏡棒斜一點沒關係。</summary><div class="fix">傾斜會改變有效稜鏡度；塑膠稜鏡棒要與臉部平行。</div></details>
+      <details class="myth"><summary>水平垂直一起調比較快。</summary><div class="fix">先垂直後水平；同時調會反覆抓不到中和點。</div></details>
+      <details class="myth"><summary>同一眼疊兩支稜鏡棒，度數直接相加。</summary><div class="fix">疊放會產生非線性誤差；需要時改成兩眼分置，兩眼的度數才可相加。</div></details>
+      <details class="myth"><summary>看到不動就可以記錄了。</summary><div class="fix">再加一格確認反轉，否則可能停在「移動太小看不出來」的地方。</div></details>
+      <details class="myth"><summary>外斜用 BO，因為要把眼睛「推」回來。</summary><div class="fix">稜鏡不是推眼睛，是把影像移到眼睛正在看的地方。外斜用 BI。</div></details>
+    </div>
+  </section>
+
+  <section class="block"><h2>前後串連 <span class="tag">CONNECT</span></h2><div id="connect"></div></section>
+  <section class="block"><h2>觀念檢核 <span class="tag">CHECK</span></h2><p class="sub">選項順序每次都會打亂。答對八成以上，這一週就會在首頁亮綠燈。</p><div id="quiz"></div></section>
+  <section class="block"><h2>練習題 <span class="tag">PRACTICE</span></h2><p class="sub">數字每次隨機。標 ★ 的題目沒看詳解連續全對 3 組，就算精熟。</p><div id="practice"></div></section>
+  <section class="block"><h2>專業英文 <span class="tag">TERMS</span></h2><div id="terms"></div></section>
+  <nav id="pager"></nav>
+</main>
+<footer id="footer"></footer>
+<script src="assets/config.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/eyes.js"></script>
+<script src="assets/practice.js"></script>
+<script src="assets/problems/calc.js"></script>
+<script src="assets/bank/w07.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => { OBPractice.mount("practice", "w07"); OL.connect("connect", [
+  ["W06 遮蓋測試", "w06", "先定性，再定量"],
+  ["W04 Krimsky", "w04", "同樣的基底規則，用在角膜反光"],
+  ["W12 旋轉稜鏡", "w12", "綜合驗光儀裡的連續稜鏡"],
+  ["W17 主訴腳本 E", "w17", "換了新眼鏡一直不舒服"],
+]); });
+(function () {
+  const { seg, range, check, drill } = OL;
+  const { front, out, pd2deg, tween } = EYES;
+  OL.levels("levels", [
+    ["★", "Δ ＝ 偏移（cm）÷ 距離（m）", ""],
+    ["★", "Prentice：Δ ＝ c（cm）× F", "正鏡基底朝光學中心、負鏡背離"],
+    ["◆", "外 BI、內 BO、右上 OD BD／OS BU", "基底與偏斜方向相反"],
+    ["◆", "中和點＋反轉確認；先垂直、後水平", ""],
+    ["○", "稜鏡棒與臉平行、不跨格、不疊放", ""],
+  ]);
+
+  /* ---------- LAB 7-1 ---------- */
+  const pp = range("po-p", (v) => v + "Δ", po), pbs = seg("po-b", po);
+  function po() {
+    const P = pp.value, up = pbs.value === "up", W = 560, H = 260, y0 = 130, xp = 170, X1 = 520;
+    const dev = Math.atan(P / 100), sgn = up ? -1 : 1;   // SVG y 向下：基底朝上 → 光往上彎（y 變小）
+    const k = (X1 - xp) / 1.0;   // 1 m
+    const yEnd = y0 + sgn * Math.tan(dev) * k;
+    const tri = up ? `M${xp - 22} ${y0 - 50} L${xp + 22} ${y0 - 50} L${xp} ${y0 + 60} Z` : `M${xp - 22} ${y0 + 50} L${xp + 22} ${y0 + 50} L${xp} ${y0 - 60} Z`;
+    let g = `<path d="${tri}" fill="var(--glass)" stroke="var(--glass-edge)" stroke-width="2"/>`;
+    g += `<text x="${xp}" y="${up ? y0 + 76 : y0 - 66}" text-anchor="middle" font-size="11" fill="var(--glass-edge)">頂</text><text x="${xp}" y="${up ? y0 - 56 : y0 + 66}" text-anchor="middle" font-size="11" fill="var(--glass-edge)">基底</text>`;
+    g += `<circle cx="40" cy="${y0}" r="7" fill="var(--accent)"/><text x="40" y="${y0 - 14}" text-anchor="middle" font-size="11" fill="var(--accent)">目標</text>`;
+    g += `<line x1="40" y1="${y0}" x2="${xp}" y2="${y0}" stroke="var(--ray)" stroke-width="2.4"/><line x1="${xp}" y1="${y0}" x2="${X1}" y2="${yEnd}" stroke="var(--ray)" stroke-width="2.4"/>`;
+    const yImg = yEnd - (yEnd - y0) * (X1 - 40) / (X1 - xp);   // 反向延長到目標平面
+    g += `<line x1="${X1}" y1="${yEnd}" x2="40" y2="${yImg}" stroke="var(--ray-3)" stroke-dasharray="6 5"/><circle cx="40" cy="${yImg}" r="7" fill="none" stroke="var(--ray-3)" stroke-width="2"/><text x="52" y="${yImg + (up ? 16 : -8)}" font-size="11" fill="var(--ray-3)">看到的影像（往頂端）</text>`;
+    g += `<line x1="${X1}" y1="20" x2="${X1}" y2="${H - 20}" stroke="var(--line)"/><text x="${X1}" y="14" text-anchor="middle" font-size="11" fill="var(--muted)">1 m</text>`;
+    g += `<path d="M${X1 - 8} ${y0} H${X1 + 8}" stroke="var(--muted)"/><path d="M${X1 + 14} ${y0} V${yEnd}" stroke="var(--accent)" stroke-width="2"/><text x="${X1 - 6}" y="${(y0 + yEnd) / 2 + 4}" text-anchor="end" font-size="11" fill="var(--accent)">${P} cm</text>`;
+    const svg = document.getElementById("po-svg"); svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.innerHTML = g;
+    document.getElementById("po-s").textContent = `${P} cm（往基底）`;
+    document.getElementById("po-a").textContent = (dev * 180 / Math.PI).toFixed(2) + "°";
+    document.getElementById("po-i").textContent = P ? `往頂端（${up ? "下" : "上"}）移` : "不動";
+  }
+  po();
+
+  /* ---------- LAB 7-2 稜鏡棒 ---------- */
+  const HS = [0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 25, 30, 35, 40], VS = [0, 1, 2, 3, 4, 5, 6, 8, 10];
+  const PBP = [
+    { name: "受檢者 1", H: -12, V: 0 }, { name: "受檢者 2", H: 8, V: 0 }, { name: "受檢者 3", H: -20, V: 0 },
+    { name: "受檢者 4", H: -10, V: 3 }, { name: "受檢者 5", H: 0, V: 4 }, { name: "受檢者 6", H: 16, V: -2 }, { name: "受檢者 7", H: -25, V: 0 },
+  ];
+  let pb, cov = null, running = false;
+  const E = { odh: 0, odv: 0, osh: 0, osv: 0 };
+  const he = seg("pb-he", drawPb), hb = seg("pb-hb", drawPb), vb = seg("pb-vb", drawPb), tilt = check("pb-tilt"), x2 = check("pb-x2", drawPb);
+  const hr = range("pb-h", (v) => HS[v] + "Δ", drawPb), vr = range("pb-v", (v) => VS[v] + "Δ", drawPb);
+  function eff(p) { return p * (tilt.value ? 1.18 : 1); }
+  function resid() {   // 殘餘偏斜：H 內＋外−；V 右上＋
+    const h = eff(HS[hr.value]), v = eff(VS[vr.value]);
+    const H = pb.H + (hb.value === "BI" ? h : -h), V = pb.V - (vb.value === "BD" ? v : -v);
+    return { H, V };
+  }
+  function drawPb() {
+    const k = x2.value ? 2 : 1, prisms = [];
+    if (HS[hr.value]) prisms.push({ eye: he.value, txt: `${HS[hr.value]}Δ ${hb.value}` });
+    if (VS[vr.value]) prisms.push({ eye: "od", txt: (HS[hr.value] && he.value === "od" ? `${HS[hr.value]}${hb.value}+` : "") + `${VS[vr.value]}Δ ${vb.value}` });
+    const pr = prisms.length === 2 && prisms[0].eye === prisms[1].eye ? [prisms[1]] : prisms;
+    front(document.getElementById("pb-svg"), { scale: 7, cover: cov, od: { h: E.odh * k, v: E.odv * k, pupil: 4 }, os: { h: E.osh * k, v: E.osv * k, pupil: 4 }, prism: pr });
+  }
+  function devPos(eye, r) { return { h: -out(eye) * pd2deg(r.H), v: (eye === "od" ? 1 : -1) * pd2deg(r.V) }; }
+  function coverEye(e) { cov = e; const r = resid(), o = e === "od" ? "os" : "od", d = devPos(e, r); const t = {}; t[e + "h"] = d.h; t[e + "v"] = d.v; t[o + "h"] = 0; t[o + "v"] = 0; tween(E, t, 200, drawPb); }
+  document.getElementById("pb-alt").onclick = () => {
+    if (running) return; running = true; const seq = ["od", "os", "od", "os"]; let i = 0;
+    const r = resid(); const mag = Math.hypot(r.H, r.V);
+    document.getElementById("pb-note").textContent = "交替遮蓋中……";
+    const step = () => { if (i >= seq.length) { cov = null; tween(E, { odh: 0, odv: 0, osh: 0, osv: 0 }, 200, drawPb); running = false;
+        document.getElementById("pb-note").textContent = mag < 1.2 ? "看不到移動。" : `每次打開的眼睛都${describe(r)}。`; return; }
+      coverEye(seq[i++]); setTimeout(step, 900); };
+    step();
+  };
+  function describe(r) {   // 以剛被打開的眼回復方向描述
+    const parts = [];
+    if (Math.abs(r.H) >= 1.2) parts.push(r.H < 0 ? "由外向內回復" : "由內向外回復");
+    if (Math.abs(r.V) >= 1.2) parts.push(r.V > 0 ? "帶有上下移動（右眼打開時由上往下、左眼打開時由下往上）" : "帶有上下移動（右眼打開時由下往上、左眼打開時由上往下）");
+    return parts.join("，");
+  }
+  document.getElementById("pb-rec").onclick = () => {
+    const h = HS[hr.value], v = VS[vr.value];
+    const hs = h ? `${h}Δ ${hb.value === "BI" ? "XP/XT" : "EP/ET"}（${h}Δ ${hb.value} ${he.value.toUpperCase()}）` : "水平 ortho";
+    const vs = v ? `${v}Δ ${vb.value === "BD" ? "R hyper" : "R hypo（L hyper）"}` : "垂直 ortho";
+    document.getElementById("pb-out").textContent = `CT with prism bar: ${hs}, ${vs}`;
+    const okH = Math.abs((hb.value === "BI" ? -h : h) - pb.H) <= 2 || (!h && !pb.H);
+    const okV = Math.abs((vb.value === "BD" ? v : -v) - pb.V) <= 1 || (!v && !pb.V);
+    const tv = `實際：水平 ${pb.H ? Math.abs(pb.H) + "Δ " + (pb.H < 0 ? "外" : "內") : "ortho"}，垂直 ${pb.V ? Math.abs(pb.V) + "Δ " + (pb.V > 0 ? "R hyper" : "L hyper") : "ortho"}。`;
+    document.getElementById("pb-v").innerHTML = (okH && okV ? '<span class="pill ok">正確</span> ' : '<span class="pill bad">還沒中和</span> ') + tv + (tilt.value ? " 稜鏡棒傾斜時有效度數變大，讀數會比實際小。" : "");
+  };
+  function newPb() { pb = PBP[Math.floor(Math.random() * PBP.length)]; cov = null; hr.value = 0; vr.value = 0; Object.assign(E, { odh: 0, odv: 0, osh: 0, osv: 0 }); document.getElementById("pb-pt").textContent = pb.name; document.getElementById("pb-out").textContent = ""; document.getElementById("pb-v").innerHTML = ""; document.getElementById("pb-note").textContent = "按「交替遮蓋一輪」觀察剛被打開的眼睛"; drawPb(); }
+  document.getElementById("pb-new").onclick = newPb;
+  newPb();
+
+  /* ---------- LAB 7-3 ---------- */
+  drill("d-base", ["BI", "BO", "OD BD", "OD BU", "OS BU", "OS BD"], [
+    { q: "近距 12Δ XP，稜鏡棒放 OD", a: 0, why: "外斜 → BI。" },
+    { q: "遠距 20Δ LET，稜鏡棒放 OS", a: 1, why: "內斜 → BO。" },
+    { q: "4Δ R hyper，稜鏡棒放 OD", a: 2, why: "右眼往上 → 右眼前基底朝下。" },
+    { q: "4Δ R hyper，稜鏡棒放 OS", a: 4, why: "右眼上斜等於左眼相對下斜 → 左眼前基底朝上。" },
+    { q: "3Δ L hyper，稜鏡棒放 OD", a: 3, why: "左眼上斜＝右眼相對下斜 → 右眼前 BU。" },
+    { q: "3Δ L hyper，稜鏡棒放 OS", a: 5, why: "左眼往上 → 左眼前 BD。" },
+    { q: "交替遮蓋時打開的眼由內向外回復", a: 1, why: "內斜位 → BO。" },
+    { q: "W4D 看到紅點在綠點左邊（紅鏡片在右眼）", a: 0, why: "交叉複視 → 外斜 → BI。" },
+  ], { unit: "情境" });
+
+  /* ---------- LAB 7-4 Prentice ---------- */
+  const pf = range("pr-f", (v) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(2) + " D", prn), ppd = range("pr-pp", (v) => v + " mm", prn), pfd = range("pr-fp", (v) => v + " mm", prn), ph = range("pr-h", (v) => v.toFixed(1) + " mm", prn);
+  function prn() {
+    const F = pf.value, c = Math.abs(ppd.value - pfd.value) / 2 / 10, e = c * Math.abs(F);
+    const ocNasal = pfd.value < ppd.value;   // 光學中心在瞳孔鼻側
+    const baseIn = F > 0 ? ocNasal : !ocNasal;
+    const W = 560, H = 240, cx = W / 2, k = 4.2, cy = 120;
+    const pupX = (s) => cx + s * ppd.value / 2 * k, ocX = (s) => cx + s * pfd.value / 2 * k;
+    let g = "";
+    [[-1, "OD", ph.value], [1, "OS", 0]].forEach(([s, lab, dy]) => {
+      g += `<ellipse cx="${ocX(s)}" cy="${cy}" rx="${24 * k / 1.2}" ry="${18 * k / 1.2}" fill="var(--glass)" stroke="var(--glass-edge)" stroke-width="2"/>`;
+      g += `<path d="M${ocX(s) - 6} ${cy - dy * k} H${ocX(s) + 6} M${ocX(s)} ${cy - dy * k - 6} V${cy - dy * k + 6}" stroke="var(--glass-edge)" stroke-width="2"/>`;
+      g += `<circle cx="${pupX(s)}" cy="${cy}" r="7" fill="#111"/><circle cx="${pupX(s)}" cy="${cy}" r="12" fill="none" stroke="var(--iris)" stroke-width="3"/>`;
+      g += `<text x="${ocX(s)}" y="${cy + 74}" text-anchor="middle" font-size="12" fill="var(--muted)">${lab}</text>`;
+      if (e > 0.01) { const dir = (baseIn ? -s : s); const x0 = pupX(s); g += `<path d="M${x0} ${cy - 30} L${x0 + dir * 28} ${cy - 30}" stroke="var(--ray)" stroke-width="2.4"/><path d="M${x0 + dir * 28} ${cy - 36} L${x0 + dir * 36} ${cy - 30} L${x0 + dir * 28} ${cy - 24} Z" fill="var(--ray)"/><text x="${x0 + dir * 18}" y="${cy - 40}" text-anchor="middle" font-size="11" fill="var(--ray)">基底</text>`; }
+    });
+    g += `<path d="M${cx - 18} ${cy - 50} Q ${cx} ${cy - 62} ${cx + 18} ${cy - 50}" fill="none" stroke="var(--glass-edge)" stroke-width="3"/>`;
+    g += `<text x="${cx}" y="22" text-anchor="middle" font-size="11" fill="var(--muted)">從受檢者正面看（OD 在畫面左）；十字＝光學中心，黑點＝瞳孔</text>`;
+    const svg = document.getElementById("pr-svg"); svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.innerHTML = g;
+    document.getElementById("pr-e").textContent = e < 0.005 ? "0Δ" : `${e.toFixed(2)}Δ ${baseIn ? "BI" : "BO"}`;
+    document.getElementById("pr-t").textContent = e < 0.005 ? "0Δ" : `${(2 * e).toFixed(2)}Δ ${baseIn ? "BI" : "BO"}${2 * e > 0.67 ? "（超過參考值）" : ""}`;
+    const vv = ph.value / 10 * Math.abs(F);
+    document.getElementById("pr-vv").textContent = vv < 0.005 ? "0Δ" : `${vv.toFixed(2)}Δ${vv > 0.33 ? "（超過參考值）" : ""}`;
+  }
+  prn();
+})();
+</script>
+</body>
+</html>

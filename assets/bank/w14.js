@@ -1,0 +1,27 @@
+OL.bank("w14", {
+  quiz: [
+    { q: "ZCSBV 的橫軸與縱軸分別是：", opts: ["調節、聚散", "聚散（Δ）、調節（D）", "距離、視力", "斜位、AC/A"], a: 1, exp: "向右為內聚、向上為調節增加。" },
+    { q: "ZCSBV 的右界由哪一項決定？", opts: ["BI 模糊點", "BO 模糊點", "調節幅度", "NRA"], a: 1, exp: "內聚極限（PFV）。" },
+    { q: "需求線（Donders line）的斜率由什麼決定？", opts: ["AC/A", "PD", "NRA", "調節幅度"], a: 1, exp: "看距離 d 時聚合需求 ＝ PD（cm）× 調節刺激。" },
+    { q: "斜位線的斜率代表：", opts: ["PD", "AC/A", "調節幅度", "融像儲備"], a: 1, exp: "每 1 D 調節變化對應的斜位變化。" },
+    { q: "NRA 測量時雙眼加的是：", opts: ["+0.25 逐步增加", "−0.25 逐步增加", "BO 稜鏡", "BI 稜鏡"], a: 0, exp: "看調節能放鬆多少。" },
+    { q: "NRA 的 Morgan 期望值為：", opts: ["+2.00 ±0.50", "−2.37 ±1.00", "+1.00 ±0.25", "4:1 ±2"], a: 0, exp: "PRA 為 −2.37 ±1.00。" },
+    { q: "NRA 偏低可能反映：", opts: ["NFV 不足", "PFV 不足或調節過度", "AC/A 高", "立體視差"], a: 1, exp: "放鬆調節後要靠 PFV 維持聚合。" },
+    { q: "PD 6.4 cm、遠距 1Δ XP、近距 6Δ XP，計算式 AC/A 為：", opts: ["6.4", "4.4", "3.4", "8.4"], a: 1, exp: "6.4 + 0.4 × (−6 − (−1)) ＝ 4.4。" },
+    { q: "40 cm 斜位 2Δ XP，加 −1.00 後變 3Δ EP，梯度式 AC/A 為：", opts: ["1", "3", "5", "−5"], a: 2, exp: "從 −2 到 +3，變化 5Δ ÷ 1.00 D。" },
+    { q: "需求點偏向 ZCSBV 的右界，表示：", opts: ["開散儲備不足", "內聚儲備不足", "調節幅度不足", "正常"], a: 1, exp: "離 BO 界太近 → 像聚合不足。" },
+    { q: "NRA 在 ZCSBV 上的位置是：", opts: ["(PD×2.5, 2.50 + NRA)", "(PD×2.5, 2.50 − NRA)", "(0, NRA)", "(NRA, 2.50)"], a: 1, exp: "加正鏡讓調節刺激減少，聚合不變。" },
+  ],
+  terms: [
+    ["ZCSBV", "清晰單一雙眼視區", "Zone of Clear Single Binocular Vision"],
+    ["graphical analysis", "圖解分析", ""],
+    ["demand line (Donders line)", "需求線", "由 PD 決定"],
+    ["phoria line", "斜位線", "斜率＝AC/A"],
+    ["negative relative accommodation (NRA)", "負相對調節", "+0.25 至持續模糊"],
+    ["positive relative accommodation (PRA)", "正相對調節", "−0.25 至持續模糊"],
+    ["AC/A ratio", "調節性聚合／調節比", ""],
+    ["calculated / gradient AC/A", "計算式／梯度式 AC/A", ""],
+    ["proximal convergence", "近感性聚合", ""],
+    ["accommodative stimulus", "調節刺激", ""],
+  ],
+});

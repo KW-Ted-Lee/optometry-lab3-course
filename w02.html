@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<script src="assets/analytics.js"></script>
+<title>W02 阿姆斯勒方格・色覺・立體視｜視光學實驗（三）・無邊界教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  #am-svg { max-width: 420px; background: #fff; border-radius: 6px; }
+  .platewrap { display: grid; place-items: center; gap: 6px; padding: 10px; }
+  .platewrap canvas { width: min(320px, 90%); height: auto; aspect-ratio: 1; border-radius: 50%; background: #f4efe4; }
+  .punnett { display: grid; grid-template-columns: 70px repeat(2, minmax(0, 1fr)); gap: 4px; max-width: 420px; margin: 0 auto; }
+  .punnett div { padding: 8px 6px; text-align: center; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); font-size: 14px; }
+  .punnett .h { background: var(--surface-2); font-family: var(--font-mono); font-size: 13px; }
+  .punnett .aff { border-color: var(--bad); color: var(--bad); font-weight: 700; }
+  .punnett .car { border-color: var(--warn); color: var(--warn); }
+  .wirt { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; max-width: 360px; margin: 0 auto; }
+  .wirt button { aspect-ratio: 1; border-radius: 6px; border: 1px solid var(--line); background: #f6f3ea; cursor: pointer; position: relative; padding: 0; }
+  .wirt button[aria-pressed="true"] { outline: 3px solid var(--accent); }
+  .wirt button span { position: absolute; left: 4px; top: 2px; font-family: var(--font-mono); font-size: 11px; color: #555; }
+  .wirt svg { width: 100%; height: 100%; display: block; }
+</style>
+</head>
+<body data-chapter="w02">
+<header id="topbar"></header>
+<main class="wrap">
+  <div class="chapter-head">
+    <div class="eyebrow">Week 02</div>
+    <h1>阿姆斯勒方格・色覺・立體視</h1>
+    <div class="en">Amsler Grid, Colour Vision &amp; Stereopsis</div>
+    <p class="lede">三項<b>非接觸式</b>視功能篩檢，各自看守一個「看得到」的環節：Amsler 看<b>黃斑部</b>對應的中心視野，色覺看<b>錐狀細胞與視神經</b>，立體視看<b>雙眼感覺融像的最高一級</b>。三者都簡單、快速，但每一項都有它看不到的地方。</p>
+  </div>
+
+  <section class="block">
+    <h2>學習目標 <span class="tag">GOALS</span></h2>
+    <ul class="goals">
+      <li>操作 Amsler 方格，把受檢者的主觀描述轉成專業術語，並寫出含眼別與位置的紀錄。</li>
+      <li>說明假同色板的設計原理與先天、後天色覺異常的差異，依版本門檻判讀 Pass／Fail。</li>
+      <li>以 Titmus 完成立體視檢查，說明秒角的意義，並辨識抑制與單眼線索。</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>本週記號 <span class="tag">★ ◆ ○</span></h2>
+    <div id="levels"></div>
+  </section>
+
+  <section class="block">
+    <h2>學理背景 <span class="tag">THEORY</span></h2>
+    <div class="theory">
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Macula &amp; the Amsler grid</span><h3>為什麼方格會變形？</h3>
+        <p>方格總寬 10 cm、每格 5 mm，在 30 cm 處看，每格約張 1°，整張約 20°——剛好蓋住黃斑部（直徑約 5.5 mm，對應中心約 18–20°）。</p>
+        <p>當黃斑下積液把視網膜「撐起來」，感光細胞被推離原本的位置，大腦仍以為它們在原處，直線就會變彎（<b>視物變形</b>）；細胞被撐開、密度變低 → 物體<b>顯小</b>；疤痕收縮把細胞擠在一起 → 物體<b>顯大</b>。</p>
+        <p class="why">Amsler 只測中心約 20°，不能取代對立視野（W05）。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Cones &amp; confusion colours</span><h3>假同色板怎麼騙過色覺異常？</h3>
+        <p>正常人有 L、M、S 三種錐狀細胞（峰值約 560、530、420 nm）。少了一種（二色視）或其中一種的感光峰值偏移（異常三色視），某些顏色在他眼中就會變成<b>同一個顏色</b>——這些顏色落在同一條「混淆線」上。</p>
+        <p>假同色板把數字和背景的色點都從混淆線上挑，並刻意讓色點<b>亮度忽明忽暗</b>，讓受檢者不能靠亮度分辨，只能靠色相。下方 LAB 2-2 的色板就是這樣生成的。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Congenital vs acquired</span><h3>先天與後天色覺異常</h3>
+        <ul><li><b>先天</b>：多為紅綠（Protan／Deutan），X 連鎖隱性，兩眼對稱、終生不變。</li><li><b>後天</b>：常不對稱、會變化；外層視網膜與黃斑疾病多造成<b>藍黃（Tritan）</b>缺損，視神經病變多造成<b>紅綠</b>缺損（Köllner 法則）。</li><li>石原氏只設計來篩紅綠，<b>測不到 Tritan</b>；要用 D-15 或 F2 板補足。</li></ul>
+        <p class="why">流行病學：先天紅綠異常男性約 8%、女性約 0.5%；講義另列約六成六的患者患有後天眼疾——色覺變化可能是疾病的線索，所以要單眼測、要記錄錯誤題號，作為追蹤基準。</p></div>
+      <div class="concept"><span class="lvtag lv-d">◆ 要看懂</span><span class="en-term">Binocular disparity</span><h3>立體視：一個角度的差</h3>
+        <p>兩眼位置相差一個瞳距，看同一個近物時，深度不同的兩點在兩眼的成像位置差一點點，這個角度差就是<b>視差</b>：</p>
+        <span class="eqline">η（弧度）≈ 瞳距 × 深度差 ÷ 距離²</span>
+        <p>40 cm、瞳距 64 mm 時，40 秒角只相當於前後差約 0.5 mm。Titmus 用<b>偏光</b>讓兩眼各看到一張稍微錯開的圖（向量圖），錯開越少、秒角越小、越難。</p></div>
+      <div class="concept"><span class="lvtag lv-o">○ 知道即可</span><span class="en-term">Monocular cues</span><h3>閉一眼也答得對？</h3>
+        <p>大視差的圖（蒼蠅、Wirt rings 前幾組）兩眼影像錯開得多，單眼仔細看也能看出某一個圓「偏了一點」。受檢者可能靠這種<b>單眼線索</b>答對前幾題。</p>
+        <p class="why">懷疑時請他閉一眼再答一次：單眼也答對 → 那一題不算立體視。</p></div>
+      <div class="concept"><span class="lvtag lv-o">○ 知道即可</span><span class="en-term">Critical period</span><h3>立體視為什麼怕弱視與斜視？</h3>
+        <p>立體視需要兩眼在<b>發育關鍵期</b>持續送來清楚、對準的影像。弱視（一眼模糊）、斜視（兩眼沒對準）、屈光參差（兩眼影像大小與清晰度不同）、先天白內障等，都會讓大腦放棄整合兩眼訊號——所以立體視是很好的兒童篩檢工具。</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>臨床脈絡 <span class="tag">CLINICAL</span></h2>
+    <div class="clinical">
+      <div class="clin when"><small>WHEN</small><h3>什麼時候做</h3><ul><li><b>Amsler</b>：50 歲以上、高度近視、糖尿病、已知黃斑疾病者的追蹤；也適合教病人<b>居家自我監測</b></li><li><b>色覺</b>：初診基準、職業需求（駕駛、電工、設計、軍警）、懷疑視神經或黃斑疾病</li><li><b>立體視</b>：兒童篩檢、弱視與斜視追蹤、精細手工職業</li></ul></div>
+      <div class="clin say"><small>PATIENT SAYS</small><h3>病人會怎麼說</h3><ul><li>「門框、磁磚縫看起來彎彎的。」→ 視物變形</li><li>「看你的臉，中間鼻子的地方糊掉一塊。」→ 中央暗點</li><li>「這隻眼睛看紅色比較暗、比較淡。」→ 後天色覺變化，常見於視神經病變</li><li>「倒水常倒在杯子外面。」→ 立體視不佳</li></ul></div>
+      <div class="clin flag"><small>RED FLAGS</small><h3>轉介警訊</h3><ul><li><b>新發生</b>的視物變形或中央暗點：疑濕性黃斑部病變，治療有時效性，<b>盡快轉介</b></li><li>單眼、後天、短期內惡化的色覺變化</li><li>兒童立體視差，合併視力不等或眼位異常 → 疑弱視或斜視</li></ul></div>
+    </div>
+    <div class="vignette"><span class="vh">CASE</span><b class="t">68 歲女性，高度近視，說「這兩個禮拜看報紙，右眼看出去的直線會彎」。</b>
+      <details><summary>你會怎麼做、怎麼寫？</summary><div><p>戴上近用矯正、30 cm、遮左眼，請她固視中央點後描述。若她指出中央偏上鼻側的格線波浪狀，紀錄寫：<code>Amsler @30cm cc: OD metamorphopsia, superior-nasal, 2 squares from center. OS unremarkable.</code> 並在紀錄紙上畫出範圍。新發生的視物變形 → 不做診斷式陳述，告訴她「這裡有異常，建議盡快到眼科檢查」，當天協助轉介。</p></div></details></div>
+  </section>
+
+  <section class="block">
+    <h2>操作流程 <span class="tag">PROCEDURE</span></h2>
+    <h3 style="font-size:17px;margin:4px 0 8px">阿姆斯勒方格</h3>
+    <div class="proc">
+      <div><h3>設備</h3><ul><li>阿姆斯勒檢驗本</li><li>遮眼棒</li></ul></div>
+      <div><h3>設置</h3><ul><li>配戴<b>近用</b>矯正</li><li>消毒遮眼棒後請受檢者自行持握</li><li>距離 30 cm，光線充足不刺眼</li></ul></div>
+      <div><h3>步驟</h3><ol><li>遮左眼，從右眼開始（或從視力較佳眼開始）</li><li>問：看得到中央黑點嗎？</li><li>請他一直注視中央點，同時用餘光看到四個角落</li><li>問：有沒有線條扭曲、消失、中斷或缺損？在哪裡？</li><li>換另一眼；異常時請他在紀錄紙上畫出範圍</li></ol></div>
+    </div>
+    <h3 style="font-size:17px;margin:18px 0 8px">色覺（石原氏）</h3>
+    <div class="proc">
+      <div><h3>設備</h3><ul><li>石原氏色彩檢驗本（38 或 24 色版）</li></ul></div>
+      <div><h3>設置</h3><ul><li>視力建議 0.1 以上</li><li>照明 100 lux 以上，500–600 lux 最佳</li><li>距離 75 cm；<b>單眼</b>，先右再左</li></ul></div>
+      <div><h3>步驟</h3><ol><li>請受檢者讀出每一頁的數字</li><li>讀不出時，可在 10 秒內沿線描出</li><li>不要讓受檢者的手碰到色板（油脂會變色）</li><li>右眼完成後換左眼</li><li>記錄<b>錯誤題號</b>與版本</li></ol></div>
+    </div>
+    <h3 style="font-size:17px;margin:18px 0 8px">立體視（Titmus Stereo Fly）</h3>
+    <div class="proc">
+      <div><h3>設備</h3><ul><li>Titmus 蒼蠅本</li><li>偏光鏡（軸 45° 與 135°）</li></ul></div>
+      <div><h3>設置</h3><ul><li><b>雙眼</b>檢查，戴近用矯正</li><li>消毒偏光鏡後請受檢者戴上</li><li>距離約 40 cm</li></ul></div>
+      <div><h3>步驟</h3><ol><li>先排除抑制：能讀出右下方圓形與方塊內的字母才繼續</li><li>蒼蠅（約 3000 秒角）：兒童可請他捏翅膀</li><li>Wirt rings：九組，每組四個圓，指出哪一個浮起來</li><li>由第 1 組往下做到答錯為止（800 → 40 秒角）</li><li>兒童不理解圓圈時改用動物（400／200／100 秒角）</li></ol></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>模擬操作實驗 <span class="tag">LAB</span></h2>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 2-1</span><h3>阿姆斯勒方格：病人眼中的格線</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="svgstage"><svg id="am-svg" role="img" aria-label="受檢者看到的阿姆斯勒方格"></svg></div><div class="stage-note" id="am-note">受檢者畫在紀錄紙上的樣子（他看到的）</div></div>
+        <div class="lab-panel">
+          <div class="pt-bar"><span class="lbl">受檢者</span><span class="pill info" id="am-pt">—</span><button class="btn ghost sm" id="am-new" type="button">換一位</button></div>
+          <div class="ctrl"><label>受檢眼（另一眼遮住）</label><div class="seg" id="am-eye"><button data-v="od" aria-pressed="true">OD</button><button data-v="os">OS</button></div></div>
+          <label class="check"><input type="checkbox" id="am-add"> 戴上近用矯正</label>
+          <label class="check"><input type="checkbox" id="am-fix"> 提醒他「一直看著中央黑點」</label>
+          <div class="ctrl"><label>受檢者說的話</label><div class="say-bubble" id="am-say">—</div></div>
+          <div class="ctrl"><label>術語</label><div class="seg" id="am-term"><button data-v="nl" aria-pressed="true">Unremarkable</button><button data-v="meta">Metamorphopsia</button><button data-v="sco">Central scotoma</button><button data-v="mic">Micropsia</button></div></div>
+          <div class="ctrl"><label>位置（病人的視野）</label><div class="seg" id="am-loc"><button data-v="-" aria-pressed="true">—</button><button data-v="c">中央</button><button data-v="sn">上鼻側</button><button data-v="st">上顳側</button><button data-v="in">下鼻側</button><button data-v="it">下顳側</button></div></div>
+          <div class="row-btns"><button class="btn" id="am-chk" type="button">寫入紀錄並檢查</button></div>
+          <div class="recout" id="am-rec"></div>
+          <div class="verdict" id="am-v"></div>
+        </div>
+      </div>
+      <div class="observe">
+        <div class="predict" data-answer="0"><p class="q">右眼看方格，異常在病人視野的「左上」。這是哪一個象限？</p><div class="opts"><button>上鼻側</button><button>上顳側</button><button>下鼻側</button></div><p class="why">病人自己看出去的左邊，對右眼來說是靠鼻子那一側 → 鼻側。左眼則相反：病人看出去的左邊是顳側。</p></div>
+        <h4>觀察重點</h4><ul><li>沒戴近用矯正時，老花受檢者連格線本身都是模糊的——先排除這個再判讀。</li><li>沒提醒固視時，受檢者會「掃視」整張方格，用好的視網膜去看每一格，異常就被藏起來。</li><li>方格是病人看出去的樣子，位置要轉成視野的鼻側／顳側，而不是檢查者的左右。</li></ul>
+      </div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 2-2</span><h3>假同色板與色覺缺損模擬</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="platewrap"><canvas id="pl-cv" width="420" height="420" aria-label="原創的假同色板"></canvas><div class="stage-note" id="pl-note"></div></div></div>
+        <div class="lab-panel">
+          <div class="ctrl"><label>色板類型</label><div class="seg" id="pl-type"><button data-v="rg" aria-pressed="true">紅綠篩檢板</button><button data-v="tr">藍黃（Tritan）板</button><button data-v="demo">示範板（人人都看得到）</button></div></div>
+          <div class="ctrl"><label>用誰的眼睛看</label><div class="seg" id="pl-sim"><button data-v="n" aria-pressed="true">正常三色視</button><button data-v="p">Protan</button><button data-v="d">Deutan</button><button data-v="t">Tritan</button></div></div>
+          <div class="row-btns"><button class="btn ghost" id="pl-new" type="button">換一個數字</button></div>
+          <div class="readout"><div class="row"><span>正常人讀到</span><b id="pl-num">—</b></div></div>
+          <p class="note" style="font-size:13px">色板由程式隨機生成（原創，非石原氏），顏色模擬以 Machado 等人的二色視模型示意；螢幕色偏會影響效果，<b>不能拿來做檢查</b>。</p>
+        </div>
+      </div>
+      <div class="sim" style="border-top:1px solid var(--line)"><b style="font-size:15px">判讀練習：錯幾題算 Fail？</b><div id="d-isi"></div></div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>切到 Protan 或 Deutan：紅綠篩檢板的數字消失，但示範板仍看得到——示範板用來確認受檢者理解規則、不是詐病。</li><li>石原氏的紅綠板在 Tritan 眼中通常仍可讀，這就是它測不到藍黃缺損的原因。</li><li>本課程判讀門檻：38 色版看第 2–23 號，錯超過 4 個為 Fail；24 色版看第 2–15 號，錯超過 3 個為 Fail。務必註明版本。</li></ul></div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 2-3</span><h3>色覺遺傳：X 染色體機率</h3><span class="lvtag lv-o">○ 知道即可</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="sim"><div class="punnett" id="pn"></div><div class="stage-note">X<sup>c</sup>：帶有紅綠色覺異常基因的 X 染色體</div></div></div>
+        <div class="lab-panel">
+          <div class="ctrl"><label>母親</label><div class="seg" id="pn-m"><button data-v="0" aria-pressed="true">正常 XX</button><button data-v="1">帶因 X<sup>c</sup>X</button><button data-v="2">色覺異常 X<sup>c</sup>X<sup>c</sup></button></div></div>
+          <div class="ctrl"><label>父親</label><div class="seg" id="pn-f"><button data-v="0" aria-pressed="true">正常 XY</button><button data-v="1">色覺異常 X<sup>c</sup>Y</button></div></div>
+          <div class="readout"><div class="row"><span>兒子色覺異常</span><b id="pn-s">—</b></div><div class="row"><span>女兒色覺異常</span><b id="pn-d">—</b></div><div class="row"><span>女兒帶因</span><b id="pn-c">—</b></div></div>
+        </div>
+      </div>
+      <div class="observe">
+        <div class="predict" data-answer="2"><p class="q">男性約 8% 有紅綠色覺異常。女性的盛行率大約是？</p><div class="opts"><button>8%</button><button>4%</button><button>0.6% 左右</button></div><p class="why">男性只有一條 X，基因頻率 q ≈ 0.08 就等於男性盛行率；女性要兩條 X 都帶基因：q² ≈ 0.08² ≈ 0.64%，和講義的約 0.5% 相近。</p></div>
+        <h4>觀察重點</h4><ul><li>色覺異常的父親不會傳給兒子（兒子拿到的是父親的 Y），但女兒一定帶因。</li><li>這也是為什麼先天色覺異常兩眼對稱、終生不變——它寫在基因裡，不是眼睛生病。</li></ul>
+      </div>
+    </div>
+
+    <div class="lab">
+      <div class="lab-head"><span class="lab-no">LAB 2-4</span><h3>Titmus 立體視：秒角與施測</h3><span class="lvtag lv-d">◆ 要看懂</span></div>
+      <div class="lab-body">
+        <div class="lab-stage"><div class="sim">
+          <div class="wirt" id="wr"></div>
+          <div class="stage-note">檢查者手上的 Wirt rings（從你的角度看，九組都是平的）。點一組來問受檢者。</div>
+        </div></div>
+        <div class="lab-panel">
+          <div class="pt-bar"><span class="lbl">受檢者</span><span class="pill info" id="wr-pt">—</span><button class="btn ghost sm" id="wr-new" type="button">換一位</button></div>
+          <div class="row-btns"><button class="btn ghost" id="wr-sup" type="button">先排除抑制</button><label class="check"><input type="checkbox" id="wr-mono"> 請他閉上左眼</label></div>
+          <div class="ctrl"><label>受檢者回答</label><div class="say-bubble" id="wr-say">—</div></div>
+          <details class="formula"><summary>答案卡（說明書附的正確答案）</summary><div id="wr-key" style="font-family:var(--font-mono);font-size:13px"></div></details>
+          <div class="ctrl"><label>你記錄的立體視</label><select class="select" id="wr-ans"></select></div>
+          <div class="row-btns"><button class="btn" id="wr-chk" type="button">寫入紀錄並檢查</button></div>
+          <div class="recout" id="wr-rec"></div>
+          <div class="verdict" id="wr-v"></div>
+        </div>
+      </div>
+      <div class="ctrl" style="padding:14px 18px;border-top:1px solid var(--line)"><label for="sd-d">40 cm、瞳距 <output id="sd-ipd-out"></output> 時，前後深度差 <output id="sd-d-out"></output></label><input type="range" id="sd-d" min="0.1" max="10" step="0.1" value="0.5"><input type="range" id="sd-ipd" min="54" max="72" step="1" value="64" aria-label="瞳距"><div class="readout"><div class="row"><span>視差</span><b id="sd-out">—</b></div><div class="row"><span>相當於</span><b id="sd-lv">—</b></div></div></div>
+      <div class="observe"><h4>觀察重點</h4><ul><li>依序往下問，連續答錯就停；記錄<b>最後一組答對的秒角</b>。</li><li>閉一眼還能答對 → 那一題靠的是單眼線索，不能算。</li><li>排除抑制那一步若只讀得出一邊的字母 → 有抑制，立體視的結果不可信，要接著做 W03 的 Worth 4 Dot。</li></ul></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>紀錄方式 <span class="tag">RECORD</span></h2>
+    <div class="rec"># Amsler
+Amsler @30cm cc: Unremarkable OU
+Amsler @30cm cc: OD metamorphopsia, superior-nasal, 2 squares from center. OS unremarkable.
+# 色覺（務必註明版本）
+Colour Vision: Pass（Ishihara 38 plates, 0 error）OD/OS
+Colour Vision: Fail（Ishihara 38 plates, 7 errors, plates 3,5,8,…）OU, suspect Deutan
+# 立體視（矯正狀態、距離、秒角、檢查本）
+Stereo @N sc 40 sec, Wirt rings.
+Stereo @N cc Better than 40 sec, Wirt rings.   ← 九組全過
+Stereo @N cc No Stereo, Wirt rings.             ← 完全看不到
+# 期望值：Titmus Wirt rings ≤ 40 秒角（Morgan 與教科書一致）</div>
+  </section>
+
+  <section class="block">
+    <h2>常見錯誤 <span class="tag">MISTAKES</span></h2>
+    <div class="myths">
+      <details class="myth"><summary>Amsler 正常，就代表視野沒問題。</summary><div class="fix">Amsler 只測中心約 20°；周邊視野要靠對立視野或正式視野檢查。</div></details>
+      <details class="myth"><summary>老花受檢者裸眼看 Amsler 就好。</summary><div class="fix">沒戴近用矯正，整張格線都糊，無法分辨是屈光還是黃斑問題。</div></details>
+      <details class="myth"><summary>色覺雙眼一起看比較快。</summary><div class="fix">後天色覺異常常常只在一眼；雙眼一起看會被好眼掩蓋。</div></details>
+      <details class="myth"><summary>石原氏 Pass 就代表色覺完全正常。</summary><div class="fix">石原氏測不到 Tritan（藍黃）缺損，懷疑後天疾病時要加做 D-15 或 F2 板。</div></details>
+      <details class="myth"><summary>立體視第一組答對，就可以直接記 800 秒角。</summary><div class="fix">要繼續往下做到答錯為止；也要確認不是靠單眼線索或猜的。</div></details>
+      <details class="myth"><summary>立體視不用先確認抑制。</summary><div class="fix">有抑制時立體視不成立，後面的回答都不可信。</div></details>
+    </div>
+  </section>
+
+  <section class="block"><h2>前後串連 <span class="tag">CONNECT</span></h2><div id="connect"></div></section>
+  <section class="block"><h2>觀念檢核 <span class="tag">CHECK</span></h2><p class="sub">選項順序每次都會打亂。答對八成以上，這一週就會在首頁亮綠燈。</p><div id="quiz"></div></section>
+  <section class="block"><h2>練習題 <span class="tag">PRACTICE</span></h2><p class="sub">本週兩題是延伸計算，不列入精熟統計，但能幫你理解「20 度」與「40 秒角」從哪裡來。</p><div id="practice"></div></section>
+  <section class="block"><h2>專業英文 <span class="tag">TERMS</span></h2><div id="terms"></div></section>
+  <nav id="pager"></nav>
+</main>
+<footer id="footer"></footer>
+<script src="assets/config.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/practice.js"></script>
+<script src="assets/problems/calc.js"></script>
+<script src="assets/bank/w02.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => { OBPractice.mount("practice", "w02"); OL.connect("connect", [
+  ["W03 Worth 4 Dot", "w03", "立體視排除抑制時發現異常，接著做"],
+  ["W05 對立視野", "w05", "Amsler 測不到的周邊視野"],
+  ["W16 Bagolini", "w16", "幾乎不解離的融像檢查"],
+  ["W17 主訴腳本 C", "w17", "「看直線覺得有點彎」要做哪些檢查"],
+]); });
+(function () {
+  const { seg, check, drill, shuffle, esc } = OL;
+  OL.levels("levels", [
+    ["◆", "Amsler：中心約 20°、30 cm、近用矯正、固視中央", "主觀描述 → 術語 → 臨床意義"],
+    ["◆", "石原氏判讀門檻與版本", "38 色版錯 > 4、24 色版錯 > 3 為 Fail"],
+    ["◆", "先天紅綠、後天常見藍黃；石原氏測不到 Tritan", ""],
+    ["◆", "Titmus：先排除抑制，記到最後答對的秒角", "期望值 ≤ 40 秒角"],
+    ["○", "視差公式、X 連鎖遺傳", ""],
+  ]);
+
+  /* ---------- LAB 2-1 Amsler ---------- */
+  const AM = [
+    { k: "nl", name: "64 歲", eye: "od", term: "nl", loc: "-", presby: true },
+    { k: "meta", name: "68 歲", eye: "od", term: "meta", loc: "sn", presby: true },
+    { k: "meta", name: "57 歲", eye: "os", term: "meta", loc: "it", presby: true },
+    { k: "sco", name: "72 歲", eye: "os", term: "sco", loc: "c", presby: true },
+    { k: "mic", name: "38 歲", eye: "od", term: "mic", loc: "c", presby: false },
+    { k: "meta", name: "45 歲", eye: "od", term: "meta", loc: "st", presby: true },
+  ];
+  const LOCN = { "-": "", c: "central", sn: "superior-nasal", st: "superior-temporal", in: "inferior-nasal", it: "inferior-temporal" };
+  const LOCZ = { "-": "", c: "中央", sn: "上鼻側", st: "上顳側", in: "下鼻側", it: "下顳側" };
+  const TERMN = { nl: "Unremarkable", meta: "metamorphopsia", sco: "central scotoma", mic: "micropsia" };
+  let ap = AM[0];
+  const aEye = seg("am-eye", drawAm), aTerm = seg("am-term"), aLoc = seg("am-loc");
+  const aAdd = check("am-add", drawAm), aFix = check("am-fix", drawAm);
+  /* 病人視野座標：x 向病人的右為正。鼻側：OD 在病人的左（x<0），OS 在病人的右（x>0）。 */
+  function centerOf(p) { if (p.loc === "c") return [0, 0]; const up = p.loc[0] === "s" ? 1 : -1, nas = p.loc[1] === "n"; const sx = (p.eye === "od") === nas ? -1 : 1; return [sx * 4.2, up * 4.2]; }
+  function drawAm() {
+    const svg = document.getElementById("am-svg"); const N = 20, S = 20, O = 10;
+    const ab = ap.term !== "nl" && aEye.value === ap.eye;
+    const [cx, cy] = centerOf(ap);
+    const R = ap.term === "mic" ? 4 : 2.6;
+    const warp = (x, y) => {   // x,y：格數（−10..10），y 向上
+      if (!ab || ap.term === "sco") return [x, y];
+      const dx = x - cx, dy = y - cy, r2 = dx * dx + dy * dy, w = Math.exp(-r2 / (R * R));
+      if (ap.term === "meta") return [x + 0.42 * Math.sin(y * 1.3) * w, y + 0.42 * Math.sin(x * 1.2 + 0.6) * w];
+      return [x - dx * 0.38 * w, y - dy * 0.38 * w];   // micropsia：向中心收縮
+    };
+    const P = (x, y) => { const [a, b] = warp(x, y); return `${(O + (a + 10) * S).toFixed(1)},${(O + (10 - b) * S).toFixed(1)}`; };
+    let g = `<rect x="${O}" y="${O}" width="${N * S}" height="${N * S}" fill="#fff" stroke="#111" stroke-width="1.5"/>`;
+    for (let i = 0; i <= N; i++) {
+      const v = i - 10; let a = [], b = [];
+      for (let t = -10; t <= 10.001; t += 0.25) { a.push(P(v, t)); b.push(P(t, v)); }
+      g += `<polyline points="${a.join(" ")}" fill="none" stroke="#111" stroke-width="1"/><polyline points="${b.join(" ")}" fill="none" stroke="#111" stroke-width="1"/>`;
+    }
+    if (ab && ap.term === "sco") g += `<defs><radialGradient id="scg"><stop offset=".55" stop-color="#6b6b6b"/><stop offset="1" stop-color="#6b6b6b" stop-opacity="0"/></radialGradient></defs><ellipse cx="${O + (cx + 10) * S}" cy="${O + (10 - cy) * S}" rx="${2.8 * S}" ry="${2.4 * S}" fill="url(#scg)"/>`;
+    g += `<circle cx="${O + 10 * S}" cy="${O + 10 * S}" r="5" fill="#111"/>`;
+    const blur = ap.presby && !aAdd.value;
+    svg.setAttribute("viewBox", `0 0 ${N * S + 2 * O} ${N * S + 2 * O}`);
+    svg.innerHTML = `<defs><filter id="amb"><feGaussianBlur stdDeviation="${blur ? 2.2 : 0}"/></filter></defs><g filter="url(#amb)">${g}</g>`;
+    let say;
+    if (blur) say = "線都糊糊的，看不太清楚格子。";
+    else if (!ab) say = "中間的黑點看得到，格子都是直的、完整的。";
+    else if (!aFix.value) say = "嗯……都還好吧？（他的眼睛在方格上到處看）";
+    else say = { meta: `一直看著中間的話，${zhPos(ap)}那一塊的線是彎的、波浪狀。`, sco: "看著中間的黑點時，中間那一塊灰灰的，看不到線。", mic: "中間附近的格子好像比旁邊的小、比較密。" }[ap.term];
+    document.getElementById("am-say").textContent = say;
+  }
+  function zhPos(p) { const [cx, cy] = centerOf(p); return (cy > 0 ? "上面" : "下面") + (cx < 0 ? "偏左" : "偏右"); }
+  function newAm() { ap = AM[Math.floor(Math.random() * AM.length)]; document.getElementById("am-pt").textContent = ap.name + (ap.presby ? "・老花" : ""); aAdd.value = false; aFix.value = false; document.getElementById("am-rec").textContent = ""; document.getElementById("am-v").innerHTML = ""; drawAm(); }
+  document.getElementById("am-new").onclick = newAm;
+  document.getElementById("am-chk").onclick = () => {
+    const eye = aEye.value, t = aTerm.value, l = aLoc.value;
+    const other = eye === "od" ? "OS" : "OD";
+    const line = t === "nl" ? `Amsler @30cm ${aAdd.value || !ap.presby ? "cc" : "sc"}: ${eye.toUpperCase()} unremarkable` : `Amsler @30cm ${aAdd.value || !ap.presby ? "cc" : "sc"}: ${eye.toUpperCase()} ${TERMN[t]}${l !== "-" ? ", " + LOCN[l] : ""}`;
+    document.getElementById("am-rec").textContent = line;
+    const issues = [];
+    if (ap.presby && !aAdd.value) issues.push("受檢者有老花，先戴近用矯正再判讀");
+    if (!aFix.value) issues.push("沒有提醒固視中央點，受檢者在掃視");
+    const truthHere = eye === ap.eye ? ap.term : "nl";
+    if (t !== truthHere) issues.push(`這隻眼睛的正確術語是 ${TERMN[truthHere]}`);
+    else if (t !== "nl" && l !== ap.loc) issues.push(`位置應為 ${LOCZ[ap.loc]}（${LOCN[ap.loc]}）——記得把病人的左右轉成鼻側／顳側`);
+    const both = eye !== ap.eye && ap.term !== "nl" ? `（提示：異常在 ${ap.eye.toUpperCase()}，另一眼也要測）` : "";
+    document.getElementById("am-v").innerHTML = issues.length ? `<span class="pill bad">再檢查</span> ${issues.join("；")}。${both}` : `<span class="pill ok">正確</span> ${truthHere === "nl" ? "這隻眼睛正常。" + both : "記得在紀錄紙上畫出範圍；新發生的變形要盡快轉介。"}`;
+  };
+  newAm();
+
+  /* ---------- LAB 2-2 假同色板 ---------- */
+  const M = {
+    p: [[0.152286, 1.052583, -0.204868], [0.114503, 0.786281, 0.099216], [-0.003882, -0.048116, 1.051998]],
+    d: [[0.367322, 0.860646, -0.227968], [0.280085, 0.672501, 0.047413], [-0.011820, 0.042940, 0.968881]],
+    t: [[1.255528, -0.076749, -0.178779], [-0.078411, 0.930809, 0.147602], [0.004733, 0.691367, 0.303900]],
+  };
+  const lin = (c) => { c /= 255; return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); };
+  const gam = (c) => { c = Math.max(0, Math.min(1, c)); return Math.round(255 * (c <= 0.0031308 ? 12.92 * c : 1.055 * Math.pow(c, 1 / 2.4) - 0.055)); };
+  const mul = (m, v) => m.map((r) => r[0] * v[0] + r[1] * v[1] + r[2] * v[2]);
+  const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+  const nullv = (m) => { const v = cross(m[0], m[1]); const n = Math.hypot(...v); return v.map((x) => x / n); };
+  /* 紅綠板的方向：同時讓 Protan 與 Deutan 的模擬差異最小（在單位球面上搜尋） */
+  const RGV = (() => { let best = null, bv = 1e9;
+    for (let i = 0; i <= 90; i++) for (let j = 0; j < 180; j++) { const th = i / 90 * Math.PI, ph = j / 180 * 2 * Math.PI;
+      const v = [Math.sin(th) * Math.cos(ph), Math.sin(th) * Math.sin(ph), Math.cos(th)]; if (v[0] <= 0) continue;
+      const a = mul(M.p, v), b = mul(M.d, v), e = a[0] * a[0] + a[1] * a[1] + a[2] * a[2] + b[0] * b[0] + b[1] * b[1] + b[2] * b[2];
+      if (e < bv) { bv = e; best = v; } }
+    return best; })();
+  const pType = seg("pl-type", plate), pSim = seg("pl-sim", paint);
+  let dots = [], num = 0;
+  function plate() {
+    const cv = document.getElementById("pl-cv"), W = cv.width, c = cv.getContext("2d");
+    num = [2, 3, 5, 6, 7, 8, 9, 12, 15, 16, 29, 42, 45, 57, 74][Math.floor(Math.random() * 15)];
+    if (pType.value === "demo") num = 12;
+    const mk = document.createElement("canvas"); mk.width = mk.height = W; const m = mk.getContext("2d");
+    m.fillStyle = "#000"; m.font = `700 ${num > 9 ? 200 : 240}px sans-serif`; m.textAlign = "center"; m.textBaseline = "middle"; m.fillText(String(num), W / 2, W / 2 + 10);
+    const mask = m.getImageData(0, 0, W, W).data;
+    // 混淆色：沿二色視的零空間方向，讓數字與背景在該類型眼中相同
+    const nv = pType.value === "tr" ? nullv(M.t) : RGV;
+    const base = pType.value === "tr" ? [0.30, 0.42, 0.30] : [0.32, 0.30, 0.10];
+    const amp = pType.value === "tr" ? 0.20 : 0.22;
+    dots = []; let tries = 0;
+    while (dots.length < 900 && tries < 20000) { tries++;
+      const r = 4 + Math.random() * 9, a = Math.random() * Math.PI * 2, rr = Math.sqrt(Math.random()) * (W / 2 - r - 4);
+      const x = W / 2 + rr * Math.cos(a), y = W / 2 + rr * Math.sin(a);
+      if (dots.some((d) => Math.hypot(d.x - x, d.y - y) < d.r + r + 1.2)) continue;
+      const inside = mask[(Math.round(y) * W + Math.round(x)) * 4 + 3] > 128;
+      const L = 0.62 + Math.random() * 0.76;   // 亮度雜訊：不讓受檢者靠明暗分辨
+      let col;
+      if (pType.value === "demo") col = inside ? [0.55, 0.12, 0.05] : [0.30, 0.32, 0.30];
+      else { const sg = Math.sign(nv[0]) || 1, s = inside ? amp : -amp; col = base.map((b, i) => b + s * nv[i] * sg); }
+      col = col.map((v) => Math.max(0.005, v * L));
+      dots.push({ x, y, r, col });
+    }
+    document.getElementById("pl-num").textContent = num;
+    paint();
+  }
+  function paint() {
+    const cv = document.getElementById("pl-cv"), c = cv.getContext("2d"), W = cv.width;
+    c.fillStyle = "#f4efe4"; c.fillRect(0, 0, W, W);
+    const s = pSim.value;
+    dots.forEach((d) => { const v = s === "n" ? d.col : mul(M[s], d.col); c.fillStyle = `rgb(${gam(v[0])},${gam(v[1])},${gam(v[2])})`; c.beginPath(); c.arc(d.x, d.y, d.r, 0, Math.PI * 2); c.fill(); });
+    const who = { n: "正常三色視", p: "Protan（紅色盲型）", d: "Deutan（綠色盲型）", t: "Tritan（藍黃型）" }[s];
+    document.getElementById("pl-note").textContent = `目前以 ${who} 的眼睛看`;
+  }
+  document.getElementById("pl-new").onclick = plate;
+  plate();
+  const isi = [];
+  for (let k = 0; k < 10; k++) {
+    const v38 = Math.random() < 0.6, n = v38 ? Math.floor(Math.random() * 9) : Math.floor(Math.random() * 7), max = v38 ? 23 : 15;
+    const set = shuffle(Array.from({ length: max - 1 }, (_, i) => i + 2)).slice(0, n).sort((a, b) => a - b);
+    const fail = v38 ? n > 4 : n > 3;
+    isi.push({ q: `${v38 ? "38" : "24"} 色版，判讀範圍內答錯：${n ? set.join("、") + ` 號（共 ${n} 題）` : "無"}`, a: fail ? 1 : 0, why: `${v38 ? "38 色版看第 2–23 號，錯超過 4 個" : "24 色版看第 2–15 號，錯超過 3 個"}才 Fail；這裡錯 ${n} 個 → ${fail ? "Fail" : "Pass"}。紀錄寫 Colour Vision: ${fail ? "Fail" : "Pass"}（${v38 ? 38 : 24} plates, ${n} error${n === 1 ? "" : "s"}）。` });
+  }
+  drill("d-isi", ["Pass", "Fail"], isi, { unit: "受檢者" });
+
+  /* ---------- LAB 2-3 遺傳 ---------- */
+  const pm = seg("pn-m", pun), pf = seg("pn-f", pun);
+  function pun() {
+    const mom = [["X", "X"], ["Xc", "X"], ["Xc", "Xc"]][+pm.value], dad = [["X", "Y"], ["Xc", "Y"]][+pf.value];
+    const lab = (a) => a.replace("Xc", "X<sup>c</sup>");
+    let h = `<div class="h">♀ ＼ ♂</div><div class="h">${lab(dad[0])}</div><div class="h">${lab(dad[1])}</div>`;
+    let son = 0, dau = 0, car = 0;
+    mom.forEach((m) => { h += `<div class="h">${lab(m)}</div>`; dad.forEach((d) => {
+      const kid = [m, d], isSon = d === "Y", nC = kid.filter((x) => x === "Xc").length;
+      const aff = isSon ? nC === 1 : nC === 2, ca = !isSon && nC === 1;
+      if (isSon && aff) son++; if (!isSon && aff) dau++; if (ca) car++;
+      h += `<div class="${aff ? "aff" : ca ? "car" : ""}">${lab(m)}${lab(d)}<br><small>${isSon ? "兒子" : "女兒"}・${aff ? "色覺異常" : ca ? "帶因" : "正常"}</small></div>`; }); });
+    document.getElementById("pn").innerHTML = h;
+    document.getElementById("pn-s").textContent = (son / 2 * 100) + "%"; document.getElementById("pn-d").textContent = (dau / 2 * 100) + "%"; document.getElementById("pn-c").textContent = (car / 2 * 100) + "%";
+  }
+  pun();
+
+  /* ---------- LAB 2-4 Titmus ---------- */
+  const SEC = [800, 400, 200, 140, 100, 80, 60, 50, 40];
+  const POS = ["上", "下", "左", "右"];
+  const WP = [
+    { name: "病人 A", th: 40, sup: false },
+    { name: "病人 B", th: 100, sup: false },
+    { name: "病人 C", th: 400, sup: false },
+    { name: "病人 D", th: 9999, sup: false, mono: true },
+    { name: "病人 E", th: 9999, sup: true },
+    { name: "病人 F", th: 60, sup: false },
+  ];
+  let wp, key = [];
+  const wMono = check("wr-mono");
+  const ring = (i) => `<svg viewBox="0 0 100 100" aria-hidden="true">${[[50, 22], [50, 78], [22, 50], [78, 50]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="12" fill="none" stroke="#333" stroke-width="3"/>`).join("")}</svg>`;
+  document.getElementById("wr").innerHTML = SEC.map((s, i) => `<button type="button" data-i="${i}" aria-pressed="false"><span>${i + 1}</span>${ring(i)}</button>`).join("");
+  document.getElementById("wr-ans").innerHTML = ['<option value="">— 選擇 —</option>', ...SEC.map((s, i) => `<option value="${s}">${s} 秒角（第 ${i + 1} 組）</option>`), '<option value="better">Better than 40 sec（九組全過）</option>', '<option value="none">No Stereo</option>'].join("");
+  function newW() { wp = WP[Math.floor(Math.random() * WP.length)]; key = SEC.map(() => Math.floor(Math.random() * 4));
+    document.getElementById("wr-pt").textContent = wp.name; document.getElementById("wr-say").textContent = "—"; document.getElementById("wr-rec").textContent = ""; document.getElementById("wr-v").innerHTML = ""; wMono.value = false;
+    document.getElementById("wr-key").innerHTML = SEC.map((s, i) => `第 ${i + 1} 組（${s}″）：${POS[key[i]]}`).join("<br>");
+    document.querySelectorAll("#wr button").forEach((b) => b.setAttribute("aria-pressed", "false")); }
+  document.getElementById("wr").querySelectorAll("button").forEach((b) => b.onclick = () => {
+    const i = +b.dataset.i; document.querySelectorAll("#wr button").forEach((x) => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+    let sees;
+    if (wMono.value) sees = SEC[i] >= 400 && Math.random() < 0.85;           // 單眼線索：大視差的幾組勉強看得出偏移
+    else if (wp.sup) sees = false;
+    else if (wp.mono) sees = SEC[i] >= 400 && Math.random() < 0.85;
+    else sees = SEC[i] >= wp.th;
+    const pick = sees ? key[i] : Math.floor(Math.random() * 4);
+    const say = sees ? `第 ${i + 1} 組，${POS[pick]}面那個浮起來。` : (Math.random() < 0.5 ? `第 ${i + 1} 組……都一樣平，用猜的話，${POS[pick]}面？` : `第 ${i + 1} 組，嗯……${POS[pick]}面吧？`);
+    document.getElementById("wr-say").textContent = (wMono.value ? "（閉左眼）" : "") + say;
+  });
+  document.getElementById("wr-sup").onclick = () => { document.getElementById("wr-say").textContent = wp.sup ? "右下方的方塊和圓形……我只看到 L，沒有看到 R。" : "右下方有 R 和 L 兩個字母。"; };
+  document.getElementById("wr-new").onclick = newW;
+  document.getElementById("wr-chk").onclick = () => {
+    const v = document.getElementById("wr-ans").value; if (!v) return;
+    const truth = wp.sup || wp.mono ? "none" : wp.th === 40 ? "40" : String(wp.th);
+    const rec = v === "better" ? "Stereo @N cc Better than 40 sec, Wirt rings." : v === "none" ? "Stereo @N cc No Stereo, Wirt rings." : `Stereo @N cc ${v} sec, Wirt rings.`;
+    document.getElementById("wr-rec").textContent = rec;
+    const ok = v === truth || (truth === "40" && v === "better" && false);
+    const why = wp.sup ? "這位受檢者有抑制（只看到一邊的字母），立體視不成立——要接著做 Worth 4 Dot。" : wp.mono ? "他只在前幾組大視差答對，而且閉一眼也能答對：靠的是單眼線索，沒有真正的立體視。" : `他的閾值是 ${wp.th} 秒角：第 ${SEC.indexOf(wp.th) + 1} 組以前都答對，之後開始用猜的。${wp.th <= 40 ? "達到期望值。" : "未達 ≤ 40 秒角的期望值。"}`;
+    document.getElementById("wr-v").innerHTML = (ok ? '<span class="pill ok">正確</span> ' : '<span class="pill bad">再檢查</span> ') + why;
+  };
+  newW();
+  const sd = OL.range("sd-d", (v) => v.toFixed(1) + " mm", sdu), si = OL.range("sd-ipd", (v) => v + " mm", sdu);
+  function sdu() { const eta = 206265 * (si.value / 1000) * (sd.value / 1000) / 0.16; document.getElementById("sd-out").textContent = eta.toFixed(0) + " 秒角"; const lv = SEC.filter((s) => s <= eta); document.getElementById("sd-lv").textContent = eta >= 3000 ? "比蒼蠅還大" : lv.length ? `Wirt rings 第 ${SEC.indexOf(lv[0]) + 1} 組（${lv[0]}″）以上` : "比 40″ 更細：Better than 40 sec"; }
+  sdu();
+})();
+</script>
+</body>
+</html>
