@@ -571,3 +571,25 @@ table.dt td.n { font-family: var(--font-mono); color: var(--muted); font-size: 1
 :root { --skin: #ecd2bc; --skin-line: #a9806a; --sclera: #fbf8f2; --iris: #5b3b28; --iris-in: #7a5236; --iris-out: #2e1d14; --iris-edge: #24170f; --occ: #26323a; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --skin: #b99b86; --skin-line: #6e5446; --sclera: #e9e4da; --occ: #0a0f12; } }
 :root[data-theme="dark"] { --skin: #b99b86; --skin-line: #6e5446; --sclera: #e9e4da; --occ: #0a0f12; }
+
+/* ---------- 課本操作要點（Scheiman & Wick 4e） ---------- */
+.tb { margin-top: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.tb-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; padding: 10px 16px; background: var(--accent-soft); border-bottom: 1px solid var(--line); }
+.tb-h b { font-family: var(--font-display); font-size: 16px; }
+.tb-h .tb-src { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; color: var(--accent); }
+.tb-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 0; }
+.tb-body > div { padding: 12px 16px; min-width: 0; }
+.tb-body > div + div { border-left: 1px solid var(--line); }
+@media (max-width: 860px) { .tb-body { grid-template-columns: minmax(0, 1fr); } .tb-body > div + div { border-left: 0; border-top: 1px solid var(--line); } }
+.tb h4 { font-size: 13px; color: var(--muted); letter-spacing: .06em; margin: 0 0 6px; font-family: var(--font-body); }
+.tb h4 + * { margin-top: 0; }
+.tb * + h4 { margin-top: 12px; }
+.tb-say { position: relative; font-size: 15px; padding: 10px 12px 10px 14px; border-left: 3px solid var(--accent); background: var(--surface-2); border-radius: 0 8px 8px 0; }
+.tb-say + .tb-say { margin-top: 8px; }
+.tb-say .en { display: block; margin-top: 4px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.tb ul, .tb ol { margin: 0; padding-left: 1.2em; font-size: 14.5px; display: grid; gap: 4px; }
+.tb .kv { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 3px 12px; font-size: 14px; }
+.tb .kv dt { color: var(--muted); }
+.tb .kv dd { margin: 0; font-family: var(--font-mono); font-size: 13.5px; }
+.tb-foot { padding: 8px 16px; font-size: 12.5px; color: var(--muted); border-top: 1px dashed var(--line); }
+.fixed-tag { display: inline-block; font-size: 11px; font-family: var(--font-mono); padding: 1px 6px; border-radius: 6px; background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); margin-left: 4px; vertical-align: 1px; }
