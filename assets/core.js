@@ -90,7 +90,7 @@
     const header = document.getElementById("topbar");
     if (header) {
       header.className = "topbar";
-      const extra = [["progress", "課程進度地圖"], ["clinic", "模擬病人門診"], ["norms", "期望值速查與判讀"], ["calc", "★ 必會計算練功房"], ["exam", "綜合挑戰"], ["terms", "中英名詞總表"]];
+      const extra = [["progress", "課程進度地圖"], ["clinic", "模擬病人門診"], ["parks", "Parks 三步驟訓練場"], ["norms", "期望值速查與判讀"], ["calc", "★ 必會計算練功房"], ["exam", "綜合挑戰"], ["terms", "中英名詞總表"]];
       const opts = WEEKS.map((w) => `<option value="${w.id}" ${w.id === currentId ? "selected" : ""}>${wkLabel(w)}　${w.zh}</option>`).join("") +
         `<optgroup label="綜合練習">${extra.map(([v, t]) => `<option value="${v}" ${v === currentId ? "selected" : ""}>${t}</option>`).join("")}</optgroup>`;
       header.innerHTML = `<div class="topbar-inner">

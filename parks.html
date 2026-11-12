@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<script src="assets/analytics.js"></script>
+<title>Parks 三步驟訓練場｜視光學實驗（三）・無邊界教室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .mast { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  @media (max-width: 860px) { .mast { grid-template-columns: minmax(0, 1fr); } }
+  .mcard { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; display: grid; gap: 6px; }
+  .mcard.on { border-color: var(--ok); box-shadow: inset 0 0 0 1px var(--ok); }
+  .mcard h3 { font-size: 15px; display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+  .mcard h3 small { font-family: var(--font-mono); font-size: 11px; color: var(--muted); font-weight: 400; }
+  .mcard .crit { font-size: 13px; color: var(--muted); }
+  .bar { height: 8px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--accent); border-radius: 99px; transition: width .3s; }
+  .mcard.on .bar i { background: var(--ok); }
+  .dots { display: flex; gap: 3px; flex-wrap: wrap; }
+  .dots b { width: 10px; height: 10px; border-radius: 3px; background: var(--surface-2); border: 1px solid var(--line); }
+  .dots b.y { background: var(--ok); border-color: var(--ok); }
+  .dots b.n { background: var(--bad); border-color: var(--bad); }
+  .weak { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 4px 10px; align-items: center; font-size: 13px; }
+  .weak .bar i { background: var(--bad); }
+  .game { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .qline { font-size: 18px; font-weight: 700; margin: 4px 0 12px; }
+  .hud { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+  .hud b { font-family: var(--font-mono); color: var(--ink); font-weight: 500; }
+  .ctab { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .ctab th, .ctab td { border: 1px solid var(--line); padding: 6px 8px; text-align: center; }
+  .ctab th { background: var(--surface-2); font-weight: 500; color: var(--muted); font-size: 13px; }
+  .ctab td { font-family: var(--font-mono); }
+  .ctab td.need { color: var(--muted); }
+  .steprow { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 8px; align-items: center; margin: 8px 0; }
+  .steprow > b { font-size: 14px; }
+  .mg { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 10px; }
+  .mg button { font: inherit; font-size: 13px; padding: 8px 4px; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; line-height: 1.25; }
+  .mg button small { display: block; color: var(--muted); font-size: 11.5px; }
+  .mg button.cand { border-color: var(--accent); background: var(--accent-soft); }
+  .mg button.dim { opacity: .35; }
+  .mg button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: var(--surface); }
+  .mg button[aria-pressed="true"] small { color: var(--surface); }
+  .mg button.ok { border-color: var(--ok); box-shadow: inset 0 0 0 2px var(--ok); }
+  .mg button.bad { border-color: var(--bad); box-shadow: inset 0 0 0 2px var(--bad); }
+  .mg .wide { grid-column: 1 / -1; }
+  .fb { margin-top: 12px; display: grid; gap: 4px; font-size: 14.5px; }
+  .fb .y::before { content: "✓ "; color: var(--ok); font-weight: 700; }
+  .fb .n::before { content: "✗ "; color: var(--bad); font-weight: 700; }
+  .path { font-family: var(--font-mono); font-size: 13px; background: var(--surface-2); border-radius: 8px; padding: 8px 10px; white-space: pre-wrap; }
+  .s3 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+  @media (max-width: 900px) { .s3 { grid-template-columns: minmax(0, 1fr); } }
+  .posbtns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .posbtns button { font: inherit; font-size: 13px; padding: 7px 4px; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+  .posbtns button.done { border-color: var(--ok); }
+  .posbtns button.req::after { content: " *"; color: var(--bad); }
+  .posbtns button.done.req::after { content: " ✓"; color: var(--ok); }
+  .facebox { display: flex; justify-content: center; }
+  .facebox svg { transition: transform .35s; max-width: 100%; }
+  .badge-all { display: none; text-align: center; padding: 14px; border-radius: 12px; border: 2px solid var(--ok); color: var(--ok); font-weight: 700; margin-top: 12px; }
+  .badge-all.on { display: block; }
+  .rule ol { margin: 0; padding-left: 1.3em; display: grid; gap: 6px; }
+  .story { font-size: 15px; }
+</style>
+</head>
+<body data-chapter="parks">
+<header id="topbar"></header>
+<main class="wrap">
+  <div class="chapter-head">
+    <div class="eyebrow">Parks Three-Step Trainer</div>
+    <h1>Parks 三步驟訓練場</h1>
+    <div class="en">From a vertical deviation to the paretic muscle — until it's automatic</div>
+    <p class="lede">三個階段，由淺到深：先把八條垂直肌的作用背熟，再用數據推理，最後在虛擬病人身上自己量、自己判斷、決定要不要轉介。每個階段都有<b>熟練標準</b>，達標後亮綠燈；三個都亮，才算真的會。學理與操作步驟請見 <a href="w11.html">W11 馬篤式鏡測試</a>，眼外肌基礎見 <a href="w05.html">W05</a>。</p>
+  </div>
+
+  <section class="block">
+    <h2>熟練度 <span class="tag">MASTERY</span></h2>
+    <div class="mast" id="mast"></div>
+    <div class="badge-all" id="all">🎖 三個階段全部達標：Parks 三步驟已熟練</div>
+    <h3 style="font-size:15px;margin:16px 0 8px">最常錯在哪一步</h3>
+    <div class="weak" id="weak"></div>
+    <div class="row-btns" style="margin-top:10px"><button class="btn ghost sm" id="reset" type="button">清除我的紀錄</button></div>
+    <p class="note" style="font-size:12.5px">紀錄只存在這台裝置的瀏覽器中。</p>
+  </section>
+
+  <section class="block rule">
+    <h2>三步驟規則 <span class="tag">RULES</span></h2>
+    <div class="tb" style="margin-top:0">
+      <div class="tb-h"><span class="tb-src">PARKS–BIELSCHOWSKY THREE-STEP</span><b>每一步都把候選肌肉砍半：8 → 4 → 2 → 1</b></div>
+      <div class="tb-body">
+        <div>
+          <ol>
+            <li><b>正前方哪一眼上斜？</b><br>留下 4 條：<b>上斜眼的下轉肌</b>（IR、SO）＋<b>另一眼的上轉肌</b>（SR、IO）。</li>
+            <li><b>往右看或往左看比較大？</b><br>留下作用場在<b>那一側</b>的 2 條（外轉眼看直肌、內轉眼看斜肌）。</li>
+            <li><b>頭往右傾或往左傾比較大？</b><br>頭往右傾：右眼<b>內旋</b>（SO、SR）、左眼<b>外旋</b>（IO、IR）。留下這 4 條與上一步的交集。</li>
+          </ol>
+        </div>
+        <div>
+          <h4>最常考的一條</h4>
+          <div class="tb-say"><b>右上斜肌麻痺（第四對腦神經）</b>：右眼上斜、往<b>左</b>看較大、頭往<b>右</b>傾較大；病人習慣把頭歪向<b>左</b>邊。</div>
+          <h4>量測工具</h4>
+          <ul><li>單馬篤氏鏡（OD，溝紋垂直 → 水平紅線）。紅線在燈<b>下</b>＝右眼上斜；在燈<b>上</b>＝右眼下斜＝左眼上斜。</li><li>雙馬篤氏鏡確認旋轉：上斜肌麻痺為外旋，單側約 3–7°，雙側常 &gt; 10°。</li></ul>
+        </div>
+      </div>
+    </div>
+    <details class="myth" style="margin-top:10px"><summary>八條肌肉速查表（練習時先別打開）</summary><div class="fix"><div class="dt-wrap"><table class="dt" id="ref"></table></div></div></details>
+  </section>
+
+  <section class="block">
+    <h2>開始練習 <span class="tag">PLAY</span></h2>
+    <div class="seg" id="stage" style="margin-bottom:12px"><button data-v="1" aria-pressed="true">階段一：肌肉地圖</button><button data-v="2">階段二：三步驟推理</button><button data-v="3">階段三：臨床實戰</button></div>
+    <div class="game" id="g1"></div>
+    <div class="game" id="g2" hidden></div>
+    <div class="game" id="g3" hidden></div>
+  </section>
+</main>
+<footer id="footer"></footer>
+<script src="assets/config.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/eyes.js"></script>
+<script>
+(function () {
+  "use strict";
+  /* ============ 肌肉模型 ============ */
+  const MS = ["RSR", "RIR", "RSO", "RIO", "LSR", "LIR", "LSO", "LIO"];
+  const ZH = { RSR: "右上直肌", RIR: "右下直肌", RSO: "右上斜肌", RIO: "右下斜肌", LSR: "左上直肌", LIR: "左下直肌", LSO: "左上斜肌", LIO: "左下斜肌" };
+  const FLD = { RSR: [1, 1], RIR: [1, -1], RSO: [-1, -1], RIO: [-1, 1], LSR: [-1, 1], LIR: [-1, -1], LSO: [1, -1], LIO: [1, 1] };   // 受檢者自己的方向：x＋＝受檢者右方
+  const YOKE = { RSR: "LIO", LIO: "RSR", RIR: "LSO", LSO: "RIR", RSO: "LIR", LIR: "RSO", RIO: "LSR", LSR: "RIO" };
+  const oth = (e) => (e === "R" ? "L" : "R");
+  const eyeOf = (m) => m[0];
+  const isDep = (m) => /IR|SO/.test(m);
+  const isIn = (m) => /SO|SR/.test(m);
+  const hyperEye = (m) => (isDep(m) ? eyeOf(m) : oth(eyeOf(m)));
+  const gazeSide = (m) => (FLD[m][0] > 0 ? "R" : "L");
+  const tiltSide = (m) => (isIn(m) ? eyeOf(m) : oth(eyeOf(m)));
+  const vSide = (m) => (FLD[m][1] > 0 ? "U" : "D");
+  const S1 = (e) => MS.filter((m) => hyperEye(m) === e), S2 = (g) => MS.filter((m) => gazeSide(m) === g), S3 = (t) => MS.filter((m) => tiltSide(m) === t);
+  const solve = (a, b, c) => MS.filter((m) => (!a || hyperEye(m) === a) && (!b || gazeSide(m) === b) && (!c || tiltSide(m) === c));
+  const LR = { R: "右", L: "左" };
+  const DIRZ = (m) => `${LR[gazeSide(m)]}${vSide(m) === "U" ? "上" : "下"}`;
+  const pick = (a) => a[Math.floor(Math.random() * a.length)];
+  const shuffle = (a) => a.map((x) => [Math.random(), x]).sort((p, q) => p[0] - q[0]).map((p) => p[1]);
+  const h2 = (x) => Math.round(x * 2) / 2;
+
+  document.getElementById("ref").innerHTML = "<tr><th>麻痺肌</th><th>正前方上斜眼</th><th>往哪看較大</th><th>頭往哪傾較大</th><th>習慣頭位</th><th>麻痺眼旋轉</th><th>作用方向</th><th>配偶肌</th></tr>" +
+    MS.map((m) => `<tr><td>${m} ${ZH[m]}</td><td>${LR[hyperEye(m)]}眼</td><td>往${LR[gazeSide(m)]}</td><td>往${LR[tiltSide(m)]}</td><td>歪向${LR[oth(tiltSide(m))]}</td><td>${isIn(m) ? "外旋" : "內旋"}</td><td>${DIRZ(m)}</td><td>${YOKE[m]}</td></tr>`).join("");
+
+  /* ============ 紀錄 ============ */
+  const KEY = "opt3lab-parks";
+  const blank = () => ({ s1: [], s2: [], t2: [], s3: [], err: {} });
+  let ST;
+  try { ST = Object.assign(blank(), JSON.parse(localStorage.getItem(KEY) || "{}")); } catch (e) { ST = blank(); }
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(ST)); } catch (e) {} };
+  const push = (k, v) => { ST[k].push(v); if (ST[k].length > 30) ST[k].shift(); };
+  const miss = (k) => { ST.err[k] = (ST.err[k] || 0) + 1; };
+  const streak = (a) => { let n = 0; for (let i = a.length - 1; i >= 0 && a[i]; i--) n++; return n; };
+  const last = (a, n) => a.slice(-n);
+  const RULE = {
+    s1: { name: "階段一：肌肉地圖", en: "STAGE 1", crit: "連續答對 10 題", ok: () => streak(ST.s1) >= 10, prog: () => Math.min(1, streak(ST.s1) / 10), hist: () => ST.s1 },
+    s2: { name: "階段二：三步驟推理", en: "STAGE 2", crit: "連續 10 題全對（不看提示），平均 ≤ 20 秒", ok: () => streak(ST.s2) >= 10 && avg(last(ST.t2, 10)) <= 20, prog: () => Math.min(1, streak(ST.s2) / 10), hist: () => ST.s2 },
+    s3: { name: "階段三：臨床實戰", en: "STAGE 3", crit: "最近 8 位病人中 ≥ 7 位完全正確", ok: () => ST.s3.length >= 8 && last(ST.s3, 8).filter(Boolean).length >= 7, prog: () => Math.min(1, last(ST.s3, 8).filter(Boolean).length / 7), hist: () => ST.s3 },
+  };
+  const avg = (a) => (a.length ? a.reduce((x, y) => x + y, 0) / a.length : 99);
+  const WEAK = [["k1", "① 判斷上斜眼"], ["conv", "　其中：hypo／hyper 換算"], ["k2", "② 注視方向"], ["k3", "③ 頭傾方向"], ["km", "最後選肌肉"], ["fact", "肌肉作用（階段一）"], ["tilt", "習慣頭位"], ["disp", "處置與轉介"]];
+  function renderMast() {
+    document.getElementById("mast").innerHTML = Object.values(RULE).map((r) => {
+      const on = r.ok(), h = last(r.hist(), 12);
+      return `<div class="mcard ${on ? "on" : ""}"><h3>${r.name}<small>${on ? "✓ 已熟練" : r.en}</small></h3><div class="crit">${r.crit}</div><div class="bar"><i style="width:${Math.round(r.prog() * 100)}%"></i></div><div class="dots">${h.map((x) => `<b class="${x ? "y" : "n"}"></b>`).join("")}</div>${r === RULE.s2 && ST.t2.length ? `<div class="crit">最近 10 題平均 ${avg(last(ST.t2, 10)).toFixed(1)} 秒</div>` : ""}</div>`;
+    }).join("");
+    document.getElementById("all").classList.toggle("on", Object.values(RULE).every((r) => r.ok()));
+    const mx = Math.max(1, ...WEAK.map(([k]) => ST.err[k] || 0));
+    document.getElementById("weak").innerHTML = WEAK.map(([k, t]) => `<span>${t}</span><div class="bar"><i style="width:${((ST.err[k] || 0) / mx) * 100}%"></i></div><b style="font-family:var(--font-mono);font-weight:500">${ST.err[k] || 0}</b>`).join("");
+  }
+  document.getElementById("reset").onclick = () => { if (!document.getElementById("reset").dataset.armed) { document.getElementById("reset").dataset.armed = 1; document.getElementById("reset").textContent = "再按一次確認清除"; return; } ST = blank(); save(); renderMast(); document.getElementById("reset").textContent = "清除我的紀錄"; delete document.getElementById("reset").dataset.armed; };
+
+  const stage = OL.seg("stage", () => { ["1", "2", "3"].forEach((k) => document.getElementById("g" + k).hidden = stage.value !== k); });
+  const segHTML = (id, opts) => `<div class="seg" id="${id}">${opts.map(([v, t]) => `<button data-v="${v}" type="button">${t}</button>`).join("")}</div>`;
+  function segVal(id) { const b = document.querySelector(`#${id} button[aria-pressed="true"]`); return b ? b.dataset.v : null; }
+  function bindSeg(id, fn) { document.querySelectorAll(`#${id} button`).forEach((b) => b.onclick = () => { if (b.disabled) return; document.querySelectorAll(`#${id} button`).forEach((x) => x.setAttribute("aria-pressed", x === b ? "true" : "false")); fn && fn(); }); }
+  const lockSeg = (id) => document.querySelectorAll(`#${id} button`).forEach((b) => b.disabled = true);
+  const pathTxt = (m) => `① ${LR[hyperEye(m)]}眼上斜 → ${S1(hyperEye(m)).join("、")}\n② 往${LR[gazeSide(m)]}看較大 → ${solve(hyperEye(m), gazeSide(m)).join("、")}\n③ 頭往${LR[tiltSide(m)]}傾較大 → ${m}（${ZH[m]}）`;
+
+  /* ============ 階段一：肌肉地圖 ============ */
+  let q1;
+  const GZ = [["R", "U"], ["L", "U"], ["R", "D"], ["L", "D"]];
+  function gen1() {
+    const m = pick(MS), t = pick(["hyper", "field", "tilt", "gaze", "yoke", "tors", "who"]);
+    if (t === "hyper") return { q: `${ZH[m]}（${m}）麻痺：正前方哪一眼上斜？`, o: ["右眼上斜", "左眼上斜"], a: `${LR[hyperEye(m)]}眼上斜`, why: `${m} 是${isDep(m) ? "下轉肌，麻痺時該眼往上飄" : "上轉肌，麻痺時該眼偏低，相對地另一眼上斜"}。` };
+    if (t === "field") return { q: `${ZH[m]}（${m}）的垂直作用在受檢者的哪個方向最大？`, o: ["右上", "左上", "右下", "左下"], a: DIRZ(m), why: `${m}：${/SR|IR/.test(m) ? "直肌在眼睛外轉時垂直作用最大" : "斜肌在眼睛內轉時垂直作用最大"} → 受檢者的${DIRZ(m)}方。` };
+    if (t === "tilt") return { q: `${ZH[m]}（${m}）麻痺：頭往哪邊傾斜時，垂直偏斜變大？`, o: ["頭往右傾", "頭往左傾"], a: `頭往${LR[tiltSide(m)]}傾`, why: `頭往右傾時右眼內旋（SO、SR 用力）、左眼外旋（IO、IR 用力）。${m} 是${eyeOf(m) === "R" ? "右" : "左"}眼的${isIn(m) ? "內旋" : "外旋"}肌 → 頭往${LR[tiltSide(m)]}傾時要用它，偏斜變大。` };
+    if (t === "gaze") return { q: `${ZH[m]}（${m}）麻痺：往哪邊看時垂直偏斜變大？`, o: ["往右看", "往左看"], a: `往${LR[gazeSide(m)]}看`, why: `${m} 的作用場在受檢者${DIRZ(m)}方 → 往${LR[gazeSide(m)]}看偏斜變大。` };
+    if (t === "yoke") { const d = shuffle(MS.filter((x) => x !== m && x !== YOKE[m])).slice(0, 3); return { q: `${ZH[m]}（${m}）的配偶肌（yoke muscle）是？`, o: shuffle([YOKE[m], ...d]).map((x) => `${x} ${ZH[x]}`), a: `${YOKE[m]} ${ZH[YOKE[m]]}`, why: `配偶肌＝兩眼看同一個方向時一起用力的肌肉；往${DIRZ(m)}看時是 ${m} 與 ${YOKE[m]}。` }; }
+    if (t === "tors") return { q: `${ZH[m]}（${m}）的旋轉作用是？`, o: ["內旋", "外旋"], a: isIn(m) ? "內旋" : "外旋", why: "上方的肌肉（SR、SO）內旋，下方的肌肉（IR、IO）外旋。" };
+    const [gx, gy] = pick(GZ), e = pick(["R", "L"]), ans = MS.find((x) => eyeOf(x) === e && gazeSide(x) === gx && vSide(x) === gy);
+    return { q: `受檢者往${LR[gx]}${gy === "U" ? "上" : "下"}看時，${LR[e]}眼主要由哪一條肌肉負責${gy === "U" ? "上轉" : "下轉"}？`, o: MS.filter((x) => eyeOf(x) === e).map((x) => `${x} ${ZH[x]}`), a: `${ans} ${ZH[ans]}`, why: `往${LR[gx]}看時${LR[e]}眼是${gx === e ? "外轉 → 用直肌" : "內轉 → 用斜肌"}。` };
+  }
+  function new1() {
+    q1 = gen1();
+    const g = document.getElementById("g1");
+    g.innerHTML = `<div class="hud">連續答對 <b>${streak(ST.s1)}</b> ／ 10</div><div class="qline">${q1.q}</div><div class="chips" id="o1">${q1.o.map((t) => `<button type="button" class="chip">${t}</button>`).join("")}</div><div class="verdict" id="v1"></div>`;
+    g.querySelectorAll("#o1 button").forEach((b) => b.onclick = () => {
+      const ok = b.textContent === q1.a; push("s1", ok ? 1 : 0); if (!ok) miss("fact"); save(); renderMast();
+      g.querySelectorAll("#o1 button").forEach((x) => { x.disabled = true; if (x.textContent === q1.a) x.classList.add("ok"); }); if (!ok) b.classList.add("bad");
+      document.getElementById("v1").innerHTML = (ok ? '<span class="pill ok">正確</span> ' : '<span class="pill bad">錯了</span> ') + q1.why + ' <button class="btn sm" id="n1" type="button">下一題 →</button>';
+      document.getElementById("n1").onclick = new1; document.getElementById("n1").focus();
+    });
+  }
+
+  /* ============ 階段二：三步驟推理 ============ */
+  let c2, t0, hintUsed;
+  function mkVals(m) {
+    const B = h2(3 + Math.random() * 5), g = h2(3 + Math.random() * 4), t = h2(3 + Math.random() * 4);
+    const lo = (x) => Math.max(0.5, h2(B - x));
+    const v = { P: B };
+    v[gazeSide(m)] = B + g; v[oth(gazeSide(m))] = lo(1.5 + Math.random() * 2);
+    v["T" + tiltSide(m)] = B + t; v["T" + oth(tiltSide(m))] = lo(1.5 + Math.random() * 2);
+    v[vSide(m)] = B + h2(2 + Math.random() * 3); v[vSide(m) === "U" ? "D" : "U"] = lo(1 + Math.random() * 2);
+    return v;
+  }
+  const fmt = (x, he, hypo) => (hypo ? `${x}Δ ${LR[oth(he)]} hypo` : `${x}Δ ${LR[he]} hyper`).replace("右", "R").replace("左", "L");
+  function new2() {
+    const m = pick(MS), hypo = Math.random() < 0.35;
+    c2 = { m, v: mkVals(m), hypo }; t0 = performance.now(); hintUsed = false;
+    const he = hyperEye(m), V = c2.v, cell = (k) => `<td>${fmt(V[k], he, hypo)}</td>`;
+    const g = document.getElementById("g2");
+    g.innerHTML = `<div class="hud">連續全對 <b>${streak(ST.s2)}</b> ／ 10　·　計時 <b id="tm">0</b> 秒<label class="check" style="margin-left:auto"><input type="checkbox" id="hint"> 顯示候選肌肉（使用後本題不列入熟練）</label></div>
+      <div class="dt-wrap"><table class="ctab"><tr><th>正前方</th><th>往右看</th><th>往左看</th><th>頭往右傾</th><th>頭往左傾</th></tr><tr>${["P", "R", "L", "TR", "TL"].map(cell).join("")}</tr></table></div>
+      <div class="steprow"><b>① 上斜眼</b>${segHTML("a1", [["R", "右眼上斜"], ["L", "左眼上斜"]])}</div>
+      <div class="steprow"><b>② 注視</b>${segHTML("a2", [["R", "往右看較大"], ["L", "往左看較大"]])}</div>
+      <div class="steprow"><b>③ 頭傾</b>${segHTML("a3", [["R", "頭往右傾較大"], ["L", "頭往左傾較大"]])}</div>
+      <div class="mg" id="mg2">${MS.map((x) => `<button type="button" data-m="${x}">${x}<small>${ZH[x]}</small></button>`).join("")}</div>
+      <p class="note" style="font-size:13px;margin-top:6px">三步都選好後，點最後剩下的那條肌肉送出。</p><div id="f2"></div>`;
+    ["a1", "a2", "a3"].forEach((id) => bindSeg(id, paint2));
+    document.getElementById("hint").onchange = (e) => { if (e.target.checked) hintUsed = true; paint2(); };
+    g.querySelectorAll("#mg2 button").forEach((b) => b.onclick = () => submit2(b.dataset.m));
+    tick2(); paint2();
+  }
+  function tick2() { const el = document.getElementById("tm"); if (!el || !t0) return; el.textContent = Math.floor((performance.now() - t0) / 1000); requestAnimationFrame(tick2); }
+  function paint2() {
+    const on = document.getElementById("hint").checked, s = solve(segVal("a1"), segVal("a2"), segVal("a3"));
+    document.querySelectorAll("#mg2 button").forEach((b) => { b.classList.toggle("cand", on && s.includes(b.dataset.m)); b.classList.toggle("dim", on && !s.includes(b.dataset.m)); });
+  }
+  function submit2(pickM) {
+    const a = [segVal("a1"), segVal("a2"), segVal("a3")];
+    if (a.some((x) => !x)) { document.getElementById("f2").innerHTML = '<div class="verdict"><span class="pill warn">先走完三步</span> 每一步都要選，才能點肌肉。</div>'; return; }
+    const m = c2.m, sec = (performance.now() - t0) / 1000; t0 = 0;
+    const r = [a[0] === hyperEye(m), a[1] === gazeSide(m), a[2] === tiltSide(m), pickM === m], all = r.every(Boolean);
+    if (!r[0]) { miss("k1"); if (c2.hypo) miss("conv"); } if (!r[1]) miss("k2"); if (!r[2]) miss("k3"); if (!r[3]) miss("km");
+    push("s2", all && !hintUsed ? 1 : 0); if (all && !hintUsed) { ST.t2.push(+sec.toFixed(1)); if (ST.t2.length > 30) ST.t2.shift(); } save(); renderMast();
+    ["a1", "a2", "a3"].forEach(lockSeg);
+    document.querySelectorAll("#mg2 button").forEach((b) => { b.disabled = true; if (b.dataset.m === m) b.classList.add("ok"); else if (b.dataset.m === pickM) b.classList.add("bad"); });
+    const he = hyperEye(m);
+    const L = [
+      [r[0], `① ${c2.hypo ? `表上寫 ${LR[oth(he)]} hypo ＝ ${LR[he]}眼上斜` : `${LR[he]}眼上斜`} → 留下 ${S1(he).join("、")}`],
+      [r[1], `② 往${LR[gazeSide(m)]}看 ${c2.v[gazeSide(m)]}Δ ＞ 往${LR[oth(gazeSide(m))]}看 ${c2.v[oth(gazeSide(m))]}Δ → 留下 ${solve(he, gazeSide(m)).join("、")}`],
+      [r[2], `③ 頭往${LR[tiltSide(m)]}傾 ${c2.v["T" + tiltSide(m)]}Δ 較大 → ${m}`],
+      [r[3], `答案：${m} ${ZH[m]}${/SO/.test(m) ? "（第四對腦神經，最常見）" : ""}`],
+    ];
+    document.getElementById("f2").innerHTML = `<div class="fb">${L.map(([ok, t]) => `<div class="${ok ? "y" : "n"}">${t}</div>`).join("")}</div><div class="verdict" style="margin-top:8px">${all ? `<span class="pill ok">全對</span> 用時 ${sec.toFixed(1)} 秒${hintUsed ? "（有使用提示，不列入熟練）" : ""}` : '<span class="pill bad">再練一次</span> 看看是哪一步出錯。'} <button class="btn sm" id="n2" type="button">下一位 →</button></div>`;
+    document.getElementById("n2").onclick = new2; document.getElementById("n2").focus();
+  }
+
+  /* ============ 階段三：臨床實戰 ============ */
+  const ACUTE = ["三週前騎機車跌倒撞到頭，之後看東西上下疊在一起。", "糖尿病十五年，昨天早上起床突然看到上下兩個影像。", "這幾天上下複視，伴隨越來越嚴重的頭痛。", "高血壓多年，三天前開始看東西上下重疊，蓋一眼就好了。"];
+  const CONG = ["從小拍照頭就習慣歪一邊，最近長時間看電腦偶爾覺得字上下疊在一起，休息就好。", "媽媽說他小時候就歪頭看電視；最近考試念書時眼睛很累，偶爾上下疊影。"];
+  let c3, seen3, cnt3;
+  const POS = [["P", "正前方", 1], ["R", "往右看", 1], ["L", "往左看", 1], ["U", "往上看", 0], ["D", "往下看", 0], ["TR", "頭往右傾", 1], ["TL", "頭往左傾", 1], ["DM", "雙馬篤氏鏡", 0]];
+  function new3() {
+    const r = Math.random();
+    let kind = r < 0.25 ? "cong" : r < 0.7 ? "acute" : r < 0.85 ? "comit" : "mg";
+    const m = kind === "cong" ? pick(["RSO", "LSO"]) : kind === "acute" ? pick(MS) : null;
+    c3 = { kind, m, v: m ? mkVals(m) : null, B: h2(3 + Math.random() * 4), he: m ? hyperEye(m) : pick(["R", "L"]),
+      story: kind === "cong" ? pick(CONG) : kind === "acute" ? pick(ACUTE) : kind === "comit" ? "好幾年來偶爾覺得字上下疊在一起，看遠看近、往哪裡看都差不多，沒有其他不舒服。" : "最近上下複視時好時壞，傍晚特別嚴重，眼皮也會下垂，早上起床最好。" };
+    seen3 = {}; cnt3 = 0;
+    const g = document.getElementById("g3");
+    g.innerHTML = `<div class="hud">最近 8 位：<b>${last(ST.s3, 8).filter(Boolean).length}</b> 位完全正確（需 ≥ 7）</div>
+      <div class="patient story"><small>主訴與病史</small>${c3.story}</div>
+      <div class="s3" style="margin-top:12px">
+        <div>
+          <div class="facebox"><svg id="face" role="img" aria-label="受檢者正面"></svg></div>
+          <div class="stage-note" style="text-align:center">檢查者面對受檢者：畫面左邊是受檢者的右眼。OD 前放馬篤氏鏡（溝紋垂直）。</div>
+          <div class="svgstage tight" style="margin-top:8px"><svg id="mad" role="img" aria-label="受檢者看到的紅線與燈"></svg></div>
+          <div class="say-bubble" id="say3">先選一個量測位置。</div>
+        </div>
+        <div>
+          <div class="ctrl"><label>量測位置（＊為必要）</label><div class="posbtns" id="pos">${POS.map(([k, t, r]) => `<button type="button" data-k="${k}" class="${r ? "req" : ""}">${t}</button>`).join("")}</div></div>
+          <div class="dt-wrap" style="margin-top:8px"><table class="ctab" id="tab3"></table></div>
+          <div class="steprow"><b>① 上斜眼</b>${segHTML("b1", [["R", "右眼"], ["L", "左眼"]])}</div>
+          <div class="steprow"><b>② 注視</b>${segHTML("b2", [["R", "往右較大"], ["L", "往左較大"], ["E", "差不多"]])}</div>
+          <div class="steprow"><b>③ 頭傾</b>${segHTML("b3", [["R", "右傾較大"], ["L", "左傾較大"], ["E", "差不多"]])}</div>
+          <div class="mg" id="mg3">${MS.map((x) => `<button type="button" data-m="${x}">${x}<small>${ZH[x]}</small></button>`).join("")}<button type="button" class="wide" data-m="none">不符合單一肌肉麻痺<small>（共同性，或數值不穩定）</small></button></div>
+          <div class="steprow" style="margin-top:12px"><b>習慣頭位</b>${segHTML("b4", [["R", "頭歪向右"], ["L", "頭歪向左"], ["N", "沒有明顯歪頭"]])}</div>
+          <div class="steprow"><b>處置</b>${segHTML("b5", [["refer", "轉介眼科／神經眼科"], ["prism", "垂直稜鏡並追蹤"], ["none", "不需處理"]])}</div>
+          <div class="row-btns" style="margin-top:10px"><button class="btn" id="sub3" type="button">送出判斷</button></div>
+          <div id="f3"></div>
+        </div>
+      </div>`;
+    ["b1", "b2", "b3", "b4", "b5"].forEach((id) => bindSeg(id));
+    g.querySelectorAll("#mg3 button").forEach((b) => b.onclick = () => { if (b.disabled) return; g.querySelectorAll("#mg3 button").forEach((x) => x.setAttribute("aria-pressed", x === b ? "true" : "false")); });
+    g.querySelectorAll("#pos button").forEach((b) => b.onclick = () => measure(b.dataset.k, b));
+    document.getElementById("sub3").onclick = submit3;
+    drawFace(null); drawMad(null); renderTab();
+  }
+  function reading(k) {   // 回傳 R hyper 為正的垂直偏斜（Δ）
+    if (c3.kind === "mg") { cnt3++; return (c3.he === "R" ? 1 : -1) * Math.max(0.5, h2(c3.B + (Math.random() * 6 - 3) + cnt3 * 0.6)); }
+    if (c3.kind === "comit") return (c3.he === "R" ? 1 : -1) * c3.B;
+    const map = { P: "P", R: "R", L: "L", U: "U", D: "D", TR: "TR", TL: "TL" };
+    return (c3.he === "R" ? 1 : -1) * c3.v[map[k]];
+  }
+  const lineTxt = (x) => (Math.abs(x) < 0.25 ? "0" : `${x > 0 ? "下" : "上"} ${Math.abs(x)}`);
+  function measure(k, btn) {
+    btn.classList.add("done");
+    if (k === "DM") {
+      const t = c3.m ? `${LR[eyeOf(c3.m)]}眼的線${isIn(c3.m) ? "外旋" : "內旋"}約 ${/SO/.test(c3.m) ? 4 + Math.floor(Math.random() * 3) : 2 + Math.floor(Math.random() * 2)}°` : "兩條線大致平行（無明顯旋轉）";
+      seen3.DM = t; document.getElementById("say3").textContent = `（轉動馬篤氏鏡到兩條線平行）${t}。`; drawFace("P"); drawMad(null); renderTab(); return;
+    }
+    const x = reading(k), t = lineTxt(x); seen3[k] = seen3[k] && !seen3[k].split(" / ").includes(t) ? seen3[k] + " / " + t : t;
+    drawFace(k, x); drawMad(x);
+    document.getElementById("say3").textContent = Math.abs(x) < 0.25 ? "紅線剛好穿過燈。" : `紅線在燈的${x > 0 ? "下面" : "上面"}，大約在 ${Math.abs(x)} 的地方。`;
+    renderTab();
+  }
+  function renderTab() {
+    const H = [["P", "正前"], ["R", "右看"], ["L", "左看"], ["U", "上看"], ["D", "下看"], ["TR", "右傾"], ["TL", "左傾"]];
+    document.getElementById("tab3").innerHTML = `<tr>${H.map(([, t]) => `<th>${t}</th>`).join("")}</tr><tr>${H.map(([k]) => `<td class="${seen3[k] ? "" : "need"}">${seen3[k] || "—"}</td>`).join("")}</tr>` + (seen3.DM ? `<tr><td colspan="7" style="font-family:var(--font-body)">雙馬篤氏鏡：${seen3.DM}</td></tr>` : "") + `<tr><td colspan="7" style="font-family:var(--font-body);font-size:12.5px;color:var(--muted)">紅線位置：「下」＝在燈下（右眼上斜）、「上」＝在燈上（左眼上斜）。同一位置可以重量，不同結果會並列。</td></tr>`;
+  }
+  function drawFace(k, x) {
+    const svg = document.getElementById("face");
+    const gz = { P: [0, 0], R: [-16, 0], L: [16, 0], U: [0, 14], D: [0, -14], TR: [0, 0], TL: [0, 0] }[k || "P"] || [0, 0];
+    const dv = x ? Math.max(-4, Math.min(4, x * 0.5)) : 0;
+    EYES.front(svg, { scale: 4.4, see: true, od: { h: gz[0], v: gz[1] + (dv > 0 ? dv : 0) }, os: { h: gz[0], v: gz[1] + (dv < 0 ? -dv : 0) } });
+    svg.style.transform = k === "TR" ? "rotate(-14deg)" : k === "TL" ? "rotate(14deg)" : "none";
+  }
+  function drawMad(x) {
+    const svg = document.getElementById("mad"), W = 460, H = 210, cx = 230, cy = 105, k = 6;
+    let g = `<rect width="${W}" height="${H}" fill="#14181a" rx="10"/>`;
+    for (let j = -14; j <= 14; j += 2) { if (!j) continue; g += `<text x="${cx + 12}" y="${cy - j * k + 4}" font-size="10" fill="#8b979b">${Math.abs(j)}</text><line x1="${cx - 3}" y1="${cy - j * k}" x2="${cx + 3}" y2="${cy - j * k}" stroke="#55606a"/>`; }
+    g += `<text x="${cx + 40}" y="${cy - 60}" font-size="10.5" fill="#8b979b">右眼下斜（＝左眼上斜）</text><text x="${cx + 40}" y="${cy + 66}" font-size="10.5" fill="#8b979b">右眼上斜</text>`;
+    if (x != null) g += `<line x1="18" y1="${cy + Math.max(-15, Math.min(15, x)) * k}" x2="${W - 18}" y2="${cy + Math.max(-15, Math.min(15, x)) * k}" stroke="#ff3b2a" stroke-width="4" opacity=".85"/>`;
+    g += `<circle cx="${cx}" cy="${cy}" r="7" fill="#fffbe0"/><circle cx="${cx}" cy="${cy}" r="15" fill="#fffbe0" opacity=".15"/>`;
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.innerHTML = g;
+  }
+  function submit3() {
+    const need = POS.filter((p) => p[2]).map((p) => p[0]).filter((k) => !seen3[k]);
+    const f = document.getElementById("f3");
+    if (need.length) { f.innerHTML = `<div class="verdict"><span class="pill warn">還沒量完</span> 必要位置還缺：${need.map((k) => POS.find((p) => p[0] === k)[1]).join("、")}。</div>`; return; }
+    const a = { b1: segVal("b1"), b2: segVal("b2"), b3: segVal("b3"), b4: segVal("b4"), b5: segVal("b5") }, mPick = (document.querySelector('#mg3 button[aria-pressed="true"]') || {}).dataset;
+    if (Object.values(a).some((x) => !x) || !mPick) { f.innerHTML = '<div class="verdict"><span class="pill warn">還沒填完</span> 三個步驟、肌肉、習慣頭位、處置都要選。</div>'; return; }
+    const pm = mPick.m, L = [];
+    let all = true;
+    const chk = (ok, txt, key) => { L.push([ok, txt]); if (!ok) { all = false; key && miss(key); } };
+    const he = c3.he;
+    if (c3.kind === "cong" || c3.kind === "acute") {
+      const m = c3.m;
+      chk(a.b1 === he, `① 正前方紅線在燈${he === "R" ? "下" : "上"} → ${LR[he]}眼上斜`, "k1");
+      chk(a.b2 === gazeSide(m), `② 往${LR[gazeSide(m)]}看較大`, "k2");
+      chk(a.b3 === tiltSide(m), `③ 頭往${LR[tiltSide(m)]}傾較大`, "k3");
+      chk(pm === m, `麻痺肌：${m} ${ZH[m]}`, "km");
+      chk(a.b4 === oth(tiltSide(m)), `習慣頭位：歪向${LR[oth(tiltSide(m))]}（避開偏斜變大的那一側，${c3.kind === "cong" ? "舊照片常可看到" : "急性期不一定明顯，但代償方向相同"}）`, "tilt");
+      chk(a.b5 === (c3.kind === "cong" ? "prism" : "refer"), c3.kind === "cong" ? "處置：從小就有、穩定的先天性上斜肌麻痺，近期代償不良 → 可試垂直稜鏡並追蹤（新症狀或惡化仍要轉介）" : "處置：新發生的垂直複視（外傷、糖尿病、高血壓、頭痛）→ 轉介眼科／神經眼科", "disp");
+      L.push([true, `推理路徑：\n${pathTxt(m)}`]);
+    } else if (c3.kind === "comit") {
+      chk(a.b1 === he, `① ${LR[he]}眼上斜`, "k1");
+      chk(a.b2 === "E" && a.b3 === "E", "②③ 各方向、頭傾都差不多 → 共同性垂直偏斜，三步驟不適用", "k2");
+      chk(pm === "none", "肌肉：不符合單一肌肉麻痺", "km");
+      chk(a.b4 === "N", "習慣頭位：沒有明顯歪頭", "tilt");
+      chk(a.b5 === "prism", "處置：多年穩定、無其他症狀的小量共同性垂直偏斜 → 垂直稜鏡並追蹤", "disp");
+    } else {
+      chk(pm === "none", "肌肉：同一位置每次量都不一樣 → 不符合單一肌肉麻痺", "km");
+      chk(a.b5 === "refer", "處置：時好時壞、傍晚加重、眼瞼下垂 → 懷疑重症肌無力，轉介", "disp");
+      L.push([true, "（數值不穩定時，三個步驟與頭位不計分。）"]);
+    }
+    push("s3", all ? 1 : 0); save(); renderMast();
+    ["b1", "b2", "b3", "b4", "b5"].forEach(lockSeg); document.querySelectorAll("#mg3 button, #pos button").forEach((b) => b.disabled = true); document.getElementById("sub3").disabled = true;
+    f.innerHTML = `<div class="fb">${L.map(([ok, t]) => (t.startsWith("推理路徑") ? `<div class="path">${t}</div>` : `<div class="${ok ? "y" : "n"}">${t}</div>`)).join("")}</div><div class="verdict" style="margin-top:8px">${all ? '<span class="pill ok">完全正確</span>' : '<span class="pill bad">有地方要再想</span>'} <button class="btn sm" id="n3" type="button">下一位病人 →</button></div>`;
+    document.getElementById("n3").onclick = new3; document.getElementById("n3").focus();
+  }
+
+  renderMast(); new1(); new2(); new3();
+})();
+</script>
+</body>
+</html>
